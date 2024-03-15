@@ -1,0 +1,117 @@
+/* 기본스타일 */
+body{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #333;
+    color: #fff;
+    padding:  20px 0;
+    position: relative ;
+    text-align: center;
+    height: 200px;
+    min-height: fit-content;
+    font-size: 3em;
+
+}
+
+ul{
+
+    list-style: none;
+    margin: 20;
+    padding: 20;
+}
+
+
+li{
+    
+    display: inline-block;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #555;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+}
+
+main {
+    padding: 0;
+    text-align: center;
+}
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center; 
+}
+
+.jeonla-festival-slider{
+    overflow: hidden;
+    width: 100%; /*부모 요소의 너비에 맞게 설정*/
+    margin: 0 auto;
+    position: relative;
+}
+
+.jeonla-festival-slide{
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.jeonla-festival-slide > div {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.jeonla-festival-slide img{
+    width: 350px;
+    height: 500px;
+    border: 5px solid rgba(0, 0, 0, 0.5); /* 불투명한 테두리 설정 */
+    border-radius: 10px; /* 테두리의 모서리를 둥글게 만듭니다. */
+}
+
+
+.jeonla-pager{
+    margin-top: 10px;
+}
+
+/* 활성 슬라이드 스타일 */
+.jeonla-festival-slide.active{
+    display: block;;
+}
+
+.title{
+    background-color: white;
+    font-size: 2.5em;
+}
+
+.prev-button, .next-button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.7);
+    border: none;
+    color: #333;
+    font-size: 7em;
+    
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.prev-button{
+    left: 650px;
+}
+
+.next-button{
+    right: 650px;
+}
