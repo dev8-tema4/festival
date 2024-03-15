@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../../CSS/chatting/index.css">
-    <script src="./js/websocket-client.js"></script>
+    <script src="../../JS/chatting/index.js"></script>
     <script>
         let userId = '';        // id 보관용
 
         const sendLogIn = function(){
             const id = document.querySelector('#idInput').value;
             const pass = document.querySelector('#passInput').value;
-            userId = id;        // 나중에 msg전송 때 사용하기 위해
+            userId = id;      // 나중에 msg전송 때 사용하기 위해
             const packet = {
                 cmd: 'login',
                 id:id,
@@ -54,7 +54,7 @@
             <input type="text" id="messageInput" placeholder="메시지를 입력하세요">
             <button id='btnChatMsg'>채팅 메시지 전송</button>
         </div>
-        <div class="messages">
+        <div id="messages">
             <!-- 메시지 출력 영역 -->
         </div>
     </div>
