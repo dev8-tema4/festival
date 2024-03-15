@@ -1,0 +1,14 @@
+.chatting{
+  display: flex;
+  flex-direction: column-reverse;
+  width: 300px;
+  height: 400px;
+  border: 1px solid #000;
+}
+.messages{
+  display: flex;
+  flex-direction: column;
+}
+.send{
+  
+}
