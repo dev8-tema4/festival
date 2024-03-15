@@ -3,11 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>행사-전라도</title>
+  <link rel="stylesheet" href="../../CSS/jeonla/index.css">
   
 </head>
 <body>
-  <h1>전라도입니다</h1>
-  5656
+  <header class="jeonla-header" id="jeonla-header">
+    <nav class="jeonla-nav" id="jeonla-nav"></nav>
+    <ul class="jeonla-ul" id="jeonla-ul">
+      <li class="jeonla-li" >
+        <a class="jeonla-a" href="index.html">홈</a>
+      </li>
+      <li class="jeonla-li">
+        <a class="jeonla-a" href="gyeonggi.html">행사정보</a>
+      </li>
+      <li class="jeonla-li" >
+        <a class="jeonla-a" href="gyeongsang.html">게시판</a>
+      </li>
+      <li class="jeonla-li" >
+        <a class="jeonla-a" href="gyeongsang.html">주문하기</a>
+      </li>
+    </ul>
+  </header>
+
+  <main class="jeonla-main" id="jeonla-main">
+    <section class="jeonla-section" id="jeonla-section">
+      <div class="jeonla-festival-slider" id="jeonla-festival-slider">
+        
+        <div class="jeonla-festival-slide" style="background-image: url('../../image/jeonla/yudalsa_bg.jpg');">
+          <img src="../../image/jeonla/yudalsan_spring_2024.jpg" alt="유달산 봄축제" >
+          <div class="title">유달산봄축제</div>
+        </div>
+
+        <div class="jeonla-festival-slide" style="background-image: url('../../image/jeonla/ham_navi_bg.jpg'); background-size: cover; background-repeat: no-repeat;">
+          <img src="../../image/jeonla/ham_navi_2024.jpg" alt="함평나비대축제">
+          <div class="title">함평나비대축제</div>
+        </div>
+
+        <div class="jeonla-festival-slide" style="background-image: url('../../image/jeonla/bosung_bg.jpg'); background-size: cover;">
+          <img src="../../image/jeonla/bosung_green_2024.jpg" alt="보성다향대축제">
+          <div class="title">보성다향대축제</div>
+          </div>
+
+      </div>
+      <div class="jeonla-pager"></div>
+      <button class="prev-button">&lt;</button>
+      <button class="next-button">&gt;</button>
+    </section>
+  </main>
+
+  <footer class="jeonla-footer" id="jeonla-footer">
+    <p class="jeonla-p">고객센터</p>
+  </footer>
+  
+  <script src="../../JS/jeonla/index.js"></script>
 </body>
 </html>
