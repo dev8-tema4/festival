@@ -48,19 +48,19 @@ ul {
 }
 
 .title {
-  width: 20rem;
   margin-top: 10%;
   margin-left: 10%;
   font-size: 5rem;
-  border: 1px solid #fff;
+  color: #fff;
 }
 
 .content {
   width: 20rem;
   margin-top: 1%;
   margin-left: 50%;
-  font-size: 1.5rem;
-  border: 1px solid #fff;
+  font-size: 1.5rem; 
+  color: #000;
+  background-color: #fff;
   height: 200px;  /**/
 }
 
@@ -72,7 +72,8 @@ ul {
 }
 
 .video{
-  border: 1px solid #fff;
+  color: #000;
+  background-color: #fff;
   height: 500px;  /**/
 }
 
@@ -80,7 +81,7 @@ ul {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: url('../../../image/gyeongki/mainBackground3.jpg') no-repeat;
+  background: url('../../../image/gyeongki/mainBackground1.jpg') no-repeat;
   background-size: cover;
   z-index: 1;
 }
@@ -90,6 +91,15 @@ ul {
   height: 100vh;
   position: relative;
   background: url('../../../image/gyeongki/mainBackground2.jpg') no-repeat;
+  background-size: cover;
+  z-index: 1;
+}
+
+.festival3 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background: url('../../../image/gyeongki/mainBackground3.jpg') no-repeat;
   background-size: cover;
   z-index: 1;
 }
