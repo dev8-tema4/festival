@@ -1,14 +1,43 @@
 .chatting{
   display: flex;
   flex-direction: column-reverse;
-  width: 300px;
-  height: 400px;
-  border: 1px solid #000;
+  width: 400px;
+  height: 500px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  position: absolute;
+  right: 5%;
+  bottom: 15%;
 }
+
 #messages{
   display: flex;
   flex-direction: column;
+  height: 100%;
+  border: 3px solid #000;
+  border-radius: 20px;
+  background-color: #eee;
 }
+
 .send{
-  
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.send input{
+  width: 70%;
+  border-radius: 10px;
+}
+
+.send button{
+  width: 20%;
+  border-radius: 10px;
+}
+
+.chatIcon{
+  width: 100px;
+  position: absolute;
+  right: 5%;
+  bottom: 1%;
 }
