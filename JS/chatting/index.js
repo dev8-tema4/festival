@@ -3,7 +3,7 @@ const sendChatMsg = function(){
     const message = document.querySelector('#messageInput').value;
     const packet = {
         cmd: 'allchat',
-        id:userId,
+        id: sessionStorage.getItem('id'),
         msg:message
     }
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
@@ -34,10 +34,11 @@ const recievePacketMessage = function ($parentSelector, message) {
         childElem.style.textAlign = 'right';
     }
     parentElem.appendChild(childElem);
+    parentElem.scrollTop = parentElem.scrollHeight;
 }
 
 // 아이콘 클릭시 채팅창 생성
-const openChat = function(){
+const createChat = function(){
   const body = document.querySelector('body');
 
   const chatting = "<div class='chatting'>" +
@@ -53,32 +54,44 @@ const openChat = function(){
   body.insertAdjacentHTML('afterbegin', chatting);
 }
 
-// 채팅창 삭제
+// 채팅창 나타남
+const openChat = function(){
+  const chatting = document.querySelector('.chatting');
+  chatting.style.display = 'flex';
+}
+// 채팅창 안보이게
 const closeChat = function(){
   const chatting = document.querySelector('.chatting');
 
-  chatting.remove();
+  chatting.style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
   let btnChatMsg = null;
   const btnChatIcon = document.querySelector('.chatIcon');
-  let setIcon = false;
+  let chat = false;
+  let visibleChat = false;
 
   btnChatIcon.addEventListener('click', () => {
     if(sessionStorage.getItem('id') === null){
-      alert('로그인이 필요한 서비스입니다.');         // 로그인이 되어있지 않으면 채팅창 이용불가
+      alert('로그인이 필요한 서비스입니다.');         // 아이콘 클릭시 로그인이 되어있지 않으면 return
       return;
     }
-
-    if(setIcon === false){
-      openChat();
-      setIcon = true;
-      btnChatMsg = document.querySelector('.chatting');
+    
+    if(chat === false){ // 아이콘 클릭시 채팅창이 생성되어있지 않으면 생성
+      createChat();
+      chat = true;
+      visibleChat = true;
+      btnChatMsg = document.querySelector('#btnChatMsg');
       btnChatMsg.addEventListener('click', sendChatMsg);
-    } else {
-      closeChat();
-      setIcon = false;
+    }else{
+      if(visibleChat === true){ // 채팅창이 이미 생성되어있으면 아이콘 클릭시 감추고 보여주기
+        closeChat();
+        visibleChat = false;
+      }else{
+        openChat();
+        visibleChat = true;
+      }
     }
   });
 });
