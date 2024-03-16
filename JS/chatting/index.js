@@ -30,6 +30,7 @@ const recievePacketMessage = function ($parentSelector, message) {
 
     const childElem = document.createElement('div');
     childElem.textContent = msg;
+    childElem.style.padding = 4 + 'px';
     if(msgObj.id === sessionStorage.getItem('id')){
         childElem.style.textAlign = 'right';
     }
