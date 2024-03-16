@@ -38,7 +38,7 @@
   width: 30%;
 }
 
-.chatIcon{
+.chat_icon{
   width: 5%;
   position: fixed;
   right: 5%;
@@ -46,6 +46,6 @@
   z-index: 20;
 }
 
-.chatIcon:hover{
+.chat_icon:hover{
   cursor: pointer;
 }

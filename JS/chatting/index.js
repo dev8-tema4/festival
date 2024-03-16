@@ -20,12 +20,13 @@ const recievePacketMessage = function ($parentSelector, message) {
 
     let msg = '';
     switch (msgObj.cmd) {
-        case 'allchat':
-            if ('result' in msgObj)
-                msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
-        if ('id' in msgObj)
-                msg = `${msgObj.id} => ${msgObj.msg}`;
+        case 'allchat':{
+          if ('result' in msgObj)
+            msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
+          if ('id' in msgObj)
+            msg = `${msgObj.id} => ${msgObj.msg}`;
             break;
+        }
     }
 
     const childElem = document.createElement('div');
@@ -69,7 +70,7 @@ const closeChat = function(){
 
 document.addEventListener('DOMContentLoaded', ()=>{
   let btnChatMsg = null;
-  const btnChatIcon = document.querySelector('.chatIcon');
+  const btnChatIcon = document.querySelector('.chat_icon');
   let chat = false;
   let visibleChat = false;
 
