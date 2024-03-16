@@ -3,21 +3,25 @@
   flex-direction: column-reverse;
   width: 30%;
   height: 50%;
-  border: 2px solid #000;
-  border-radius: 20px;
-  position: absolute;
+  background-color: #222;
+  position: fixed;
   right: 5%;
   bottom: 15%;
+  z-index: 20;
 }
 
 #messages{
   display: flex;
   flex-direction: column;
-  height: 100%;
-  border-bottom: 3px solid #000;
-  border-radius: 20px;
+  /* height: 100%; */
+  border: 1px solid #000;
   background-color: #eee;
-  margin: 1%;
+  margin: 2%;
+  overflow-y: auto;
+}
+
+#messages::-webkit-scrollbar{
+  display:none;
 }
 
 .send{
@@ -28,19 +32,18 @@
 
 .send input{
   width: 70%;
-  border-radius: 10px;
 }
 
 .send button{
   width: 20%;
-  border-radius: 10px;
 }
 
 .chatIcon{
   width: 5%;
-  position: absolute;
+  position: fixed;
   right: 5%;
   bottom: 1%;
+  z-index: 20;
 }
 
 .chatIcon:hover{
