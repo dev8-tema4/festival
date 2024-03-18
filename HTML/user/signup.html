@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원 가입</title>
+  <style>
+
+  </style>
+  <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
+  <link rel="stylesheet" href="../../CSS/user/signup.css" />
+  <script src="../../JS/connSocket.js"></script>
+  <script src="../../JS/user/signup.js"></script>
+  <!-- <link rel="stylesheet" href="css/register.css"> -->
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-content">
+        <div class="map">Map</div>
+        <div class="calendar">Calendar</div>
+      </div>
+      <div class="right-content">
+        <div class="login-menu">
+          Login
+          <div class="dropdown-content">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="signup-form">
+    <h2>Sign up</h2>
+      <label for="email">Email</label>
+      <!-- <span id="check-email">&nbsp;&nbsp;&nbsp;사용가능한 이메일 입니다.</span> -->
+      <br>
+      <input type="email" id="email" name="email" required><br>
+      <button id="check-email-button">Check Email</button>
+
+      <label for="password">Password</label><br>
+      <input type="password" id="password" name="password" required><br>
+
+      <label for="password-check">Password check</label><br>
+      <input type="password" id="password-check" name="password-check" required><br>
+
+      <label for="name">Name</label><br>
+      <input type="text" id="name" name="name" required><br>
+
+      <label for="address">Address</label><br>
+      <input type="text" id="address" name="address" required><br>
+
+      <label for="phone">Phone</label><br>
+      <input type="tel" id="phone" name="phone" required><br>
+
+      <!-- 
+        <input type="submit" value="Submit"> -->
+      <button id="signupBtn">Submit</button>
+  </div>
+
+</body>
+
+</html>
