@@ -17,9 +17,9 @@ const checkEmailReq = function(message){
   switch (msgObj.cmd) {
     case 'checkemail':
       if (msgObj.result === 'ok') {
-        checkemail.textContent = '&nbsp;&nbsp;&nbsp;사용가능한 이메일 입니다.'
+        checkemail.innerHTML = '&nbsp;&nbsp;&nbsp;사용가능한 이메일 입니다.'
       }else{
-        checkemail.textContent = '&nbsp;&nbsp;&nbsp;이미 가입된 이메일입니다'
+        checkemail.innerHTML = '&nbsp;&nbsp;&nbsp;이미 가입된 이메일입니다'
       }
   }
 }
@@ -27,10 +27,16 @@ const checkEmailReq = function(message){
 const sendSignup = function(){
   const userName = document.querySelector('#name').value;
   const email = document.querySelector('#email').value;
-  const password = document.querySelector('#pwd1').value;
-  const password2 = document.querySelector('#pwd2').value;
-  const addr = document.querySelector('#addr').value;
+  const password = document.querySelector('#password').value;
+  const password2 = document.querySelector('#password-check').value;
+  const checkpassword = document.querySelector('#check-password');
+  const addr = document.querySelector('#address').value;
   const phone = document.querySelector('#phone').value;
+
+  if(password !== password2){
+    checkpassword.textContent = '비밀번호가 다릅니다.';
+    return;
+  }
 
   const packet = {
     cmd: 'signup',
@@ -59,8 +65,13 @@ const signupSuccess = function(message) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const signupBtn = document.querySelector('#signupBtn');
-  
+  const checkBtn = document.querySelector('#check-email-button');
+
   signupBtn.addEventListener('click', () => {
     sendSignup();
+  });
+
+  checkBtn.addEventListener('click', () => {
+    sendCheckEmail();
   });
 });
