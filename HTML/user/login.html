@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입</title>
+    <style>
+      #container {
+        width:600px;
+        margin:10px auto;
+      }
+    </style>
+    <script src="../../JS/connSocket.js"></script>
+    <script src="../../JS/user/login.js"></script>
+    <!-- <link rel="stylesheet" href="css/register.css"> -->
+  </head>
+  <body> 
+    <div id="container">
+      <h1>Login</h1>
+        <fieldset>
+          <legend>사용자 정보</legend>    
+          <ul>
+            <li>
+              <label for="umail">이메일</label>
+              <input type="email" id="emailInput" required> 
+            </li>
+            <li>
+              <label for="pwd1">비밀번호</label>
+              <input type="password" id="pwdInput" placeholder="문자와 숫자, 특수 기호 포함" required> 
+            </li>
+          </ul>      
+        </fieldset>
+        <div id="buttons">
+          <button id="loginBtn">로그인</button>
+        </div>
+    </div>           
+  </body>
+</html>
