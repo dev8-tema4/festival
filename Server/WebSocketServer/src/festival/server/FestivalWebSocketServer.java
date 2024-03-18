@@ -11,7 +11,7 @@ import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "192.168.0.45"; // localhost
+		String host = "127.0.0.1"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
@@ -69,6 +69,12 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		}else if(cmd.equals("signup")) {
 			Member member = new Member(conn, message);
 			member.signUp();
+		}else if(cmd.equals("boardlist")) {
+			System.out.println("packet 잘받음");
+			JSONObject ackObj = new JSONObject();
+			ackObj.put("cmd", "boardlist");
+			ackObj.put("result", "ok");
+			conn.send(ackObj.toString());
 		}
 
 	}
