@@ -1,12 +1,14 @@
-let userId = '';
+
+
 const sendLogIn = function () {
-  const id = document.querySelector('#idInput').value;
-  const pass = document.querySelector('#passInput').value;
-  userId = id;      // 나중에 msg전송 때 사용하기 위해
+  console.log('a')
+  const email = document.querySelector('#emailInput').value;
+  const password = document.querySelector('#pwdInput').value;
+
   const packet = {
     cmd: 'login',
-    id: id,
-    pass: pass
+    email: email,
+    password: password
   };
   const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
   sendMessage(jsonStr);
@@ -20,8 +22,17 @@ const loginSuccess = function (message) {
   switch (msgObj.cmd) {
     case 'login':
       if (msgObj.result === 'ok') {
-        sessionStorage.setItem('id', msgObj.id);
-        alert(`${msgObj.id}님 환영합니다.`);
+        sessionStorage.setItem('email', msgObj.email);
+        sessionStorage.setItem('name', msgObj.name);
+        alert(`${msgObj.name}님 환영합니다.`);
       }
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.querySelector('#loginBtn');
+  
+  loginBtn.addEventListener('click', () => {
+    sendLogIn();
+  });
+});

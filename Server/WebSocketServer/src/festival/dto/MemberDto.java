@@ -1,42 +1,70 @@
 package festival.dto;
 
 public class MemberDto {
-	private int memberIdx;
-	private String userId;
+	private int memberId;
+	private String email;
 	private String password;
 	private String name;
-	
-	public MemberDto(String userId, String password, String name) {
-		this.userId = userId;
+	private String address;
+	private String phone;
+
+	public MemberDto(String email, String password, String name,String address,String phone){
+		this.email = email;
 		this.password = password;
 		this.name = name;
+		this.address = address;
+		this.phone = phone;
 	}
-	
-	public int getMemberIdx() {
-		return memberIdx;
+
+	public int getMemberId() {
+		return memberId;
 	}
-	public void setMemberIdx(int memberIdx) {
-		this.memberIdx = memberIdx;
+
+	public void setMemberId(int memberIdx) {
+		this.memberId = memberIdx;
 	}
-	public String getUserId() {
-		return userId;
+
+	public String getEmail() {
+		return email;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	
 	
+
 	
 }

@@ -1,4 +1,4 @@
-const SERVER_IP = '127.0.0.1';
+const SERVER_IP = '192.168.0.45';
 const SERVER_PORT = 9000;
 const server_address = `ws://${SERVER_IP}:${SERVER_PORT}`;  // ws://127.0.0.1:9000
 
@@ -28,13 +28,18 @@ socket.onmessage = function (e) {
     const msgObj = JSON.parse(e.data);
     
     switch(msgObj.cmd){
-      case 'login':
-        loginSuccess(e.data);
-      case 'allchat':
-        recievePacketMessage('#messages', e.data);
+        case 'login':
+            loginSuccess(e.data);
+            break;
+        case 'allchat':
+            recievePacketMessage('#messages', e.data);
+            break;
+        case 'signup':
+            signupSuccess(e.data);
+            break;
     }
 }
 
 const sendMessage = function(message){
-    socket.send(message);     // 서버로 전송
+    socket.send(message);    // 서버로 전송
 }
