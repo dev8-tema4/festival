@@ -89,18 +89,19 @@ footer{
 }
 
 .title{
-    background-color: white;
-    font-size: 2.5em;
+    background-color: #000;
+    font-size: 4em;
+    color: white;
 }
 
 .prev-button, .next-button{
     position: absolute;
-    top: 50%;
+    top: 87%;
     transform: translateY(-50%);
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255,255,255,0.5);
     border: none;
-    color: #333;
-    font-size: 7em;
+    color: white;
+    font-size: 3em;
     
     padding: 10px 20px;
     cursor: pointer;
@@ -109,9 +110,45 @@ footer{
 }
 
 .prev-button{
-    left: 650px;
+    left: 30%;
 }
 
 .next-button{
-    right: 650px;
+    right: 30%;
 }
+
+.grid-container{
+    display: flex;
+   justify-content: center;
+    grid-gap: 10px;
+    justify-content: center;
+}
+.grid-item{
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    margin: 0 10px;
+    border-radius: 20px;
+}
+
+.jeonla-grid-section{
+    display: flex;
+    justify-content: center;
+}
+
+.jeonla-section{
+    margin-bottom: 100px;
+}
+
+.jeonla-main{
+    margin-bottom: 100px;
+}
+
+#map{
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+
