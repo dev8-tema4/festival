@@ -1,3 +1,27 @@
+const sendCheckEmail = function(){
+  const email = document.querySelector('#email').value;
+
+  const packet = {
+    cmd: 'checkemail',
+    email: email
+  }
+
+  const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+  sendMessage(jsonStr);
+}
+
+const checkEmailReq = function(message){
+  const checkemail = document.querySelector('#check-email');
+  const msgObj = JSON.parse(message);
+
+  switch (msgObj.cmd) {
+    case 'checkemail':
+      if (msgObj.result === 'ok') {
+        checkemail.textContent = '&nbsp;&nbsp;&nbsp;사용가능한 이메일 입니다.'
+      }
+  }
+}
+
 const sendSignup = function(){
   const userName = document.querySelector('#name').value;
   const email = document.querySelector('#email').value;
@@ -17,7 +41,6 @@ const sendSignup = function(){
 
   const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
   sendMessage(jsonStr);
-  console.log('a')
 }
 
 const signupSuccess = function(message) {

@@ -34,6 +34,9 @@ socket.onmessage = function (e) {
         case 'allchat':
             recievePacketMessage('#messages', e.data);
             break;
+        case 'checkemail':
+            checkEmailReq(e.data);
+            break;
         case 'signup':
             signupSuccess(e.data);
             break;
