@@ -49,6 +49,7 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			//로그인 기능
 			Login login = new Login(conn, message);
 			login.checkLogin();
+			
 		} else if (cmd.equals("allchat")) {
 			String id = msgObj.getString("id");
 			String msg = msgObj.getString("msg");
