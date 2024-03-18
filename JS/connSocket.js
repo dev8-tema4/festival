@@ -1,4 +1,4 @@
-const SERVER_IP = '192.168.0.45';
+const SERVER_IP = '127.0.0.1';
 const SERVER_PORT = 9000;
 const server_address = `ws://${SERVER_IP}:${SERVER_PORT}`;  // ws://127.0.0.1:9000
 
@@ -39,6 +39,9 @@ socket.onmessage = function (e) {
             break;
         case 'signup':
             signupSuccess(e.data);
+            break;
+        case 'boardlist':
+            requestboard(e.data);
             break;
     }
 }

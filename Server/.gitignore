@@ -1,3 +1,6 @@
 /.metadata/
 *.jar
 *.json
+/bin/
+*.classpath
+*.project
