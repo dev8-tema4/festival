@@ -18,6 +18,8 @@ const checkEmailReq = function(message){
     case 'checkemail':
       if (msgObj.result === 'ok') {
         checkemail.textContent = '&nbsp;&nbsp;&nbsp;사용가능한 이메일 입니다.'
+      }else{
+        checkemail.textContent = '&nbsp;&nbsp;&nbsp;이미 가입된 이메일입니다'
       }
   }
 }
