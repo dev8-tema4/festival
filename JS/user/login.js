@@ -2,8 +2,8 @@
 
 const sendLogIn = function () {
   console.log('a')
-  const email = document.querySelector('#emailInput').value;
-  const password = document.querySelector('#pwdInput').value;
+  const email = document.querySelector('#email').value;
+  const password = document.querySelector('#password').value;
 
   const packet = {
     cmd: 'login',
