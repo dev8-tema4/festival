@@ -7,7 +7,7 @@ import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 import org.json.JSONObject;
 
-import festival.server.function.Login;
+import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
@@ -46,9 +46,10 @@ public class FestivalWebSocketServer extends WebSocketServer{
 
 		//로그인 기능
 		if (cmd.equals("login")) {
+			System.out.println("===LOGIN===");
 			//로그인 기능
-			Login login = new Login(conn, message);
-			login.checkLogin();
+			Member member = new Member(conn, message);
+			member.login();
 			
 		} else if (cmd.equals("allchat")) {
 			String id = msgObj.getString("id");
@@ -66,8 +67,8 @@ public class FestivalWebSocketServer extends WebSocketServer{
 				 con.send(message);
 			}
 		}else if(cmd.equals("signup")) {
-
-
+			Member member = new Member(conn, message);
+			member.signUp();
 		}
 
 	}
@@ -79,11 +80,8 @@ public class FestivalWebSocketServer extends WebSocketServer{
 
 		JSONObject ackObj = new JSONObject();
 		ackObj.put("cmd", "connect");
-		// ackObj.put("result", "Welcome to the Server!");
 		conn.send(ackObj.toString()); // 클라이언트한테 메시지 보내기
 	}
-
-
 
 
 }
