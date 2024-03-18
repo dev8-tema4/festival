@@ -1,41 +1,17 @@
-const SERVER_IP = '192.168.0.45';
-const SERVER_PORT = 9000;
-const server_address = `ws://${SERVER_IP}:${SERVER_PORT}`;  // ws://127.0.0.1:9000
-
-const socket = new WebSocket(server_address);
-
-socket.opopen = function (e) {
-    const log_msg = '[open] 연결이 설정되었습니다.';
-
-    displayMessage('#messages', log_msg);
-}
-
-socket.onclose = function (e) {
-    let log_msg = '';
-    if (e.wasClean)
-        log_msg = `[close] 연결이 정상적으로 종료되었습니다. 코드=${e.code}, 원인=${e.reason}`;
-    else
-        log_msg = `[close] 연결이 비정상적으로 종료되었습니다.. 코드=${e.code}, 원인=${e.reason}`;
-}
-
-socket.onerror = function (error) {
-    const log_msg = `[error] ${error.message}`;
-
-    displayMessage('#messages', log_msg);
-}
-
-socket.onmessage = function (e) {
-    const log_msg = `[message] 서버로부터 데이터 수신 : ${e.data}`;
-
-    displayPacketMessage('#messages', e.data);
-}
-
-const sendMessage = function(message){
-    socket.send(message);     // 서버로 전송
+// 메시지를 서버로 전송
+const sendChatMsg = function(){
+    const message = document.querySelector('#messageInput').value;
+    const packet = {
+        cmd: 'allchat',
+        id: sessionStorage.getItem('id'),
+        msg:message
+    }
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
 }
 
 // 통신 패킷 출력
-const displayPacketMessage = function ($parentSelector, message) {
+const recievePacketMessage = function ($parentSelector, message) {
     // 이 요소 아래에 메시지 요소를 추가
     const parentElem = document.querySelector($parentSelector);
 
@@ -44,18 +20,80 @@ const displayPacketMessage = function ($parentSelector, message) {
 
     let msg = '';
     switch (msgObj.cmd) {
-        case 'allchat':
-            if ('result' in msgObj)
-                msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
-        if ('id' in msgObj)
-                msg = `${msgObj.id} => ${msgObj.msg}`;
+        case 'allchat':{
+          if ('result' in msgObj)
+            msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
+          if ('id' in msgObj)
+            msg = `${msgObj.id} => ${msgObj.msg}`;
             break;
+        }
     }
 
     const childElem = document.createElement('div');
     childElem.textContent = msg;
+    childElem.style.padding = 4 + 'px';
     if(msgObj.id === sessionStorage.getItem('id')){
         childElem.style.textAlign = 'right';
     }
     parentElem.appendChild(childElem);
+    parentElem.scrollTop = parentElem.scrollHeight;
 }
+
+// 아이콘 클릭시 채팅창 생성
+const createChat = function(){
+  const body = document.querySelector('body');
+
+  const chatting = "<div class='chatting'>" +
+  "<div class='send'>" +
+  "<input type='text' id='messageInput' placeholder='메시지를 입력하세요'>" +
+  "<button id='btnChatMsg'>전송</button>" +
+  "</div>" +
+  "<div id='messages'>" +
+  "<!-- 메시지 출력 영역 -->" +
+  "</div>" +
+  "</div>";
+
+  body.insertAdjacentHTML('afterbegin', chatting);
+}
+
+// 채팅창 나타남
+const openChat = function(){
+  const chatting = document.querySelector('.chatting');
+  chatting.style.display = 'flex';
+}
+// 채팅창 안보이게
+const closeChat = function(){
+  const chatting = document.querySelector('.chatting');
+
+  chatting.style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  let btnChatMsg = null;
+  const btnChatIcon = document.querySelector('.chat_icon');
+  let chat = false;
+  let visibleChat = false;
+
+  btnChatIcon.addEventListener('click', () => {
+    if(sessionStorage.getItem('id') === null){
+      alert('로그인이 필요한 서비스입니다.');         // 아이콘 클릭시 로그인이 되어있지 않으면 return
+      return;
+    }
+    
+    if(chat === false){ // 아이콘 클릭시 채팅창이 생성되어있지 않으면 생성
+      createChat();
+      chat = true;
+      visibleChat = true;
+      btnChatMsg = document.querySelector('#btnChatMsg');
+      btnChatMsg.addEventListener('click', sendChatMsg);
+    }else{
+      if(visibleChat === true){ // 채팅창이 이미 생성되어있으면 아이콘 클릭시 감추고 보여주기
+        closeChat();
+        visibleChat = false;
+      }else{
+        openChat();
+        visibleChat = true;
+      }
+    }
+  });
+});
