@@ -67,14 +67,14 @@ public class FestivalWebSocketServer extends WebSocketServer{
 				 con.send(message);
 			}
 		}else if(cmd.equals("signup")) {
+			System.out.println("===SIGN UP===");
 			Member member = new Member(conn, message);
 			member.signUp();
-		}else if(cmd.equals("boardlist")) {
-			System.out.println("packet 잘받음");
-			JSONObject ackObj = new JSONObject();
-			ackObj.put("cmd", "boardlist");
-			ackObj.put("result", "ok");
-			conn.send(ackObj.toString());
+		}else if(cmd.equals("checkemail")) {
+			System.out.println("=== checkmail ===");
+			Member member = new Member(conn, message);
+			member.checkEmail();
+
 		}
 
 	}
