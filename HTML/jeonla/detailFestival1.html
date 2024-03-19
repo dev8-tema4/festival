@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>행사 상세 페이지</title>
+    
+    <!-- CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <style>
         @keyframes zoomInAndFadeOut {
@@ -41,7 +47,37 @@
         section{
             margin-bottom: 100px;
         }
-    
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .image-slider {
+            margin-top: 50px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 450px;
+        }
+
+        .image-slider {
+    position: relative;
+    width: 100%;
+    height: 300px; /* 이미지 슬라이더의 높이 설정 */
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+section.map-info {
+    margin-top: 300px;
+}
+   
     </style>
      <script>
         window.onload = function() {
@@ -55,13 +91,30 @@
                 otherSections.forEach(function(section) {
                     section.style.display = 'block';
                 });
+
+                const mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            effect:'fade',
+            pagination: {
+                el:'.swiper-pagination',
+            type:'bullets'
+        }
+        });
+
+
             });
         };
-    </script>
+        
+
     
-   
+
+    </script>
+
     <link rel="stylesheet" href="../../CSS/jeonla/index.css">
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ftmp0uii1g"></script>
+    
+
     
 </head>
 <body>
@@ -101,16 +154,28 @@
             유달산 봄 축제에 오셔서 봄날의 매력에 푹 빠져보시기 바랍니다.</p>
     </section>
 
+<div class="container">
     <!-- 이미지 슬라이더 -->
     <section class="image-slider">
-        <h2>관련 이미지 슬라이드</h2>
+        <h2>메인 행사 안내</h2>
+        
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../image/jeonla/p1.png" alt="이미지1" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p2.png" alt="이미지2" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p3.png" alt="이미지3" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p4.png" alt="이미지4" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p5.png" alt="이미지5" class="swiper-image"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+        </div>
     </section>
-
+</div>
     <!-- 맵 정보 -->
     <section class="map-info">
-        <h2>지도 정보</h2>
+        <h2>오시는 길</h2>
         <div id="map"></div>
-        <p>검색어 : 유달산 노적봉 주차장</p>
+        <p>주차장 검색시: 유달산 노적봉 주차장</p>
         <p>주소: 전남 목포시 유달로 122</p>
     
     </section>
@@ -121,5 +186,6 @@
     </footer>
 
     <script src="../../JS/jeonla/detail.js"></script>
+    
 </body>
 </html>
