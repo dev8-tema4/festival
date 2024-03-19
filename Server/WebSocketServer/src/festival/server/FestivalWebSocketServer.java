@@ -2,6 +2,8 @@ package festival.server;
 
 import java.net.InetSocketAddress;
 
+import festival.server.function.OrderItem;
+import festival.server.function.Orders;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
@@ -74,7 +76,13 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("=== checkmail ===");
 			Member member = new Member(conn, message);
 			member.checkEmail();
+		} else if(cmd.equals("addCart")) {
+			System.out.println("=== addCart ===");
+			Orders orders = new Orders(conn, message);
+			orders.injectMemberInfo();
 
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.addCart();
 		}
 
 	}
