@@ -120,9 +120,31 @@ footer p{
 }
 
 @media screen and (max-width: 768px) {
-    .modal-content {
-        margin: 10px auto; /* 작은 화면에서는 더 작은 마진 값으로 조정 */
+    .search-box {
+        float: right;
+        margin-right: 10px; /* 작은 화면에서는 더 작은 마진 값으로 조정 */
     }
+    section {
+        margin: auto;
+        width: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        clear: both;
+    }
+    
+nav{
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    
+    
+    
+}
+
 }
 
 .search-box input[type="text"]{
