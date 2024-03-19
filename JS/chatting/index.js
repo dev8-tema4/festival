@@ -11,34 +11,36 @@ const sendChatMsg = function(){
     sendMessage(jsonStr);
 }
 
-// 통신 패킷 출력
 const recievePacketMessage = function ($parentSelector, message) {
-    // 이 요소 아래에 메시지 요소를 추가
-    const parentElem = document.querySelector($parentSelector);
+  // 이 요소 아래에 메시지 요소를 추가
+  const parentElem = document.querySelector($parentSelector);
 
-    // json문자열 -> js 객체로 변환
-    const msgObj = JSON.parse(message);
+  // json문자열 -> js 객체로 변환
+  const msgObj = JSON.parse(message);
 
-    let msg = '';
-    switch (msgObj.cmd) {
-        case 'allchat':{
+  let msg = '';
+  let chatClass = '';
+  const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // 현재 시간 가져오기 (시간과 분만 표시)
+
+  switch (msgObj.cmd) {
+      case 'allchat': {
           if ('result' in msgObj)
-            msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
-          if ('memberId' in msgObj)
-            msg = `${msgObj.name} => ${msgObj.msg}`;
-            break;
-        }
-    }
+              msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
+          if ('memberId' in msgObj) {
+              msg = `${msgObj.name} : ${msgObj.msg}`;
+              chatClass = msgObj.memberId === sessionStorage.getItem('memberId') ? 'sent' : 'received';
+          }
+          break;
+      }
+  }
 
-    const childElem = document.createElement('div');
-    childElem.textContent = msg;
-    childElem.style.padding = 4 + 'px';
-    if(msgObj.memberId === sessionStorage.getItem('memberId')){
-        childElem.style.textAlign = 'right';
-    }
-    parentElem.appendChild(childElem);
-    parentElem.scrollTop = parentElem.scrollHeight;
+  const childElem = document.createElement('div');
+  childElem.innerHTML = `${msg} <div id="time">(${currentTime})</div>`;
+  childElem.classList.add('chat-bubble', chatClass);
+  parentElem.appendChild(childElem);
+  parentElem.scrollTop = parentElem.scrollHeight;
 }
+
 
 // 아이콘 클릭시 채팅창 생성
 const createChat = function(){
