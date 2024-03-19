@@ -52,10 +52,11 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			member.login();
 			
 		} else if (cmd.equals("allchat")) {
-			String id = msgObj.getString("id");
+			String memberId = msgObj.getString("memberId");
 			String msg = msgObj.getString("msg");
-			System.out.printf("채팅 id: %s msg:%s \n", id, msg);
-			// 클라이언트한테 응답 전송
+			String name = msgObj.getString("name");
+			System.out.printf("이름 : %s 채팅 id: %s msg:%s \n",name, memberId, msg);
+
 			JSONObject ackObj = new JSONObject();
 			ackObj.put("cmd", "allchat");
 			ackObj.put("result", "ok");
@@ -63,7 +64,6 @@ public class FestivalWebSocketServer extends WebSocketServer{
 
 			// 전체 접속자한테 브로드 캐스팅
 			for (WebSocket con : this.getConnections()) {
-				// if (conn != con) // 나를 제외한 모든 접속자들에게 전송
 				 con.send(message);
 			}
 		}else if(cmd.equals("signup")) {

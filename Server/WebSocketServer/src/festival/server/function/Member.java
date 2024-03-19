@@ -1,5 +1,7 @@
 package festival.server.function;
 
+import java.util.List;
+
 import org.java_websocket.WebSocket;
 import org.json.JSONObject;
 
@@ -29,12 +31,13 @@ public class Member {
 		//로그인 결과 패킷 보내기
 		if (check) {
 			JSONObject ackObj = new JSONObject();
-			String name = dao.getNameByEmail(email);
+			MemberDto dto = dao.getMemberInfoByEmail(email);
 			
 			ackObj.put("cmd", "login");
 			ackObj.put("result", "ok");
+			ackObj.put("memberId", dto.getMemberId());
 			ackObj.put("email", email);
-			ackObj.put("name", name);
+			ackObj.put("name", dto.getName());
 
 			conn.send(ackObj.toString());
 		}else {
@@ -57,6 +60,7 @@ public class Member {
 		
 		System.out.println("회원가입 입력값: " + email + password + name + address + phone);
 		
+//		MemberDto dto = new MemberDto(email,password,name,address,phone);
 		MemberDto dto = new MemberDto(email,password,name,address,phone);
 		MemberDao dao = new MemberDao();
 		int result =  dao.signUp(dto);
