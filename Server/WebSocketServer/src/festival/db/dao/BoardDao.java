@@ -29,9 +29,11 @@ public class BoardDao {
             	BoardDto dto = new BoardDto();
                 dto.setIndexNum(rs.getInt(1));
                 dto.setSubject(rs.getString(2));
-                dto.setName(rs.getString(7));
+                dto.setMemberID(rs.getInt(3));
+                dto.setContent(rs.getString(4));
                 dto.setDate(rs.getString(5));
                 dto.setViews(rs.getInt(6));
+                dto.setName(rs.getString(7));
                 dtolist.add(dto);
             }
             
