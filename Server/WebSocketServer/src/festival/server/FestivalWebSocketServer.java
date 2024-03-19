@@ -80,9 +80,16 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("=== addCart ===");
 			Orders orders = new Orders(conn, message);
 			int orderId = orders.injectMemberInfo();
-
 			OrderItem orderItem = new OrderItem(conn, message);
 			orderItem.addCart(orderId);
+		} else if(cmd.equals("getAllCart")) {
+			System.out.println("=== getAllCart ===");
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.getAllCart();
+		} else if (cmd.equals("getOrderList")) {
+			System.out.println("=== getOrderList ===");
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.getOrderList();
 		}
 
 	}

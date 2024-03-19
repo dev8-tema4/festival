@@ -1,6 +1,7 @@
 package festival.db.dao;
 
 import festival.dto.OrderItemDto;
+import festival.dto.OrderListResponseDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ public class OrderItemDao {
 
     private static String sql;
     private static PreparedStatement pstmt = null;
+    private static CartResponseDto cartResponseDto;
+    private static OrderListResponseDto orderListResponseDto;
 
     /**
      * 장바구니 추가
@@ -38,14 +41,19 @@ public class OrderItemDao {
         return result;
     }
 
-    public static List<OrderItemDto> getAllCart(Connection conn, OrderItemDto orderItemDto) {
+    /**
+     * 장바구니 조회
+     */
+    public static List<CartResponseDto> getAllCart(Connection conn, OrderItemDto orderItemDto) {
+
+        List<CartResponseDto> cartList = new ArrayList<>();
 
         try {
             sql = "SELECT i.name, i.price, oi.totalPrice, oi.count" +
                     "FROM ORDER_ITEM oi " +
                     "INNER JOIN ITEM i " +
                     "ON oi.item_id = i.item_id " +
-                    "WHERE oi.order_id = ?";
+                    "WHERE oi.order_id = ? AND oi.isBuyed = false";
 
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, orderItemDto.getOrderId());
@@ -53,17 +61,53 @@ public class OrderItemDao {
             ResultSet rs = pstmt.executeQuery();
 
             while(rs.next()) {
-                OrderResponseDto orderResponseDto = new OrderResponseDto(
-                        rs.getString(1),
-                        rs.getInt(2),
-                        rs.getInt(3),
-                        rs.getInt(4)
+                cartList.add(
+                        cartResponseDto = new CartResponseDto(
+                                rs.getString(1),
+                                rs.getInt(2),
+                                rs.getInt(3),
+                                rs.getInt(4)
+                        )
                 );
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return cartList;
+    }
+
+    /**
+     * 주문내역 조회
+     */
+    public static List<OrderListResponseDto> getOrderList(Connection conn, OrderItemDto orderItemDto) {
+
+        List<OrderListResponseDto> orderList = new ArrayList<>();
+
+        try {
+            sql = "SELECT i.name, i.price, oi.totalPrice, oi.count" +
+                    "FROM ORDER_ITEM oi " +
+                    "INNER JOIN ITEM i " +
+                    "ON oi.item_id = i.item_id " +
+                    "WHERE oi.order_id = ? AND oi.isBuyed = true";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, orderItemDto.getOrderId());
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                orderList.add(
+                        orderListResponseDto = new OrderListResponseDto(
+                                rs.getString(1),
+                                rs.getInt(2),
+                                rs.getInt(3),
+                                rs.getInt(4)
+                        )
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderList;
     }
 }
