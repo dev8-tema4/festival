@@ -32,9 +32,7 @@ public class BoardDao {
                 dto.setName(rs.getString(7));
                 dto.setDate(rs.getString(5));
                 dto.setViews(rs.getInt(6));
-                System.out.println(dto.getName());
                 dtolist.add(dto);
-                System.out.println(dtolist.get(0));
             }
             
         } catch (SQLException e) {
