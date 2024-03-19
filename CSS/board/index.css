@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #f7f7f7; /*배경 색상*/
+    
 }
 
 header{
@@ -17,14 +18,17 @@ header h1{
     font-size: 36px;
     margin: 0;
     
+    
+    
 }
 
 nav{
     float: left;
     text-align: center;
     margin-bottom: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 25%;
+    
+    
     
 }
 
@@ -64,6 +68,7 @@ section{
 h2{
     margin-top: 0;
     color: #333;
+    
 }
 
 .category{
@@ -110,8 +115,14 @@ footer p{
 .search-box{
     margin-bottom: 20px;
     float: right;
-    margin-right: 30px;
+    margin-right: 25%;
     
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        margin: 10px auto; /* 작은 화면에서는 더 작은 마진 값으로 조정 */
+    }
 }
 
 .search-box input[type="text"]{
@@ -214,7 +225,7 @@ footer p{
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 1200px;
+    max-width: 1000px;
     
 }
 
