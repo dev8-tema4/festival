@@ -79,10 +79,10 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		} else if(cmd.equals("addCart")) {
 			System.out.println("=== addCart ===");
 			Orders orders = new Orders(conn, message);
-			orders.injectMemberInfo();
+			int orderId = orders.injectMemberInfo();
 
 			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.addCart();
+			orderItem.addCart(orderId);
 		}
 
 	}
