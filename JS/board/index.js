@@ -1,32 +1,3 @@
-const sendBoardList = function(){
-    
-    const packet = {
-     cmd : 'boardlist'
-    };
-
-    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
-    sendMessage(jsonStr);
-    }
-
-// 서버로부터 응답처리
-const requestboard = function (message) {
-    // json문자열 -> js 객체로 변환
-    const msgObj = JSON.parse(message);
-  
-    switch (msgObj.cmd) {
-      case 'boardlist':
-        console.log(msgObj.result)
-    }
-}
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    const listbtn = document.querySelector('#board-list');
-
-    listbtn.addEventListener('click', ()=>{
-        sendBoardList();
-    });
-})
-
 document.addEventListener("DOMContentLoaded", function () {
     // 카테고리 버튼 요소들을 선택합니다.
     const categoryButtons = document.querySelectorAll('.category-button');
