@@ -14,15 +14,13 @@ public class Orders {
         this.message = message;
     }
 
-    public void injectMemberInfo() {
+    public int injectMemberInfo() {
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
 
-        boolean check = false;
+        int check = OrdersDao.injectMemberInfo(DBConnection.getConnection(), memberId);
 
-        check = OrdersDao.injectMemberInfo(DBConnection.getConnection(), memberId);
-
-        if(check) {
+        if(check > 0) {
             JSONObject ackObj = new JSONObject();
 
             ackObj.put("result", "success");
@@ -33,5 +31,7 @@ public class Orders {
             ackObj.put("result", "fail");
             conn.send(ackObj.toString());
         }
+
+        return check;
     }
 }

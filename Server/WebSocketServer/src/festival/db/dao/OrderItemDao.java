@@ -8,9 +8,11 @@ import java.sql.SQLException;
 
 public class OrderItemDao {
 
+    private static String sql;
+    private static PreparedStatement pstmt = null;
+
     public static int addCart(Connection conn, OrderItemDto orderItemDto) {
-        String sql;
-        PreparedStatement pstmt = null;
+
         int result = 0;
 
         try {

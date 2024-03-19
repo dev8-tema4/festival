@@ -15,9 +15,8 @@ public class OrderItem {
         this.message = message;
     }
 
-    public void addCart() {
+    public void addCart(int orderId) {
         JSONObject msgObj = new JSONObject(message);
-        int orderId = msgObj.getInt("orderId");
         int itemId = msgObj.getInt("itemId");
         int count =  msgObj.getInt("count");
         int price =  msgObj.getInt("price");

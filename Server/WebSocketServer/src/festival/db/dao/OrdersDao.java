@@ -4,6 +4,7 @@ import festival.dto.OrdersDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class OrdersDao {
@@ -13,29 +14,33 @@ public class OrdersDao {
     /**
      * 회원 정보 추가
      */
-    public static boolean injectMemberInfo(Connection conn, int memberId) {
+    public static int injectMemberInfo(Connection conn, int memberId) {
         String sql;
         PreparedStatement pstmt = null;
-        int result = 0;
+        int orderId = 0;
 
         try {
-                sql = "INSERT INTO ORDERS (member_id) VALUES(?)";
+            sql = "INSERT INTO ORDERS (member_id) VALUES(?)";
 
-                pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, memberId);
+            pstmt.executeUpdate();
 
-                pstmt.setInt(1, memberId);
+            sql = "SELECT order_id FROM ORDERS WHERE member_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, memberId);
 
-                result = pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+
+            orderId = rs.getInt("order_id");
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        if(result > 0) {
-            result = 1;
-        }
-
-        return result == 1;
+        return orderId;
     }
+
 }
 
 
