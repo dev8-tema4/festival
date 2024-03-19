@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Background Change</title>
+<style>
+  /* 기본 헤더 스타일 */
+  header {
+    background-color: #333; /* 기본 배경색 */
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    transition: background-color 0.3s ease; /* 배경색 전환 효과 */
+    position: fixed;
+    width: 100%;
+  }
+
+  /* 스크롤을 800px 이상 이동했을 때 헤더 배경색 변경 */
+  header.scroll {
+    background-color: #ff0000; /* 변경된 배경색 */
+  }
+
+  /* 페이지 컨텐츠 스타일 */
+  .content {
+    height: 1600px; /* 스크롤 테스트를 위한 컨텐츠 높이 조절 */
+  }
+</style>
+</head>
+<body>
+
+<header id="myHeader">Header</header>
+
+<div id="content">
+  <!-- 여기에 컨텐츠가 들어갑니다. -->
+</div>
+
+<script>
+  // 스크롤 이벤트 리스너 추가
+  window.addEventListener('scroll', function() {
+    var header = document.getElementById('myHeader');
+    // 스크롤이 800px 이상 이동했을 때 헤더에 'scroll' 클래스 추가
+    if (window.scrollY >= 800) {
+      header.classList.add('scroll');
+    } else {
+      // 그렇지 않으면 'scroll' 클래스 제거
+      header.classList.remove('scroll');
+    }
+  });
+  function getElementOffset(el) {
+  var rect = el.getBoundingClientRect();
+  var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+  var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+}
+
+var element = document.getElementById('content'); // 해당 요소의 id를 사용하여 요소를 가져옵니다.
+var elementOffset = getElementOffset(element);
+console.log("요소의 화면상 위치 - 가로: " + elementOffset.left + ", 세로: " + elementOffset.top);
+</script>
+
+</body>
+</html>
