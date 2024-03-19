@@ -106,6 +106,8 @@
 #messageInput {
   border-radius: 20px;
   height: 25px;
+  border: 1px solid;
+
 }
 
 #btnChatMsg {
