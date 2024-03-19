@@ -3,7 +3,8 @@ const sendChatMsg = function(){
     const message = document.querySelector('#messageInput').value;
     const packet = {
         cmd: 'allchat',
-        id: sessionStorage.getItem('id'),
+        memberId: sessionStorage.getItem('memberId'),
+        name: sessionStorage.getItem('name'),
         msg:message
     }
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
@@ -23,8 +24,8 @@ const recievePacketMessage = function ($parentSelector, message) {
         case 'allchat':{
           if ('result' in msgObj)
             msgObj.result === 'ok' ? '' : alert('잠시후 다시 시도해주세요');
-          if ('id' in msgObj)
-            msg = `${msgObj.id} => ${msgObj.msg}`;
+          if ('memberId' in msgObj)
+            msg = `${msgObj.name} => ${msgObj.msg}`;
             break;
         }
     }
@@ -32,7 +33,7 @@ const recievePacketMessage = function ($parentSelector, message) {
     const childElem = document.createElement('div');
     childElem.textContent = msg;
     childElem.style.padding = 4 + 'px';
-    if(msgObj.id === sessionStorage.getItem('id')){
+    if(msgObj.memberId === sessionStorage.getItem('memberId')){
         childElem.style.textAlign = 'right';
     }
     parentElem.appendChild(childElem);
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
   let visibleChat = false;
 
   btnChatIcon.addEventListener('click', () => {
-    if(sessionStorage.getItem('id') === null){
+    if(sessionStorage.getItem('memberId') === null){
       alert('로그인이 필요한 서비스입니다.');         // 아이콘 클릭시 로그인이 되어있지 않으면 return
       return;
     }

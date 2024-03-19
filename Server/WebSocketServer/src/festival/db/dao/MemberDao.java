@@ -86,4 +86,25 @@ public class MemberDao {
 	    return dto;
 	}
 
+	public int checkEmail(String email) {
+	    String sql = "SELECT COUNT(*) FROM MEMBER WHERE EMAIL = ?";
+	    int count = 0;
+	    try {
+	        conn = DBConnection.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+	        
+	        while (rs.next()) {
+	            count = rs.getInt(1);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBClose.close(conn, pstmt, rs);
+	    }
+	    System.out.println(count);
+	    return count;
+	}
+
 }
