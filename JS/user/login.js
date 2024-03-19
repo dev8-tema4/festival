@@ -1,7 +1,6 @@
 
 
 const sendLogIn = function () {
-  console.log('a')
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
 
