@@ -12,7 +12,7 @@ public class DBConnection {
 	    Connection conn = null;
 	    
 	    try {
-	        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/festival", "root", "1234");
+	        conn = DriverManager.getConnection("jdbc:mysql://192.168.0.45:3306/festival", "root", "1234");
 	    } catch (SQLException e) {
 	        System.out.println("DB 연결 오류");
 	        e.printStackTrace();

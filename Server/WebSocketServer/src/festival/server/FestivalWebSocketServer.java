@@ -7,6 +7,7 @@ import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
 import org.json.JSONObject;
 
+import festival.server.function.Board;
 import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
@@ -71,6 +72,8 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			member.signUp();
 		}else if(cmd.equals("boardlist")) {
 			System.out.println("packet 잘받음");
+			Board board = new Board(conn, message);
+			board.boardlist();
 			JSONObject ackObj = new JSONObject();
 			ackObj.put("cmd", "boardlist");
 			ackObj.put("result", "ok");
