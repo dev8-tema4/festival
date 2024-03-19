@@ -22,6 +22,7 @@ const loginSuccess = function (message) {
   switch (msgObj.cmd) {
     case 'login':
       if (msgObj.result === 'ok') {
+        sessionStorage.setItem('memberId', msgObj.memberId);
         sessionStorage.setItem('email', msgObj.email);
         sessionStorage.setItem('name', msgObj.name);
         alert(`${msgObj.name}님 환영합니다.`);
