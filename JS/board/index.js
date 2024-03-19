@@ -98,6 +98,11 @@ function closeModal(){
      // 작성 버튼에 대한 이벤트 리스너 제거
      const writeButton = document.getElementById("writeButton");
      writeButton.removeEventListener("click", writePost);
+
+      // 입력 필드 초기화
+    document.getElementById("titleInput").value = "";
+    document.getElementById("contentInput").value = "";
+    document.getElementById("categorySelect").selectedIndex = 0;
 }
 
 

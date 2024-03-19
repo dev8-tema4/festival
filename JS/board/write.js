@@ -21,4 +21,9 @@ const writePost = function(){
 
     //서버로 전송
     sendMessage(jsonStr);
+
+    // 입력 필드 초기화
+    document.getElementById("titleInput").value = "";
+    document.getElementById("contentInput").value = "";
+    document.getElementById("categorySelect").selectedIndex = 0;
 };
