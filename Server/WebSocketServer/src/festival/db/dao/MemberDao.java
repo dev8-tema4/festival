@@ -15,6 +15,9 @@ public class MemberDao {
 	Connection conn = null;
 
 
+	/**
+	 * 로그인
+	 */
 	public boolean login(String login, String password) {
 	        String sql = "SELECT COUNT(*) FROM MEMBER WHERE EMAIL = ? AND PASSWORD = ?";
 	        int count = 0;
@@ -39,6 +42,9 @@ public class MemberDao {
 	        return count == 1;
 	    }
 
+	/**
+	 * 회원가입
+	 */
 	public int signUp(MemberDto dto) {
 		String sql = "INSERT INTO MEMBER(EMAIL, PASSWORD, NAME, ADDRESS, PHONE) VALUES(?, ?, ?, ?, ?)";
 		int result = 0;
@@ -61,7 +67,30 @@ public class MemberDao {
 		return result;
 	}
 
+	/**
+	 * 회원 아이디 조회
+	 */
+	public int getMemberId(Connection conn, int memberId) {
+		int getMemberId = 0;
+		String sql = "SELECT member_id FROM MEMBER WHERE member_id = ?";
 
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberId);
+			rs = pstmt.executeQuery();
+
+			getMemberId = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return getMemberId;
+	}
+
+
+	/**
+	 * 회원 이메일 조회
+	 */
 	public MemberDto getMemberInfoByEmail(String email) {
 		
 	    String sql = "SELECT * FROM MEMBER WHERE EMAIL = ?";

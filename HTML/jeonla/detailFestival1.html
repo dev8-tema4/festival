@@ -39,7 +39,7 @@
         .image-slider,
         .map-info,
         footer,
-        header,
+        
         .scroll-box {
             display: none; /* 애니메이션 중에 숨길 요소들 */
         }
@@ -85,7 +85,7 @@ section.map-info {
     <script>
         window.onload = function() {
             var eventTitle = document.querySelector('.event-title');
-            var otherSections = document.querySelectorAll(' .event-introduction, .event-details, .image-slider, .map-info, footer, header,.scroll-box');
+            var otherSections = document.querySelectorAll(' .event-introduction, .event-details, .image-slider, .map-info, footer,.scroll-box');
 
             eventTitle.style.animation = 'zoomInAndFadeOut 5s ease forwards';
 
@@ -121,12 +121,34 @@ section.map-info {
     
 </head>
 <body>
-    <!-- 네이게이션 바 -->
-    <header>
-        <nav>
-            <!-- 네이게이션 링크 -->
-        </nav>
+    <header class="jeonla-header" id="jeonla-header">
+
+        <div class="left-content">
+            <div class="home">
+                <a href="../index.html">홈</a>
+            </div>
+            <div class="board">
+                <a href="../index.html">게시판</a>
+            </div>
+            <div class="store">
+                <a href="../HTML/"></a>상점</div>
+        </div>
+    
+        <div class="center-content">
+            <div class="container">
+            <a href="../index.html">Go 8</a>
+            </div>
+        </div>
+    
+        <div class="right-content">
+            <div class="login-menu">
+                로그아웃
+    
+            </div>
+        </div>
+    
     </header>
+    
     <main>
     
     <!-- 이벤트 타이틀 -->
