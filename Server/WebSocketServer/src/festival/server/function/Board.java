@@ -35,14 +35,25 @@ public class Board {
 	public void view() {
 		JSONObject msgObj = new JSONObject(message);
 		int indexNum = msgObj.getInt("indexNum");
+		BoardDao dao = new BoardDao();
+		int result = dao.plusViews(indexNum);
+		if(result == 1) {
+			int views = dao.changeViews(indexNum);
+			JSONObject ackObj = new JSONObject();
+			ackObj.put("cmd", "view");
+			ackObj.put("result", dao.view(indexNum));
+			ackObj.put("indexNum", indexNum);
+			
+			conn.send(ackObj.toString());
+		}else {
+			JSONObject ackObj = new JSONObject();
+			
+			ackObj.put("cmd", "view");
+			ackObj.put("result", "no");
+			conn.send(ackObj.toString());
+		}
 				
-		dao.view(indexNum);
-		JSONObject ackObj = new JSONObject();
-		ackObj.put("cmd", "view");
-		ackObj.put("result", dao.view(indexNum));
-		ackObj.put("indexNum", indexNum);
 		
-		conn.send(ackObj.toString());
 	}
 	
 	public void write() {
@@ -76,6 +87,7 @@ public class Board {
 			conn.send(ackObj.toString());
 		}
 	}
-	
+
+		
 	
 }

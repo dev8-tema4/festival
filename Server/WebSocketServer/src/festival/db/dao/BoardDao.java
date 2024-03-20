@@ -17,7 +17,7 @@ public class BoardDao {
 
 	public void list(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD";
+		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -34,6 +34,7 @@ public class BoardDao {
 				dto.setDate(rs.getString(5));
 				dto.setViews(rs.getInt(6));
 				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
 				dtolist.add(dto);
 			}
 
@@ -46,7 +47,7 @@ public class BoardDao {
 	}
 
 	public int write(BoardDto dto) {
-		String sql = "INSERT INTO BOARD(CATEGORY, SUBJECT, CONTENT, MEMBER_ID, NAME) VALUE (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO BOARD(CATEGORY, SUBJECT, CONTENT, MEMBER_ID, NAME) VALUE (?, ?, ?, ?, ?) ORDER BY INDEXNUM DESC";
 		int result = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -67,7 +68,7 @@ public class BoardDao {
 
 	public String view(int indexNum) {
 		String result = null;
-		String sql = "SELECT * FROM BOARD WHERE INDEXNUM=?";
+		String sql = "SELECT * FROM BOARD WHERE INDEXNUM=? ORDER BY INDEXNUM DESC limit 14";
 		
 		try {
 			conn = DBConnection.getConnection();
@@ -86,5 +87,165 @@ public class BoardDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 		return result;
+	}
+
+	public int plusViews(int indexNum) {
+		int result = 0;
+		String sql = "UPDATE BOARD SET VIEWS = VIEWS +1  WHERE INDEXNUM = ?";
+
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, indexNum);
+			result = pstmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return result;
+	}
+
+	public int changeViews(int indexNum) {
+		String sql = "SELECT VIEWS FROM BOARD WHERE INDEXNUM = ?";
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, indexNum);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				result = rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return result;
+	}
+	
+	public void popularlist(List<BoardDto> dtolist) {
+
+		String sql = "SELECT * FROM BOARD ORDER BY VIEWS";
+		int count = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
+	}
+	
+	public void list(List<BoardDto> dtolist) {
+
+		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		int count = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
+	}
+	
+	public void list(List<BoardDto> dtolist) {
+
+		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		int count = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
+	}
+	
+	public void list(List<BoardDto> dtolist) {
+
+		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		int count = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
 	}
 }

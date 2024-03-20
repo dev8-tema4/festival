@@ -12,19 +12,20 @@ const sendView = function(e){
 
 
 const showcontent = function(message){
-    const isClicked = true;
     const msgObj = JSON.parse(message);
     const boarditem = document.getElementById(`${msgObj.indexNum}`); 
     const boardlist = document.querySelectorAll('.clicked');
-
+    
     boardlist.forEach((e) => {e.remove()});
     const content = document.createElement('td');
     content.setAttribute('class', 'clicked');
     content.textContent = msgObj.result;
     content.style.padding = "10px"
     content.style.border = "1px solid black"
+    content.style.height = "50px"
+    content.style.lineHeight = "50px"
     content.style.textAlign = 'center';
-    content.setAttribute('colSpan', '5');
+    content.setAttribute('colSpan', '6');
 
     boarditem.insertAdjacentElement('afterend', content);
 

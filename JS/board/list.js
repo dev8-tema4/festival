@@ -43,13 +43,13 @@ const requestboard = function (message) {
 
 
     const tableHeader = document.createElement('tr');
-    const headers = ['INDEX', '제목', '이름', '등록일', '조회수']; // 열 제목들
+    const headers = ['INDEX', '제목', '이름', '등록일', '조회수', '카테고리']; // 열 제목들
 
     // 테이블 열 제목 추가
     headers.forEach(headerText => {
         const th = document.createElement('th');
         th.textContent = headerText;
-        th.style.width = (headerText === '제목') ? "30%" : "20%"; // 제목 셀만 너비를 늘림
+        th.style.width = (headerText === '제목') ? "40%" : "10%"; // 제목 셀만 너비를 늘림
         th.style.color = "white"; // 흰색 글씨
         th.style.backgroundColor = "black"; // 검은색 바탕
         th.style.textAlign = "center"; // 헤더 셀 중앙 정렬
@@ -86,6 +86,11 @@ const requestboard = function (message) {
         cell5.style.textAlign = "center";
         row.appendChild(cell5);
 
+        const cell6 = document.createElement('td');
+        cell6.textContent = msgObj.result[i].category;
+        cell6.style.textAlign = "center";
+        row.appendChild(cell6);
+
         table.appendChild(row);
     }
 
@@ -108,10 +113,7 @@ const requestboard = function (message) {
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
-    const listbtn = document.querySelector('#board-list');
     
-    listbtn.addEventListener('click', ()=>{
-        sendBoardList();
-    });
+    setTimeout(sendBoardList, 100);
    
 });
