@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class OrdersDto {
     private int orderId;
     private LocalDate orderDate;
-    private Long memberId;
+    private int memberId;
 
     public int getOrderId() {
         return orderId;
@@ -23,11 +23,11 @@ public class OrdersDto {
         this.orderDate = orderDate;
     }
 
-    public Long getMemberId() {
+    public int getMemberId() {
         return memberId;
     }
 
-    public void setMemberId(Long memberId) {
+    public void setMemberId(int memberId) {
         this.memberId = memberId;
     }
 }
