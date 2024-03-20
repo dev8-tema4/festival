@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니</title>
+    <link rel="stylesheet" href="../../CSS/shop/order2.css">
+    <link rel="stylesheet" href="../../CSS/chatting/index.css">
+    <script src="../../JS/connSocket.js"></script>
+    <script src="../../JS/chatting/index.js"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="navHead">
+            <ul class="header">
+                <li><a href="../index.html">HOME</a></li>
+            </ul>
+            <ul class="navbar">
+                <li><a href="../">Calander</a></li>
+                <li><a href="../board/index.html">QnA</a></li>
+                <li><a href="../shop/order.html">Shop</a></li>
+            </ul>
+            <ul class="orderMenu">
+                <li><a href="../user/login.html">로그인</a></li>
+                <li><a href="../user/signup.html">회원가입</a></li>
+                <li><a href="../shop/order2.html">장바구니</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="basket">
+                <img src="../../image/shop/cart-removebg-preview.png" width="80px" height="80px">
+                <h1>장바구니</h1>
+            </div>
+            <div class="prodInfo">
+                <table>
+                    <tr>
+                        <th>
+                            <div class="itemInfo">상품정보</div>
+                        </th>
+                        <th>
+                            <div class="itemCount">수량</div>
+                        </th>
+                        <th>
+                            <div class="itemPrice">주문금액</div>
+                        </th>
+                        <th>
+                            <div class="itemDeliv">배송 정보</div>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="itemInfo1">
+                                <div class="itemImg">
+                                    <p>선화동 매운 포도 1.0Kg</p><br>
+                                    <div class="moreInfo1">
+                                        <em>필수</em><span>1.0Kg - 1개</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="itemCount1">1
+                            <span class="itemOption"><a href="">옵션/수량 변경</a></span>
+                        </div>
+                        </td>
+
+                        <td>
+                            <div class="itemPrice1">10,000원<span class="itemOption1">바로구매</span></div>
+                        </td>
+
+                        <td>
+                            <div class="itemDeliv1">4,000원<br><small>택배</small></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="calcPrice">
+                <table>
+                    <tr>
+                        <th>
+                            <div class="itemResult">총 주문 상품</div>
+                        </th>                    
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="itemPrice2"><p>10,000원</p><small>상품금액</small></div>
+                        </td>
+                        <td>
+                        <div class="addIcon"></div>
+                    </td>
+                        <td>
+                            <div class="itemDeliv2"><p>4,000원</p><small>배송비</small></div>
+                        </td>
+                        <td>
+                        <div class="sumIcon"></div>
+                    </td>
+                        <td>
+                            <div class="sumPrice"><p>14,000원</p><small>총 주문 금액</small></div>
+                        </td>
+                    </tr>
+                </table> 
+            </div>
+            <div class="orderBtn">
+                <p id="order"><a href="">주문하기</a></p>
+           <p id="bitpay"><a href="">BitPay 구매하기</a></p>
+           <p id="reOrder"><a href="">계속 쇼핑하기</a></p>
+            </div>
+    </div>
+    </div>
+    <footer>
+        <div class="adad">
+            <img src="../../image/shop/bitCamp-removebg-preview.png" width="150px" height="150px">
+            <small id="warm" style="color: #A6A6A6;">
+                EARTHWORM | 대표 : 이덕현 | 주소 : 서울특별시 강남구 강남대로94길 20 삼오빌딩 5-9 6층 601호 | 대표전화 : 0507-1414-9601 |  개인정보책임자 : 이덕현 (ejzus88@gamil.com) | 사업자등록번호 : 316-85-76751 |  특허 : 제 19-72006297호 해당 홈페이지의 디자인 및 모든 콘텐츠와 이미지는 지렁이팀에 저작권이 있음을 공지합니다.
+사전 서면 동의 없이 무단 복제 및 유사 도용 시 법적인 책임을 물을 수 있습니다.</small>
+        </div>
+        <div class="asd" id="asd"><h1>상담 문의<br>
+            <b style="color: #DA2721;">010-4081-0329</b><br><b>대표 : 이덕현</b></h1>
+            <small style="color: grey;">평일 AM 09:30 ~ PM 18:00<br>
+                주말/공휴일 및 연휴는 휴무입니다.</small>
+        </div>
+    </footer>
+    <div class="icon">
+        <div class="chat-container" id="chatContainer">
+            <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+        </div>
+    </div>
+</body>
+
+</html>

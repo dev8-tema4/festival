@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GangwonDetailPage</title>
+  <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
+  <link rel="stylesheet" href="../../CSS/gangwon/detail_page.css" />
+  <style>
+    
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        setTimeout(showSlides, 2000); // 2초마다 이미지가 체인지됩니다
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-content">
+        <div class="map">Map</div>
+        <div class="calendar">Calendar</div>
+      </div>
+      <div class="right-content">
+        <div class="login-menu">
+          Login
+          <div class="dropdown-content">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="detail-background"></div>
+  <div id="container">
+    <div class="title">
+      <h2>강원지역 겨울 축제 부제목 위치,축제 내용</h2>
+      <h1>겨울 축제 제목</h1>
+      <div class="festival-state1">
+        <span>축제 진행중</span>
+      </div>
+      <div class="festival-state2">
+        <span>축제 종료</span>
+      </div>
+      <div class="festival-state3">
+        <span>축제 예정</span>
+      </div>
+      <div class="festival-day">2024.01.27 ~ 2024.02.11</div>
+    </div>
+
+    <br />
+    <div class="contents">
+      <div class="festival-contents">
+        <div class="slideshow-container">
+          <div class="Slidesbackground">
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic1.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic2.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic3.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic4.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic5.jpg" class="slideshow-image" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-comment">
+        <p>
+          30년 전, 대한민국 겨울의 중심 ‘대관령’의 청년 여럿이 모여 눈꽃축제를
+          만들었다. 1993년 시작된 ‘대관령눈꽃축제’는 전국에서 가장 먼저 탄생한
+          겨울축제로 30여 년의 역사를 자랑한다. 겨울철 비수기를 이겨내고
+          지역경제 활성화와 주민화합을 목표로 해마다 개최되고 있으며, 많은
+          관광객이 찾는 축제로 발전하였다. 올해로 축제 개최 30주년을 맞이한
+          대관령눈꽃축제는 과거 대관령 사람들의 삶과 문화를 재조명한다. 겨울이
+          긴 계절 특성 때문에 생겨난 이색적인 지역문화와 대관령의 변천사를
+          담은 공간을 조성하고, 옛 문화가 담긴 체험 프로그램을 통해 대관령의
+          겨울 문화를 경험할 수 있다.
+        </p>
+        <p>
+          [행사내용]<br />
+          1. 메인프로그램 : 대관령 청룡 눈터널, 7080 대관령눈마을<br />
+          2. 부대프로그램 : 대관령 멧돼지 술래잡기, 드래곤 스탬프투어, 황병산
+          민속체험, 옛마을놀이천국, 눈썰매장, 야외구이터, 지역전통먹거리 등
+          <br />
+        </p>
+
+        <div class="youtube-area">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/EOAEMnYk-9M?si=9jhoAG6gmuLlR7Ye"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <br>
+      </div>
+    </div>
+    <hr />
+    <div class="festival-info">
+      <h1>축제 정보</h1>
+      <div class="poster">
+        <img src="../../image/gangwon/winter_poster.jpg">
+      </div>
+      <ul>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8 9C7.44772 9 7 9.44771 7 10C7 10.5523 7.44772 11 8 11H16C16.5523 11 17 10.5523 17 10C17 9.44771 16.5523 9 16 9H8Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6ZM5 18V7H19V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          2024.01.27 ~ 2024.02.11
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z"
+              fill="currentColor" />
+          </svg>
+          &nbsp;강원특별자치도 평창군 대관령로 135-9 (대관령면)
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 15H19V17H17V15Z" fill="currentColor" />
+            <path d="M19 11H17V13H19V11Z" fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M13 7H23V21H1V3H13V7ZM8 5H11V7H8V5ZM11 19V17H8V19H11ZM11 15V13H8V15H11ZM11 11V9H8V11H11ZM21 19V9H13V11H15V13H13V15H15V17H13V19H21ZM3 19V17H6V19H3ZM3 15H6V13H3V15ZM6 11V9H3V11H6ZM3 7H6V5H3V7Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          대관령면축제위원회/대관령면축제위원회
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22 12C22 10.6868 21.7413 9.38647 21.2388 8.1731C20.7362 6.95996 19.9997 5.85742 19.0711 4.92896C18.1425 4.00024 17.0401 3.26367 15.8268 2.76123C14.6136 2.25854 13.3132 2 12 2V4C13.0506 4 14.0909 4.20703 15.0615 4.60889C16.0321 5.01099 16.914 5.60034 17.6569 6.34326C18.3997 7.08594 18.989 7.96802 19.391 8.93848C19.7931 9.90918 20 10.9495 20 12H22Z"
+              fill="currentColor" />
+            <path
+              d="M2 10V5C2 4.44775 2.44772 4 3 4H8C8.55228 4 9 4.44775 9 5V9C9 9.55225 8.55228 10 8 10H6C6 14.4182 9.58173 18 14 18V16C14 15.4478 14.4477 15 15 15H19C19.5523 15 20 15.4478 20 16V21C20 21.5522 19.5523 22 19 22H14C7.37259 22 2 16.6274 2 10Z"
+              fill="currentColor" />
+            <path
+              d="M17.5433 9.70386C17.8448 10.4319 18 11.2122 18 12H16.2C16.2 11.4485 16.0914 10.9023 15.8803 10.3928C15.6692 9.88306 15.3599 9.42017 14.9698 9.03027C14.5798 8.64014 14.1169 8.33081 13.6073 8.11963C13.0977 7.90869 12.5515 7.80005 12 7.80005V6C12.7879 6 13.5681 6.15527 14.2961 6.45679C15.024 6.7583 15.6855 7.2002 16.2426 7.75732C16.7998 8.31445 17.2418 8.97583 17.5433 9.70386Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          033-1111-1111
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4 8C4.55228 8 5 7.55228 5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8Z"
+              fill="currentColor" />
+            <path
+              d="M8 7C8 7.55228 7.55228 8 7 8C6.44772 8 6 7.55228 6 7C6 6.44772 6.44772 6 7 6C7.55228 6 8 6.44772 8 7Z"
+              fill="currentColor" />
+            <path
+              d="M10 8C10.5523 8 11 7.55228 11 7C11 6.44772 10.5523 6 10 6C9.44771 6 9 6.44772 9 7C9 7.55228 9.44771 8 10 8Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M3 3C1.34315 3 0 4.34315 0 6V18C0 19.6569 1.34315 21 3 21H21C22.6569 21 24 19.6569 24 18V6C24 4.34315 22.6569 3 21 3H3ZM21 5H3C2.44772 5 2 5.44772 2 6V9H22V6C22 5.44772 21.5523 5 21 5ZM2 18V11H22V18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          공식 홈페이지
+        </li>
+      </ul>
+    </div>
+    <br />
+    <div class="clear-left"></div>
+    <br>
+    <hr />
+
+    <div id="location">
+      <h1>길찾기</h1>
+      <div id="map"></div>
+      <code id="snippet" class="snippet"></code>
+    </div>
+    <br />
+  </div>
+  <footer>
+    <hr />
+    <div class="footer"></div>
+  </footer>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cpr0o6yx7z"></script>
+  <script id="code">
+    var map = new naver.maps.Map("map", {
+      center: new naver.maps.LatLng(37.6694496536791, 128.602370513127), //지도의 초기 중심 좌표
+      zoom: 10, //지도의 초기 줌 레벨
+      minZoom: 8, //지도의 최소 줌 레벨
+      zoomControl: true, //줌 컨트롤의 표시 여부
+      zoomControlOptions: {
+        //줌 컨트롤의 옵션
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+    });
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(37.6694496536791, 128.602370513127),
+      map: map,
+    });
+  </script>
+</body>
+
+</html>

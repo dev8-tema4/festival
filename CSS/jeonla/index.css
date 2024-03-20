@@ -1,18 +1,31 @@
+@font-face {
+    font-family: "winner";
+    src: url("../../clova-all/나는_이겨낸다/나눔손글씨\ 나는\ 이겨낸다.ttf");
+  }
+
 /* 기본스타일 */
 body{
     margin: 0;
     padding: 0;
 }
-
+p{
+    font-size: 2em;
+}
+*{
+    font-family: "winner";
+}
 header{
     background-color: #000;
     color: #fff;
     padding:  20px 0;
     position: relative ;
     text-align: center;
-    height: 200px;
+    height: 100px;
     min-height: fit-content;
-    font-size: 3em;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
 }
 
@@ -194,3 +207,35 @@ footer{
     text-decoration: none;
     cursor: pointer;
 }
+
+.left-content {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    
+  }
+  .left-content > div {
+    margin-right: 30px;
+  }
+  .center-content{
+    display: flex;
+    align-items: center;
+    
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+    margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
+    position: relative; /* 상대 위치 설정 */
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .left-content, .center-content, .right-content{
+    font-weight: bold;
+    
+    
+  }
+
+  

@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import festival.db.dao.MemberDao;
 import festival.dto.MemberDto;
+import festival.util.Encrypt;
 
 public class Member {
 	private WebSocket conn = null;
@@ -19,6 +20,10 @@ public class Member {
 		JSONObject msgObj = new JSONObject(message);
 		String email = msgObj.getString("email");
 		String password = msgObj.getString("password");
+		
+		Encrypt encrypt = new Encrypt();
+		password = encrypt.getEncrypt(password);
+		
 
 		System.out.printf("로그인 id: %s pass :%s\n", email, password);
 
@@ -57,6 +62,9 @@ public class Member {
 		String phone = msgObj.getString("phone");
 
 		System.out.println("회원가입 입력값: " + email + password + name + address + phone);
+		Encrypt encrypt = new Encrypt();
+		password = encrypt.getEncrypt(password);
+		
 		
 		MemberDto dto = new MemberDto(email,password,name,address,phone);
 		MemberDao dao = new MemberDao();
@@ -79,6 +87,7 @@ public class Member {
 		}
 
 	}
+
 
 	public void checkEmail() {
 		int count = 0;

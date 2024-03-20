@@ -1,160 +1,201 @@
 section {
-    height: 100vh; /* 뷰포트 높이의 100% */
-    background-size: cover; /* 이미지를 화면에 꽉 차도록 설정합니다. */
-    background-position: center; /* 이미지를 가운데 정렬합니다. */
-    background-repeat: no-repeat; /* 이미지 반복을 비활성화합니다. */
-    display: flex;
-    position: relative; /* 섹션 내의 요소에 대한 상대적인 위치를 설정합니다. */
-    
-  }
-  #first-section {
-    /* background-image: url("../../image/gangwon/background1.jpg");  */
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url("../../image/gangwon/background1.jpg");
-  }
-  #second-section {
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url("../../image/gangwon/background2.jpg");
-  }
+  height: 100vh;
+  /* 뷰포트 높이의 100% */
+  background-size: cover;
+  /* 이미지를 화면에 꽉 차도록 설정합니다. */
+  background-position: center;
+  /* 이미지를 가운데 정렬합니다. */
+  background-repeat: no-repeat;
+  /* 이미지 반복을 비활성화합니다. */
+  display: flex;
+  position: relative;
+  /* 섹션 내의 요소에 대한 상대적인 위치를 설정합니다. */
 
-  .title {
-    color: white;
-    font-size: 24px;
-    padding: 4px;
-    position: absolute; /* 제목을 상단 왼쪽에 고정시킵니다. */
-    top: 100px; /* 위에서 20px만큼 떨어진 위치에 배치합니다. */
-    left: 120px; /* 왼쪽에서 20px만큼 떨어진 위치에 배치합니다. */
-  }
-  .content1 {
-    background-color: rgba(
+}
+
+#first-section {
+  /* background-image: url("../../image/gangwon/background1.jpg");  */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)),
+    url("../../image/gangwon/background1.jpg");
+}
+
+#second-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)),
+    url("../../image/gangwon/background2.jpg");
+}
+
+#third-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.3)),
+    url("../../image/gangwon/background3.jpg");
+}
+
+.title {
+  color: white;
+  font-size: 24px;
+  padding: 4px;
+  position: absolute;
+  /* 제목을 상단 왼쪽에 고정시킵니다. */
+  top: 100px;
+  /* 위에서 20px만큼 떨어진 위치에 배치합니다. */
+  left: 120px;
+  /* 왼쪽에서 20px만큼 떨어진 위치에 배치합니다. */
+}
+
+.content1 {
+  background-color: rgba(0,
       0,
       0,
+      0.5);
+  /* 투명도를 조절하기 위해 rgba 색상 사용 */
+  color: white;
+  width: 320px;
+  height: 180px;
+  position: absolute;
+  left: 720px;
+  top: 280px;
+  transform: translate(-50%, -60%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content1 h1,
+.content1 p,
+.content1 li {
+  opacity: 1;
+  /* 내부 요소들의 불투명도 설정 */
+}
+
+.content1 h1 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.content1 p {
+  margin-right: 5px;
+  text-align: right;
+}
+
+.content1 li {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.content1 li:last-child {
+  margin-bottom: 0;
+}
+
+.content2 {
+  width: 360px;
+  height: 240px;
+  /* 높이를 180px로 설정 */
+  position: absolute;
+  /* 절대 위치 지정 */
+  left: 720px;
+  /* 왼쪽에서 가운데로 이동 */
+  top: 540px;
+  /* 위에서 가운데로 이동 */
+  transform: translate(-50%, -60%);
+  /* 가운데 정렬 및 조금 위로 이동 */
+  border-radius: 10px;
+  /* 모서리를 둥글게 만듦 */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* 약간의 그림자 추가 */
+}
+
+.content2 iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.content3 {
+  background-color: rgba(0,
       0,
-      0.5
-    ); /* 투명도를 조절하기 위해 rgba 색상 사용 */
-    color: white;
-    width: 320px;
-    height: 180px;
-    position: absolute;
-    left: 650px;
-    top: 400px;
-    transform: translate(-50%, -60%);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .content1 h1,
-  .content1 p,
-  .content1 li {
-    opacity: 1; /* 내부 요소들의 불투명도 설정 */
-  }
-  .content1 h1 {
-    margin-top: 0 ;
-    text-align: center;
-    font-size: 24px;
-  }
-
-  .content1 p{
-    margin-right: 5px;
-    text-align: right;
-  }
-
-  .content1 li {
-    margin-bottom: 5px;
-    font-size: 18px;
-  }
-
-  .content1 li:last-child {
-    margin-bottom: 0;
-  }
-
-  .content2 {
-    width: 360px;
-    height: 240px; /* 높이를 180px로 설정 */
-    position: absolute; /* 절대 위치 지정 */
-    left: 650px; /* 왼쪽에서 가운데로 이동 */
-    top: 660px; /* 위에서 가운데로 이동 */
-    transform: translate(-50%, -60%); /* 가운데 정렬 및 조금 위로 이동 */
-    border-radius: 10px; /* 모서리를 둥글게 만듦 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
-  }
-  .content2 iframe {
-    width: 100%;
-    height: 100%;
-  }
-  .content3 {
-    background-color: rgba(
       0,
-      0,
-      0,
-      0.5
-    ); /* 투명도를 조절하기 위해 rgba 색상 사용 */
-    color: white;
-    width: 620px;
-    height: 440px;
-    position: absolute;
-    left: 1220px;
-    top: 560px;
-    transform: translate(-50%, -60%);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      0.5);
+  /* 투명도를 조절하기 위해 rgba 색상 사용 */
+  color: white;
+  width: 620px;
+  height: 440px;
+  position: absolute;
+  left: 1150px;
+  top: 285px;
+  transform: translate(-50%, -60%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.content3 h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.Slidesbackground {
+  margin: 0;
+  padding: 0;
+}
+
+.slideshow-image {
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  opacity: 1;
+  /* 이미지 불투명도 설정 */
+}
+
+.mySlides1,
+.mySlides2,
+.mySlides3 {
+  border-radius: 3%;
+  width: 600px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  /* 슬라이드 불투명도 설정 */
+}
+
+.slideshow-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
   }
 
-  .content3 h1 {
-    text-align: center;
-    margin-top: 0;
+  to {
+    opacity: 1;
   }
+}
 
-  .Slidesbackground {
-    margin: 0;
-    padding: 0;
-  }
+a:link {
+  color: white;
+  text-decoration: none;
+}
 
-  .slideshow-image {
-    border-radius: 3%;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 1; /* 이미지 불투명도 설정 */
-  }
+a:visited {
+  color: white;
+  text-decoration: none;
+}
 
-  .mySlides {
-    border-radius: 3%;
-    width: 600px;
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.5);
-    opacity: 1; /* 슬라이드 불투명도 설정 */
-  }
-
-  .slideshow-container {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    margin: auto;
-  }
-
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0.4;
-    }
-    to {
-      opacity: 1;
-    } 
-  }
-  
+a:hover {
+  color: white;
+  text-decoration: underline;
+}

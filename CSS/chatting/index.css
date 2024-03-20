@@ -46,7 +46,7 @@
   width: 5%;
   position: fixed;
   right: 5%;
-  bottom: 1%;
+  bottom: 2%;
   z-index: 200;
 }
 
@@ -58,10 +58,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
   max-width: 300px;
   /* 채팅창 최대 너비 설정 */
-  margin-bottom: 20px;
 }
 
 .chat-bubble {

@@ -5,6 +5,8 @@ import festival.db.dao.OrdersDao;
 import org.java_websocket.WebSocket;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class Orders {
     private WebSocket conn = null;
     private String message = null;
@@ -14,7 +16,7 @@ public class Orders {
         this.message = message;
     }
 
-    public int injectMemberInfo() {
+    public void injectMemberInfo() {
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
 
@@ -31,7 +33,12 @@ public class Orders {
             ackObj.put("result", "fail");
             conn.send(ackObj.toString());
         }
+    }
 
-        return check;
+    public List<Integer> getOrderIdList() {
+        JSONObject msgObj = new JSONObject(message);
+        int memberId = msgObj.getInt("memberId");
+
+        return OrdersDao.getOrderIdList(DBConnection.getConnection(), memberId);
     }
 }

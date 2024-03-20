@@ -7,7 +7,7 @@ body, html{
 .header {
   background-color: black;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
   width: 100%;
   position: fixed;
@@ -20,12 +20,29 @@ body, html{
   margin-left: 100px;
   display: flex;
   align-items: center;
+  
+}
+.left-content > div {
+  margin-right: 30px;
+}
+.center-content{
+  display: flex;
+  align-items: center;
 }
 .right-content {
   display: flex;
   align-items: center;
   margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
   position: relative; /* 상대 위치 설정 */
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.left-content, .center-content, .right-content{
+  font-weight: bold;
+  
+  
 }
 .map {
   margin-right: 40px;
@@ -42,10 +59,22 @@ body, html{
   padding: 10px; /* 내부 여백 */
   z-index: 1; /* 다른 요소 위에 표시 */
   right: 30; /* 우측 정렬 */
-  top: 20px; /* 위쪽에 붙임 */
+  
 }
 .login-menu:hover .dropdown-content {
   display: block; /* 마우스 호버시 드롭다운 표시 */
+}
+.drop1{
+  display: block;
+}
+.drop2{
+  display: block;
+}
+.logout{
+  display: none;
+}
+.mypage{
+  display: none;
 }
 .dropdown-content a {
   color: white; /* 링크 색상 */
@@ -101,4 +130,47 @@ background: rgba(0,0,0,0);
 }
 .header{
   position: relative;
+}
+
+.main-text{
+  color: white;
+  font-size: 3em;
+  width: 1200px;
+  text-align: center;
+  margin-left: 40px;
+  display: inline-block;
+}
+/* 로고 표시 */
+.logo-container {
+  font-size: 150px;
+  position: absolute;
+  top: 150px; /* 로고 컨테이너의 상단 위치 조절 */
+  left: 150px; /* 로고 컨테이너의 왼쪽 위치 조절 */
+  z-index: 2; /* 로고 컨테이너를 배경 위로 올리기 위해 z-index 설정 */
+  color: white;
+}
+
+.logo-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.logo-slide {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 100%; /* 시작 위치 변경 */
+        animation: slideLeft 2s forwards; /* 애니메이션 이름 및 방향 변경 */
+        opacity: 1;
+}
+
+@keyframes slideLeft {
+  0% {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  100% {
+      transform: translateX(-100%);
+      opacity: 0;
+  }
 }

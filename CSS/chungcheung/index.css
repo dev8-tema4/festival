@@ -5,6 +5,9 @@
 *{
     font-family:"goding";
 }
+body{
+    height: 180rem;
+}
 .page1{
     background: url('../../image/chungcheung/intro_bg.jpg')no-repeat;
     background-size: cover;
@@ -13,7 +16,7 @@
     align-items: center;
 }
 .header{
-    font-size: 50px;
+    font-size: 40px;
 }
 /* hr{
     width: 100%;
@@ -49,7 +52,10 @@ padding: 0;
 .navLogin{
     display: flex;
     align-items: center;
-    font-size: 50px;
+    font-size: 40px;
+}
+.navLogin a{
+    margin: 15px;
 }
 a,li{
     color: black;
@@ -152,7 +158,10 @@ iframe{
     margin-bottom: 20px;
     border-radius: 30px;
     background-color:#0473D2;
-    font-style: bold;
+    
+}
+
+.go a{
     color: white;
     font-size: 20px;
 }

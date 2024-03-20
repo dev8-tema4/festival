@@ -1,36 +1,51 @@
 .login-form {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 300px;
-    background-color: #f9f9f9;
-  }
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
 
 
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    box-sizing: border-box;
-  }
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
 
-  #loginBtn{
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 0;
-    margin-top: 10px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
+#loginBtn {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
 
-  #loginBtn:hover {
-    background-color: #45a049;
-  }
+#loginBtn:hover {
+  background-color: #45a049;
+}
+
+#signupBtn {
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#signupBtn:hover {
+  background-color: gray;
+}
