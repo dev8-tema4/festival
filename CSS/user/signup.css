@@ -45,10 +45,26 @@
     cursor: pointer;
   }
 
-  
   #signupBtn:hover {
     background-color: #555;
   }
+
+  #homeBtn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+  
+  #homeBtn:hover {
+    background-color: #555;
+
+  }
+
   #check-email-button:hover {
     background-color: #333;
     color: #fff;

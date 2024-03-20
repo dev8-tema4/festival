@@ -66,6 +66,8 @@ const signupSuccess = function(message) {
 document.addEventListener('DOMContentLoaded', () => {
   const signupBtn = document.querySelector('#signupBtn');
   const checkBtn = document.querySelector('#check-email-button');
+  const homeBtn = document.querySelector('#homeBtn');
+
 
   signupBtn.addEventListener('click', () => {
     sendSignup();
@@ -74,4 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   checkBtn.addEventListener('click', () => {
     sendCheckEmail();
   });
+
+  homeBtn.addEventListener('click', () => {
+      location.href = '/HTML/'
+  });
+
 });

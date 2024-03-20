@@ -31,8 +31,13 @@ const loginSuccess = function (message) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.querySelector('#loginBtn');
-  
+  const signupBtn = document.querySelector('#signupBtn');
+
   loginBtn.addEventListener('click', () => {
     sendLogIn();
   });
+  signupBtn.addEventListener('click', () => {
+    location.href = '/HTML/user/signup.html'
+  });
+
 });
