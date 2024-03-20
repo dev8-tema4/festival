@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const festival = document.querySelector('.fastival');
-  const titleList = document.querySelectorAll('.title');
-  const contentList = document.querySelectorAll('.content');
-  const videoList = document.querySelectorAll('.video');
-  contentList.forEach((element) => {
-    let plus = element.nextElementSibling;
-    
-    plus.addEventListener('click', () => {
-      plus.remove();
-      element.style.overflow = 'visible';
-    });
+  const festival = document.querySelector('.festival1');
+  const header = document.querySelector('.header');
+
+  window.addEventListener('scroll', () => {
+    console.log(festival.getBoundingClientRect().top)
+    if(festival.getBoundingClientRect().top <= 0){
+      header.style.backgroundColor = 'white';
+      header.style.color = 'black';
+    }else{
+      header.style.backgroundColor = '';
+      header.style.color = 'white';
+    }
   });
 });

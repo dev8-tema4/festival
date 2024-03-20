@@ -11,7 +11,7 @@
   position: fixed;
   right: 5%;
   bottom: 15%;
-  z-index: 20;
+  z-index: 200;
 }
 
 #messages {
@@ -47,7 +47,7 @@
   position: fixed;
   right: 5%;
   bottom: 1%;
-  z-index: 20;
+  z-index: 200;
 }
 
 .chat_icon:hover {
