@@ -1,146 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GangwonPage</title>
-    <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
-    <link rel="stylesheet" href="../../CSS/gangwon/section.css" />
-    <script src="../../JS/gangwon/index.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="header">
-        <div class="left-content">
-          <div class="map">Map</div>
-          <div class="calendar">Calendar</div>
-        </div>
-        <div class="right-content">
-          <div class="login-menu">
-            Login
-            <div class="dropdown-content">
-              <a href="#">로그인</a>
-              <a href="#">회원가입</a>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GangwonPage</title>
+  <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
+  <link rel="stylesheet" href="../../CSS/gangwon/section.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="../../JS/gangwon/index.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-content">
+        <div class="map">Map</div>
+        <div class="calendar">Calendar</div>
+      </div>
+      <div class="right-content">
+        <div class="login-menu">
+          Login
+          <div class="dropdown-content">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
           </div>
         </div>
       </div>
-    </header>
-    <section id="first-section">
-      <div class="content">
-        <div class="title">
-          <h1>
-            겨울 축제 제목 입력란 입니다.<br />
-            부제목 입력란 입니다.
-          </h1>
-        </div>
-        <div class="content1">
-          <h1>축제 내용</h1>
-          <ul class="fetival-content">
-            <li>축내 상세 내용 입력란 입니다.</li>
-            <li>축내 상세 내용 입력란 입니다.</li>
-            <li>축내 상세 내용 입력란 입니다.</li>
-          </ul>
+    </div>
+  </header>
+  <section id="first-section">
+    <div class="content">
+      <div class="title" data-aos="fade-up">
+        <h1>
+          겨울 축제 제목 입력란 입니다.<br />
+          부제목 입력란 입니다.
+        </h1>
+      </div>
+      <div class="content1" data-aos="fade-up">
+        <h1>축제 내용</h1>
+        <ul class="fetival-content">
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+        </ul>
 
-          <p>더보기 -></p>
-        </div>
-
-        <div class="content2">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/EOAEMnYk-9M?si=9jhoAG6gmuLlR7Ye"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
+        <p><a href="gangwon_winder_detail.html">더보기 -></a></p>
       </div>
 
-      <div class="content3">
-        <div class="content3-title">
-          <h1>관련 사진</h1>
-        </div>
-        <div class="slideshow-container">
-          <div class="Slidesbackground">
-            <div class="mySlides fade">
-              <img
-                src="../../image/gangwon/first_pic1.jpg"
-                class="slideshow-image"
-                style="opacity: 1"
-              />
-            </div>
-            <div class="mySlides fade">
-              <img
-                src="../../image/gangwon/first_pic2.jpg"
-                class="slideshow-image"
-                style="opacity: 1"
-              />
-            </div>
-            <div class="mySlides fade">
-              <img
-                src="../../image/gangwon/first_pic3.jpg"
-                class="slideshow-image"
-                style="opacity: 1"
-              />
-            </div>
-            <div class="mySlides fade">
-              <img
-                src="../../image/gangwon/first_pic4.jpg"
-                class="slideshow-image"
-                style="opacity: 1"
-              />
-            </div>
-            <div class="mySlides fade">
-              <img
-                src="../../image/gangwon/first_pic5.jpg"
-                class="slideshow-image"
-                style="opacity: 1"
-              />
-            </div>
+      <div class="content2" data-aos="fade-up">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EOAEMnYk-9M?si=9jhoAG6gmuLlR7Ye"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="content3" data-aos="fade-up">
+      <div class="content3-title">
+        <h1>관련 사진</h1>
+      </div>
+      <div class="slideshow-container">
+        <div class="Slidesbackground">
+          <div class="mySlides1 fade">
+            <img src="../../image/gangwon/first_pic1.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides1 fade">
+            <img src="../../image/gangwon/first_pic2.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides1 fade">
+            <img src="../../image/gangwon/first_pic3.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides1 fade">
+            <img src="../../image/gangwon/first_pic4.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides1 fade">
+            <img src="../../image/gangwon/first_pic5.jpg" class="slideshow-image" style="opacity: 1" />
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="second-section">
-      <div class="content">
-        <div class="title">
-          <h1>
-            겨울 축제 제목 입력란 입니다.<br />
-            부제목 입력란 입니다.
-          </h1>
-        </div>
-        <div class="content1">
-          <h1>축제 내용</h1>
-          <ul class="fetival-content">
-            <li>축내 상세 내용 입력란 입니다.</li>
-            <li>축내 상세 내용 입력란 입니다.</li>
-            <li>축내 상세 내용 입력란 입니다.</li>
-          </ul>
+  <section id="second-section">
+    <div class="content">
+      <div class="title">
+        <h1>
+          겨울 축제 제목 입력란 입니다.<br />
+          부제목 입력란 입니다.
+        </h1>
+      </div>
+      <div class="content1" data-aos="fade-up">
+        <h1>축제 내용</h1>
+        <ul class="fetival-content">
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+        </ul>
+        <p><a href="#">더보기 -></a></p>
+      </div>
 
-          <p>더보기 -></p>
-        </div>
-
-        <div class="content2">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/EOAEMnYk-9M?si=9jhoAG6gmuLlR7Ye"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+      <div class="content2" data-aos="fade-up">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/h6vHX3UXkOk?si=allamj38fB_R-Ld8"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="content3" data-aos="fade-up">
+      <div class="content3-title">
+        <h1>관련 사진</h1>
+      </div>
+      <div class="slideshow-container">
+        <div class="Slidesbackground">
+          <div class="mySlides2 fade">
+            <img src="../../image/gangwon/second_pic1.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides2 fade">
+            <img src="../../image/gangwon/second_pic2.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides2 fade">
+            <img src="../../image/gangwon/second_pic3.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides2 fade">
+            <img src="../../image/gangwon/second_pic4.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides2 fade">
+            <img src="../../image/gangwon/second_pic5.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
         </div>
       </div>
-      <div class="content3">
-        <div class="content3-title">
-          <h1>관련 사진</h1>
+    </div>
+  </section>
+
+  <section id="third-section">
+    <div class="content">
+      <div class="title" data-aos="fade-up">
+        <h1>
+          겨울 축제 제목 입력란 입니다.<br />
+          부제목 입력란 입니다.
+        </h1>
+      </div>
+      <div class="content1" data-aos="fade-up">
+        <h1>축제 내용</h1>
+        <ul class="fetival-content">
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+          <li>축내 상세 내용 입력란 입니다.</li>
+        </ul>
+        <p><a href="#">더보기 -></a></p>
+      </div>
+
+      <div class="content2" data-aos="fade-up">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/CTpbOBodo0g?si=dli9qkoOOltDgLIN"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="content3" data-aos="fade-up">
+      <div class="content3-title">
+        <h1>관련 사진</h1>
+      </div>
+      <div class="slideshow-container">
+        <div class="Slidesbackground">
+          <div class="mySlides3 fade">
+            <img src="../../image/gangwon/third_pic1.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides3 fade">
+            <img src="../../image/gangwon/third_pic2.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides3 fade">
+            <img src="../../image/gangwon/third_pic3.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides3 fade">
+            <img src="../../image/gangwon/third_pic4.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
+          <div class="mySlides3 fade">
+            <img src="../../image/gangwon/third_pic5.jpg" class="slideshow-image" style="opacity: 1" />
+          </div>
         </div>
       </div>
-    </section>
-
-  </body>
+    </div>
+  </section>
+</body>
 </html>
