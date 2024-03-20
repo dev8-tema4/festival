@@ -13,7 +13,6 @@ public class OrdersDao {
     private static String sql;
     private static PreparedStatement pstmt = null;
     private static int check;
-    private static OrdersDto orderDto;
 
     /**
      * 회원 정보 추가
@@ -27,8 +26,6 @@ public class OrdersDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, memberId);
             check = pstmt.executeUpdate();
-
-            orderDto.setMemberId(memberId);
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -59,7 +56,6 @@ public class OrdersDao {
 
         return orderIdList;
     }
-
 }
 
 
