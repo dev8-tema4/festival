@@ -6,7 +6,7 @@
     font-family:"goding";
 }
 body{
-    height: 180rem;
+    height: 60rem;
 }
 .page1{
     background: url('../../image/chungcheung/intro_bg.jpg')no-repeat;
@@ -113,13 +113,13 @@ body{
     font-size: 30px;
     /* background-color: white; */
 }
-#box1{
-    width: 400px;
-    height: 500px;
+#box1 {
+    width: 330px;
+    height: 470px;
     box-sizing: border-box;
-    background-size: cover;
-    background-image: url(https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/87dfeda1-084e-41a9-b76e-09f2d502443a_3.jpg);
-    ;    
+    background-size: cover; /* 이미지를 비율을 유지하면서 컨테이너에 맞게 조절 */
+    background-image: url('https://kfescdn.visitkorea.or.kr/kfes/upload/contents/db/87dfeda1-084e-41a9-b76e-09f2d502443a_3.jpg');
+    background-repeat: no-repeat;
 }
 iframe{
     border-radius: 20px;
