@@ -14,38 +14,61 @@ public class BoardDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	Connection conn = null;
-	
+
 	public void list(List<BoardDto> dtolist) {
-		
+
 		String sql = "SELECT * FROM BOARD";
-        int count = 0;
-        try {
-            conn = DBConnection.getConnection();
-            pstmt = conn.prepareStatement(sql);
-            
-            rs = pstmt.executeQuery();
-            
-            while (rs.next()) {
-            	BoardDto dto = new BoardDto();
-                dto.setIndexNum(rs.getInt(1));
-                dto.setSubject(rs.getString(2));
-                dto.setMemberID(rs.getInt(3));
-                dto.setContent(rs.getString(4));
-                dto.setDate(rs.getString(5));
-                dto.setViews(rs.getInt(6));
-                dto.setName(rs.getString(7));
-                dtolist.add(dto);
-            }
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // 연결 및 리소스 해제
+		int count = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dtolist.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
 			DBClose.close(conn, pstmt, rs);
-        }
+		}
 	}
-	
+
 	public void write() {
+
+	}
+
+	public String view(int indexNum) {
+		String result = null;
+		String sql = "SELECT * FROM BOARD WHERE INDEXNUM=?";
 		
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, indexNum);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				result = rs.getString(4);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
+		return result;
 	}
 }

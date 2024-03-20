@@ -1,6 +1,8 @@
 package festival.dto;
 
 public class BoardDto {
+	
+
 	private int indexNum;
 	private String subject;
 	private int memberID;

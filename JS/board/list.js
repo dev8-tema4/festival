@@ -59,6 +59,7 @@ const requestboard = function (message) {
 
     for(let i=0; i<msgObj.result.length; i++){
         const row = document.createElement('tr');
+        row.setAttribute("id", msgObj.result[i].indexNum)
 
         const cell1 = document.createElement('td');
         cell1.textContent = msgObj.result[i].indexNum;
@@ -96,14 +97,21 @@ const requestboard = function (message) {
 
     // 부모 요소에 테이블 추가
     parentElement.appendChild(table);
+
+    const trbtn = document.querySelectorAll('tr');
+    console.log(trbtn)
+    trbtn.forEach(element=>{
+        element.addEventListener('click', () => {sendView(element)})
+    })
 };
 
 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const listbtn = document.querySelector('#board-list');
-
+    
     listbtn.addEventListener('click', ()=>{
         sendBoardList();
     });
+   
 });

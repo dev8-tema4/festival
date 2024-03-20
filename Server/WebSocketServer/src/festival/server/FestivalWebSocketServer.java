@@ -2,6 +2,8 @@ package festival.server;
 
 import java.net.InetSocketAddress;
 
+import javax.swing.text.View;
+
 import festival.server.function.OrderItem;
 import festival.server.function.Orders;
 import org.java_websocket.WebSocket;
@@ -91,11 +93,16 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("=== getOrderList ===");
 			OrderItem orderItem = new OrderItem(conn, message);
 			orderItem.getOrderList();
-  	}else if(cmd.equals("boardlist")) {
-			System.out.println("packet 잘받음");
+		}else if(cmd.equals("boardlist")) {
+			
 			Board board = new Board(conn, message);
 			board.boardlist();
-
+		}else if(cmd.equals("view")) {
+			Board board = new Board(conn, message);
+			board.view();
+			
+			
+		}
 	}
 
 	@Override

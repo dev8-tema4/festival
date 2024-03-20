@@ -43,6 +43,10 @@ socket.onmessage = function (e) {
         case 'boardlist':
             requestboard(e.data);
             break;
+        case 'view':
+            showcontent(e.data);
+            console.log(e.data)
+            break;
     }
 }
 
