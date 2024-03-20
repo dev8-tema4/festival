@@ -3,10 +3,15 @@
 window.onload = function(){
     //서버로부터 사용자 정보를 가져와서 테이브에 출력하는 함수 호출
 
-    if(sessionStorage.getItem("memberId")== null){
+    //세션 스토리지에서 로그인한 사용자 ID를 가져옴
+    const memberId = sessionStorage.getItem("memberId");
+
+    if(memberId === null){
+        // 사용자 ID가 없으면 로그인 페이지로 이동
+        window.location.href = "../../HTML/user/login.html";
  // 로그인 페이지로 이동
     }eles{
-        
+
     }
     getMyInfo();
     //비밀번호 변경 링크에 이벤트 리스너 등록
