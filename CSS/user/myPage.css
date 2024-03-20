@@ -1,3 +1,13 @@
+@font-face {
+    font-family: "winner";
+    src: url("../../clova-all/나는_이겨낸다/나눔손글씨\ 나는\ 이겨낸다.ttf");
+}
+*{
+    font-family: "winner";
+    color: black;
+    font-weight: bold;
+}
+
 body,
 html {
     margin: 0;
@@ -5,6 +15,7 @@ html {
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
     /* 스무스 스크롤링 */
+    height: 100vh;
 }
 .header {
     background-color: black;
@@ -12,7 +23,7 @@ html {
     padding: 20px;
     text-align: center;
     width: 100%;
-    position: fixed;
+    font-size: 2em;
     display: flex;
     justify-content: space-between;
     z-index: 999;
@@ -98,4 +109,55 @@ a {
 .dropdown-content a:hover {
     background-color: #555;
     /* 링크 호버시 배경색 */
+}
+
+section{
+    height: 100%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 5%;
+    text-align: left;
+    
+    
+}
+section main{
+    display: inline-block;
+    text-align: left;
+}
+
+table{
+    width: 600px;
+    border-collapse:collapse;
+    font-size: 2em;
+    
+}
+h2{
+    font-size: 3em;
+}
+
+th, td{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    border-right:2px solid black ;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    
+}
+th{
+    background-color: rgb(174, 228, 245);
+}
+
+.myMenu{
+    display: flex;
+    justify-content:left;
+    font-size: 1.9em;
+    
+    
+}
+.myMenu >div{
+    padding: 10px;
+    margin: 0 5px;
+    
+    
 }
