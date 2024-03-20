@@ -89,6 +89,13 @@ function closeModal() {
     youtubeModal.style.display = "none";
 }
 
+window.addEventListener('click', function(event) {
+    if (event.target === youtubeModal) {
+    closeModal();
+    }
+});
+
+
 // 모달 닫기 버튼에 이벤트 리스너 추가
 var closeBtn = document.getElementsByClassName("youtubeClose")[0];
 closeBtn.addEventListener("click", closeModal);
