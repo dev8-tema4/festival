@@ -1,51 +1,119 @@
-.chatting{
+.chatting {
   display: flex;
   flex-direction: column-reverse;
-  width: 30%;
-  height: 50%;
-  background-color: #eee;
+  width:320px;
+  height: 640px;
+  /* background-color: #eee; */
+  background-color: #c0d6eb;
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: #eee;
   position: fixed;
   right: 5%;
   bottom: 15%;
-  z-index: 20;
+  z-index: 200;
 }
 
-#messages{
+#messages {
   display: flex;
   flex-direction: column;
   /* height: 100%; */
-  background-color: #c0d6eb;
+  /* background-color: #c0d6eb; */
   margin: 2%;
   overflow-y: auto;
 }
 
-#messages::-webkit-scrollbar{
-  display:none;
+#messages::-webkit-scrollbar {
+  display: none;
 }
 
-.send{
+.send {
   display: flex;
   justify-content: space-around;
   margin: 0 2%;
   margin-bottom: 2%;
 }
 
-.send input{
+.send input {
   width: 70%;
 }
 
-.send button{
+.send button {
   width: 30%;
 }
 
-.chat_icon{
+.chat_icon {
   width: 5%;
   position: fixed;
   right: 5%;
   bottom: 1%;
-  z-index: 20;
+  z-index: 200;
 }
 
-.chat_icon:hover{
+.chat_icon:hover {
   cursor: pointer;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+  max-width: 300px;
+  /* 채팅창 최대 너비 설정 */
+  margin-bottom: 20px;
+}
+
+.chat-bubble {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 5px;
+  max-width: 80%;
+  /* 말풍선 최대 너비 설정 */
+}
+
+.sent {
+  align-self: flex-end;
+  /* 보낸 메시지 오른쪽 정렬 */
+  background-color: #DCF8C6;
+  /* 보낸 메시지 배경색 */
+  border-radius: 20px 20px 0 20px;
+
+}
+
+.sent #time {
+  font-size: 12px;
+  text-align: right;
+  width: 100%;
+}
+
+.received {
+  align-self: flex-start;
+  /* 받은 메시지 왼쪽 정렬 */
+  background-color: yellow;
+  /* 받은 메시지 배경색 */
+  border-radius: 20px 20px 20px 0;
+
+}
+
+.received #time{
+  font-size: 12px;
+  text-align: left;
+  width: 100%;
+}
+
+#messageInput {
+  border-radius: 20px;
+  height: 25px;
+  border: 1px solid;
+
+}
+
+#btnChatMsg {
+  border-radius: 20px;
+  background-color: yellow;
+  border: 1px solid;
+  font-weight: 1000;
+
 }

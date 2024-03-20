@@ -7,6 +7,15 @@ public class MemberDto {
 	private String name;
 	private String address;
 	private String phone;
+	
+	public MemberDto(int memberId, String email, String password, String name,String address,String phone){
+		this.memberId = memberId;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+	}
 
 	public MemberDto(String email, String password, String name,String address,String phone){
 		this.email = email;

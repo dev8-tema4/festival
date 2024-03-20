@@ -2,6 +2,8 @@ package festival.server;
 
 import java.net.InetSocketAddress;
 
+import festival.server.function.OrderItem;
+import festival.server.function.Orders;
 import org.java_websocket.WebSocket;
 import org.java_websocket.handshake.ClientHandshake;
 import org.java_websocket.server.WebSocketServer;
@@ -53,10 +55,11 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			member.login();
 			
 		} else if (cmd.equals("allchat")) {
-			String id = msgObj.getString("id");
+			String memberId = msgObj.getString("memberId");
 			String msg = msgObj.getString("msg");
-			System.out.printf("채팅 id: %s msg:%s \n", id, msg);
-			// 클라이언트한테 응답 전송
+			String name = msgObj.getString("name");
+			System.out.printf("이름 : %s 채팅 id: %s msg:%s \n",name, memberId, msg);
+
 			JSONObject ackObj = new JSONObject();
 			ackObj.put("cmd", "allchat");
 			ackObj.put("result", "ok");
@@ -64,18 +67,34 @@ public class FestivalWebSocketServer extends WebSocketServer{
 
 			// 전체 접속자한테 브로드 캐스팅
 			for (WebSocket con : this.getConnections()) {
-				// if (conn != con) // 나를 제외한 모든 접속자들에게 전송
 				 con.send(message);
 			}
 		}else if(cmd.equals("signup")) {
+			System.out.println("===SIGN UP===");
 			Member member = new Member(conn, message);
 			member.signUp();
-		}else if(cmd.equals("boardlist")) {
+		}else if(cmd.equals("checkemail")) {
+			System.out.println("=== checkmail ===");
+			Member member = new Member(conn, message);
+			member.checkEmail();
+		} else if(cmd.equals("addCart")) {
+			System.out.println("=== addCart ===");
+			Orders orders = new Orders(conn, message);
+			int orderId = orders.injectMemberInfo();
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.addCart(orderId);
+		} else if(cmd.equals("getAllCart")) {
+			System.out.println("=== getAllCart ===");
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.getAllCart();
+		} else if (cmd.equals("getOrderList")) {
+			System.out.println("=== getOrderList ===");
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.getOrderList();
+  	}else if(cmd.equals("boardlist")) {
 			System.out.println("packet 잘받음");
 			Board board = new Board(conn, message);
 			board.boardlist();
-			
-		}
 
 	}
 

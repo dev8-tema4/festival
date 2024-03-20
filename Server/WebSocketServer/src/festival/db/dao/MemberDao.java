@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import festival.db.DBConnection;
 import festival.db.DBConnection.DBClose;
@@ -61,10 +63,12 @@ public class MemberDao {
 		return result;
 	}
 
-	public String getNameByEmail(String email) {
-	    String name = null;
-	    String sql = "SELECT NAME FROM MEMBER WHERE EMAIL = ?";
-	    
+
+	public MemberDto getMemberInfoByEmail(String email) {
+		
+	    String sql = "SELECT * FROM MEMBER WHERE EMAIL = ?";
+		MemberDto dto = null;
+		
 	    try {
 	        conn = DBConnection.getConnection();
 	        pstmt = conn.prepareStatement(sql);
@@ -72,14 +76,35 @@ public class MemberDao {
 	        rs = pstmt.executeQuery(); // Corrected method call
 	        
 	        while (rs.next()) {
-	            name = rs.getString(1);
+				dto = new MemberDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5) ,rs.getString(6));
 	        }
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
 	        DBClose.close(conn, pstmt, rs);
 	    }
-	    return name;
+	    return dto;
+	}
+
+	public int checkEmail(String email) {
+	    String sql = "SELECT COUNT(*) FROM MEMBER WHERE EMAIL = ?";
+	    int count = 0;
+	    try {
+	        conn = DBConnection.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+	        
+	        while (rs.next()) {
+	            count = rs.getInt(1);
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBClose.close(conn, pstmt, rs);
+	    }
+	    System.out.println(count);
+	    return count;
 	}
 
 }

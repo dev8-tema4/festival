@@ -23,28 +23,29 @@ public class Member {
 		System.out.printf("로그인 id: %s pass :%s\n", email, password);
 
 		boolean check = false;
-		//로그인 DB에서 확인
+		// 로그인 DB에서 확인
 		MemberDao dao = new MemberDao();
 		check = dao.login(email, password);
-		//로그인 결과 패킷 보내기
+		// 로그인 결과 패킷 보내기
 		if (check) {
 			JSONObject ackObj = new JSONObject();
-			String name = dao.getNameByEmail(email);
+			MemberDto dto = dao.getMemberInfoByEmail(email);
 			
 			ackObj.put("cmd", "login");
 			ackObj.put("result", "ok");
+			ackObj.put("memberId", dto.getMemberId());
 			ackObj.put("email", email);
-			ackObj.put("name", name);
+			ackObj.put("name", dto.getName());
 
 			conn.send(ackObj.toString());
-		}else {
+		} else {
 			JSONObject ackObj = new JSONObject();
 			ackObj.put("cmd", "login");
 			ackObj.put("result", "no");
 			conn.send(ackObj.toString());
 		}
 		return check;
-		
+
 	}
 
 	public void signUp() {
@@ -54,29 +55,51 @@ public class Member {
 		String name = msgObj.getString("name");
 		String address = msgObj.getString("address");
 		String phone = msgObj.getString("phone");
-		
+
 		System.out.println("회원가입 입력값: " + email + password + name + address + phone);
 		
 		MemberDto dto = new MemberDto(email,password,name,address,phone);
 		MemberDao dao = new MemberDao();
-		int result =  dao.signUp(dto);
-		
+		int result = dao.signUp(dto);
+
 		if (result == 1) {
 			System.out.println("회원가입 성공");
 			JSONObject ackObj = new JSONObject();
+
 			ackObj.put("cmd", "signup");
 			ackObj.put("result", "ok");
-
 			conn.send(ackObj.toString());
-		}else {
+		} else {
 			System.out.println("회원가입 실패");
 			JSONObject ackObj = new JSONObject();
+
 			ackObj.put("cmd", "signup");
 			ackObj.put("result", "no");
-
 			conn.send(ackObj.toString());
 		}
-		
+
+	}
+
+	public void checkEmail() {
+		int count = 0;
+		JSONObject msgObj = new JSONObject(message);
+		String email = msgObj.getString("email");
+
+		MemberDao dao = new MemberDao();
+		count = dao.checkEmail(email);
+		if (count == 1) {
+			JSONObject ackObj = new JSONObject();
+			ackObj.put("cmd", "checkemail");
+			ackObj.put("result", "no");
+			conn.send(ackObj.toString());
+
+		} else {
+			JSONObject ackObj = new JSONObject();
+			ackObj.put("cmd", "checkemail");
+			ackObj.put("result", "ok");
+			conn.send(ackObj.toString());
+
+		}
 
 	}
 }
