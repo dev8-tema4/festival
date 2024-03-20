@@ -1,6 +1,7 @@
 package festival.server;
 
 import java.net.InetSocketAddress;
+import java.util.List;
 
 import festival.server.function.OrderItem;
 import festival.server.function.Orders;
@@ -80,9 +81,12 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		} else if(cmd.equals("addCart")) {
 			System.out.println("=== addCart ===");
 			Orders orders = new Orders(conn, message);
-			int orderId = orders.injectMemberInfo();
+			orders.injectMemberInfo();
+
+			List<Integer> orderIdList = orders.getOrderIdList();
+
 			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.addCart(orderId);
+			orderItem.addCart(orderIdList);
 		} else if(cmd.equals("getAllCart")) {
 			System.out.println("=== getAllCart ===");
 			OrderItem orderItem = new OrderItem(conn, message);

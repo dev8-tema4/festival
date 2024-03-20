@@ -16,20 +16,23 @@ public class OrderItem {
     private String message = null;
     private OrdersDto ordersDto;
     private OrderItemDto orderItemDto;
+    private int result;
 
     public OrderItem(WebSocket conn, String message) {
         this.conn = conn;
         this.message = message;
     }
 
-    public void addCart(int orderId) {
+    public void addCart(List<Integer> orderIdList) {
         JSONObject msgObj = new JSONObject(message);
         int itemId = msgObj.getInt("itemId");
         int count =  msgObj.getInt("count");
         int price =  msgObj.getInt("price");
 
-        OrderItemDto orderItemDto = new OrderItemDto(orderId, itemId, count, price);
-        int result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto);
+        for (int orderId : orderIdList) {
+            OrderItemDto orderItemDto = new OrderItemDto(orderId, itemId, count, price);
+            result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto);
+        }
 
         if(result > 0) {
             System.out.println("success");
