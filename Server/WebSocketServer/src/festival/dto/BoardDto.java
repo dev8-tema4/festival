@@ -10,21 +10,27 @@ public class BoardDto {
 	private String date;
 	private int views;
 	private String name;
+	private String category;
 	
 	
-	public BoardDto(int indexNum, String subject, int memberID, String content, String date, int views, String name){
-		this.indexNum = indexNum;
-		this.subject = subject;
-		this.memberID = memberID;
-		this.content = content;
-		this.date = date;
-		this.views = views;
-		this.name = name;
-		
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public BoardDto() {
 		
+	}
+	
+	public BoardDto(String subject, String content, String category, int memberID, String name) {
+		this.category = category;
+		this.subject = subject;
+		this.content = content;
+		this.memberID = memberID;
+		this.name = name;
 	}
 	
 	public int getIndexNum() {

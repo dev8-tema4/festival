@@ -45,8 +45,24 @@ public class BoardDao {
 		}
 	}
 
-	public void write() {
-
+	public int write(BoardDto dto) {
+		String sql = "INSERT INTO BOARD(CATEGORY, SUBJECT, CONTENT, MEMBER_ID, NAME) VALUE (?, ?, ?, ?, ?)";
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getCategory());
+			pstmt.setString(2, dto.getSubject());
+			pstmt.setString(3, dto.getContent());
+			pstmt.setInt(4, dto.getMemberID());
+			pstmt.setString(5, dto.getName());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+		return result;
 	}
 
 	public String view(int indexNum) {

@@ -45,5 +45,37 @@ public class Board {
 		conn.send(ackObj.toString());
 	}
 	
+	public void write() {
+		JSONObject msgObj = new JSONObject(message);
+		String subject = msgObj.getString("subject");
+		String content = msgObj.getString("content");
+		String category = msgObj.getString("category");
+		int MEMBER_ID = msgObj.getInt("memberId");
+		String name = msgObj.getString("name");
+		
+		System.out.println("작성글 : " + subject + content + category + MEMBER_ID + name);
+		
+		BoardDto dto = new BoardDto(subject, content, category, MEMBER_ID, name);
+		BoardDao dao = new BoardDao();
+		
+		int result = dao.write(dto);
+		
+		if(result == 1) {
+			System.out.println("글 작성 완료");
+			JSONObject ackObj = new JSONObject();
+
+			ackObj.put("cmd", "write");
+			ackObj.put("result", "ok");
+			conn.send(ackObj.toString());
+		}else {
+			System.out.println("글 작성 실패");
+			JSONObject ackObj = new JSONObject();
+
+			ackObj.put("cmd", "write");
+			ackObj.put("result", "no");
+			conn.send(ackObj.toString());
+		}
+	}
+	
 	
 }

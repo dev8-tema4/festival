@@ -94,14 +94,15 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			OrderItem orderItem = new OrderItem(conn, message);
 			orderItem.getOrderList();
 		}else if(cmd.equals("boardlist")) {
-			
+		
 			Board board = new Board(conn, message);
 			board.boardlist();
 		}else if(cmd.equals("view")) {
 			Board board = new Board(conn, message);
 			board.view();
-			
-			
+		}else if(cmd.equals("write")) {
+			Board board = new Board(conn, message);
+			board.write();
 		}
 	}
 
