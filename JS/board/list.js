@@ -46,6 +46,25 @@ const sendFreeBoardList = function () {
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
     sendMessage(jsonStr);
 }
+
+const sendSearchBoardList = function () {
+
+    const type = document.getElementById("searchOptionSelect").value
+    const search = document.getElementById("searchInput").value
+    console.log(type)
+    console.log(search)
+
+    const packet = {
+        cmd: 'searchlist',
+        type: type,
+        search:search
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
+
+
 const requestboard = function (message) {
     // 결과를 출력할 부모 요소 선택
     const parentElement = document.getElementById('resultTable');
@@ -136,6 +155,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const questionBtn = document.querySelector('#question')
     const recruitBtn = document.querySelector('#recruit')
     const freeBtn = document.querySelector('#free')
+    const searchButton = document.querySelector('#searchButton')
+
 
     listbtn.addEventListener('click', () => {
         sendBoardList();
@@ -156,6 +177,11 @@ document.addEventListener('DOMContentLoaded', () => {
     freeBtn.addEventListener('click', () => {
         sendFreeBoardList();
     });
+    searchButton.addEventListener('click', () => {
+        sendSearchBoardList();
+    });
+
+
     setTimeout(sendBoardList, 100);
 
 });
