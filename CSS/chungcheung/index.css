@@ -5,6 +5,9 @@
 *{
     font-family:"goding";
 }
+body{
+    height: 180rem;
+}
 .page1{
     background: url('../../image/chungcheung/intro_bg.jpg')no-repeat;
     background-size: cover;
@@ -155,7 +158,10 @@ iframe{
     margin-bottom: 20px;
     border-radius: 30px;
     background-color:#0473D2;
-    font-style: bold;
+    
+}
+
+.go a{
     color: white;
     font-size: 20px;
 }
