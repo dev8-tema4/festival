@@ -16,7 +16,7 @@ import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "127.0.0.1"; // localhost
+		String host = "192.168.0.22"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
@@ -96,6 +96,18 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		}else if(cmd.equals("boardlist")) {
 			Board board = new Board(conn, message);
 			board.boardlist();
+		}else if(cmd.equals("popularlist")) {
+			Board board = new Board(conn, message);
+			board.popularlist();
+		}else if(cmd.equals("questionlist")) {
+			Board board = new Board(conn, message);
+			board.questionlist();
+		}else if(cmd.equals("recruitlist")) {
+			Board board = new Board(conn, message);
+			board.recruitlist();
+		}else if(cmd.equals("freelist")) {
+			Board board = new Board(conn, message);
+			board.freelist();
 		}else if(cmd.equals("view")) {
 			Board board = new Board(conn, message);
 			board.view();

@@ -127,7 +127,7 @@ public class BoardDao {
 	
 	public void popularlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD ORDER BY VIEWS";
+		String sql = "SELECT * FROM BOARD ORDER BY VIEWS DESC LIMIT 14";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -155,10 +155,9 @@ public class BoardDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 	}
-	
-	public void list(List<BoardDto> dtolist) {
+	public void questionlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='질문'";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -186,10 +185,9 @@ public class BoardDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 	}
-	
-	public void list(List<BoardDto> dtolist) {
+	public void recruitlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='모집'";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -217,10 +215,9 @@ public class BoardDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 	}
-	
-	public void list(List<BoardDto> dtolist) {
+	public void freelist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD ORDER BY INDEXNUM DESC";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='자유'";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -248,4 +245,5 @@ public class BoardDao {
 			DBClose.close(conn, pstmt, rs);
 		}
 	}
+
 }

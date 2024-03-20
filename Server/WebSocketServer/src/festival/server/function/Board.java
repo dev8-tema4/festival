@@ -88,6 +88,46 @@ public class Board {
 		}
 	}
 
+	public void popularlist() {
+		dao.popularlist(dtolist);
+		JSONObject ackObj = new JSONObject();
+				
+		ackObj.put("cmd", "boardlist");
+		ackObj.put("result", dtolist);
+		
+		conn.send(ackObj.toString());
+	}
+
+	public void questionlist() {
+		dao.questionlist(dtolist);
+		JSONObject ackObj = new JSONObject();
+				
+		ackObj.put("cmd", "boardlist");
+		ackObj.put("result", dtolist);
+		
+		conn.send(ackObj.toString());
+	}
+
+	public void recruitlist() {
+		dao.recruitlist(dtolist);
+		JSONObject ackObj = new JSONObject();
+				
+		ackObj.put("cmd", "boardlist");
+		ackObj.put("result", dtolist);
+		
+		conn.send(ackObj.toString());
+	}
+
+	public void freelist() {
+		dao.freelist(dtolist);
+		JSONObject ackObj = new JSONObject();
+				
+		ackObj.put("cmd", "boardlist");
+		ackObj.put("result", dtolist);
+		
+		conn.send(ackObj.toString());
+	}
+
 		
 	
 }
