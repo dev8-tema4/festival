@@ -5,26 +5,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GangwonPage</title>
+  <link rel="stylesheet" href="../../CSS/chatting/index.css">
   <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
   <link rel="stylesheet" href="../../CSS/gangwon/section.css" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="../../JS/gangwon/index.js"></script>
+  <script src="../../JS/chatting/index.js"></script>
 </head>
 
 <body>
   <header>
     <div class="header">
       <div class="left-content">
-        <div class="map">Map</div>
-        <div class="calendar">Calendar</div>
+        <div class="map"><a href="../index.html">Map</a></div>
+        <div class="calendar"><a href="../board/index.html">QnA</a></div>
       </div>
       <div class="right-content">
         <div class="login-menu">
           Login
           <div class="dropdown-content">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
+            <a href="../user/login.html">로그인</a>
+            <a href="../user/signup.html">회원가입</a>
           </div>
         </div>
       </div>
@@ -184,5 +186,14 @@
       </div>
     </div>
   </section>
+</nav>
+<div class="chat-container" id="chatContainer">
+    <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+</div>
+<div class="icon">
+  <div class="chat-container" id="chatContainer">
+    <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+  </div>
+</div>
 </body>
 </html>

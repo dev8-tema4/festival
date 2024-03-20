@@ -5,11 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GangwonDetailPage</title>
+  <link rel="stylesheet" href="../../CSS/chatting/index.css">
   <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
   <link rel="stylesheet" href="../../CSS/gangwon/detail_page.css" />
   <style>
     
   </style>
+  <script src="../../JS/chatting/index.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", (event) => {
       var slideIndex = 0;
@@ -38,15 +40,15 @@
   <header>
     <div class="header">
       <div class="left-content">
-        <div class="map">Map</div>
-        <div class="calendar">Calendar</div>
+        <div class="map"><a href="../index.html">Map</a></div>
+        <div class="calendar"><a href="../board/index.html">QnA</a></div>
       </div>
       <div class="right-content">
         <div class="login-menu">
           Login
           <div class="dropdown-content">
-            <a href="#">로그인</a>
-            <a href="#">회원가입</a>
+            <a href="../user/login.html">로그인</a>
+            <a href="../user/signup.html">회원가입</a>
           </div>
         </div>
       </div>
@@ -227,6 +229,11 @@
       map: map,
     });
   </script>
+  <div class="icon">
+    <div class="chat-container" id="chatContainer">
+      <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+    </div>
+  </div>
 </body>
 
 </html>
