@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     backgroundSize();
   })
-
-
 })
 
 // 4초마다 background-image변경
