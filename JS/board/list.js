@@ -1,31 +1,51 @@
-const sendBoardList = function(){
-    
+const sendBoardList = function () {
+
     const packet = {
-     cmd : 'boardlist'
+        cmd: 'boardlist'
     };
 
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
     sendMessage(jsonStr);
-    }
+}
 
-// 서버로부터 응답처리
-// const requestboard = function (message) {
-//     // json문자열 -> js 객체로 변환
-//     const msgObj = JSON.parse(message);
+const sendPopularList = function () {
 
-//     switch (msgObj.cmd) {
-//       case 'boardlist':
-//         const postList = document.querySelector('#postList');
-//         postList.innerHTML='';
-//         msgObj.result.forEach(element => {
-//             const li = document.createElement('li');
-//             li.innerHTML = element.subject;
-//             // li.innerHTML += `<br>${element.date}`        
-//             postList.appendChild(li);
-//         });
-//         console.log(msgObj.result)
-//     }
-// }
+    const packet = {
+        cmd: 'popularlist'
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
+const sendQuestionList = function () {
+
+    const packet = {
+        cmd: 'questionlist'
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
+
+const sendRecruitBoardList = function () {
+
+    const packet = {
+        cmd: 'recruitlist'
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
+
+const sendFreeBoardList = function () {
+
+    const packet = {
+        cmd: 'freelist'
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
 const requestboard = function (message) {
     // 결과를 출력할 부모 요소 선택
     const parentElement = document.getElementById('resultTable');
@@ -57,7 +77,7 @@ const requestboard = function (message) {
     });
     table.appendChild(tableHeader);
 
-    for(let i=0; i<msgObj.result.length; i++){
+    for (let i = 0; i < msgObj.result.length; i++) {
         const row = document.createElement('tr');
         row.setAttribute("id", msgObj.result[i].indexNum)
 
@@ -105,15 +125,37 @@ const requestboard = function (message) {
 
     const trbtn = document.querySelectorAll('tr');
     console.log(trbtn)
-    trbtn.forEach(element=>{
-        element.addEventListener('click', () => {sendView(element)})
+    trbtn.forEach(element => {
+        element.addEventListener('click', () => { sendView(element) })
     })
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+    const listbtn = document.querySelector('#board-list')
+    const popularBtn = document.querySelector('#popular-list')
+    const questionBtn = document.querySelector('#question')
+    const recruitBtn = document.querySelector('#recruit')
+    const freeBtn = document.querySelector('#free')
 
+    listbtn.addEventListener('click', () => {
+        sendBoardList();
+    });
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    
+    popularBtn.addEventListener('click', () => {
+        sendPopularList();
+    });
+
+    questionBtn.addEventListener('click', () => {
+        sendQuestionList();
+    });
+
+    recruitBtn.addEventListener('click', () => {
+        sendRecruitBoardList();
+    });
+
+    freeBtn.addEventListener('click', () => {
+        sendFreeBoardList();
+    });
     setTimeout(sendBoardList, 100);
-   
+
 });

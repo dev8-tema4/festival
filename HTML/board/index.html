@@ -9,11 +9,10 @@
   <script src="../../JS/connSocket.js"></script>
   <script src="../../JS/board/index.js"></script>
   <script src="../../JS/board/view.js"></script>
-  <script src="../../JS/board/list.js"></script>
-
+  
   <script src="../../JS/board//write.js"></script>
-
-
+  
+  
 </head>
 
 <body>
@@ -21,7 +20,7 @@
   <header>
     <h1>게시판</h1>
   </header>
-
+  
   <nav>
     <button class="category-button active" data-category="all" id="board-list">전체</button>
     <button class="category-button active" data-category="popular" id="popular-list">인기</button>
@@ -32,7 +31,7 @@
   <!-- 검색창 -->
   <div class="search-box">
 
-
+    
     <div class="dropdown" id="dropdown">
       <select id="searchOptionSelect">
         <option value="titleContent">제목+본문</option>
@@ -43,18 +42,18 @@
     </div>
     <button id="searchButton">검색</button>
   </div>
-
-
-
-
-
+  
+  
+  
+  
+  
   <!-- 전체 글 목록 -->
   <section class="main-section">
     <div class="category">
       <ul class="post-list" id="postList">
         <!-- 전체 글 목록이 동적으로 추가됩니다. -->
         <div id="resultTable"></div>
-
+        
       </ul>
     </div>
   </section>
@@ -64,7 +63,7 @@
       
     </div>
   </section>
-
+  
   <!-- 하단 -->
   <section class="bottom-section">
     <ul class="bottom-menu">
@@ -72,14 +71,14 @@
       <li><a href="#" onclick="openModal()">글쓰기</a></li>
     </ul>
   </section>
-
+  
   <!-- 모달 창 -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>글쓰기</h2>
       <!-- 양식추가 -->
-
+      
       <div class="input-group">
         <label for="categorySelect">카테고리</label>
         <select id="categorySelect">
@@ -88,7 +87,7 @@
           <option value="자유">자유</option>
         </select>
       </div>
-
+      
       <div class="input-group">
         <label for="titleInput">제목</label>
         <input type="text" id="titleInput" placeholder="제목을 입력해주세요.">
@@ -102,13 +101,14 @@
       <button id="cancelButton" class="modalClose" onclick="closeModal()">취소</button>
     </div>
   </div>
-
+  
   <!-- footer -->
   <footer>
     <p>고객센터</p>
   </footer>
-
-
+  
+  <script src="../../JS/board/list.js"></script>
+  
 </body>
 
 </html>
