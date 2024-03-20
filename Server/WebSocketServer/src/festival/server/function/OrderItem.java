@@ -2,6 +2,7 @@ package festival.server.function;
 
 import festival.db.DBConnection;
 import festival.db.dao.CartResponseDto;
+import festival.db.dao.MemberDao;
 import festival.db.dao.OrderItemDao;
 import festival.dto.OrderItemDto;
 import festival.dto.OrderListResponseDto;
@@ -17,6 +18,8 @@ public class OrderItem {
     private OrdersDto ordersDto;
     private OrderItemDto orderItemDto;
     private int result;
+    private static MemberDao memberDao;
+    private static int getMemberId;
 
     public OrderItem(WebSocket conn, String message) {
         this.conn = conn;
@@ -58,8 +61,10 @@ public class OrderItem {
     public void getAllCart() {
 
         JSONObject msgObj = new JSONObject(message);
-
         int memberId = msgObj.getInt("memberId");
+
+
+        getMemberId = memberDao.getMemberId(DBConnection.getConnection(), memberId);
 
         if (ordersDto.getMemberId() == memberId) {
             List<CartResponseDto> cartList = OrderItemDao.getAllCart(DBConnection.getConnection(), orderItemDto);
@@ -73,10 +78,11 @@ public class OrderItem {
     public void getOrderList() {
 
         JSONObject msgObj = new JSONObject(message);
-
         int memberId = msgObj.getInt("memberId");
 
-        if (ordersDto.getMemberId() == memberId) {
+        getMemberId = memberDao.getMemberId(DBConnection.getConnection(), memberId);
+
+        if (getMemberId == memberId) {
             List<OrderListResponseDto> orderList = OrderItemDao.getOrderList(DBConnection.getConnection(), orderItemDto);
 
             JSONObject ackObj = new JSONObject();

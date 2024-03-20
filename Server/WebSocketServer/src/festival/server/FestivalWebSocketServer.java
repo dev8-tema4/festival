@@ -99,7 +99,7 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("packet 잘받음");
 			Board board = new Board(conn, message);
 			board.boardlist();
-  	}
+		}
 	}
 
 	@Override

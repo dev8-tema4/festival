@@ -7,7 +7,7 @@ body, html{
 .header {
   background-color: black;
   color: white;
-  padding: 20px;
+  padding: 20px 0;
   text-align: center;
   width: 100%;
   position: fixed;
@@ -59,10 +59,22 @@ a{
   padding: 10px; /* 내부 여백 */
   z-index: 1; /* 다른 요소 위에 표시 */
   right: 30; /* 우측 정렬 */
-  top: 20px; /* 위쪽에 붙임 */
+  
 }
 .login-menu:hover .dropdown-content {
   display: block; /* 마우스 호버시 드롭다운 표시 */
+}
+.drop1{
+  display: block;
+}
+.drop2{
+  display: block;
+}
+.logout{
+  display: none;
+}
+.mypage{
+  display: none;
 }
 .dropdown-content a {
   color: white; /* 링크 색상 */
