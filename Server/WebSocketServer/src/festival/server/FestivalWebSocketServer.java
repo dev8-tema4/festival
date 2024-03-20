@@ -3,6 +3,8 @@ package festival.server;
 import java.net.InetSocketAddress;
 import java.util.List;
 
+import javax.swing.text.View;
+
 import festival.server.function.OrderItem;
 import festival.server.function.Orders;
 import org.java_websocket.WebSocket;
@@ -15,7 +17,7 @@ import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "127.0.0.1"; // localhost
+		String host = "192.168.0.22"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
@@ -95,10 +97,30 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("=== getOrderList ===");
 			OrderItem orderItem = new OrderItem(conn, message);
 			orderItem.getOrderList();
-  	}else if(cmd.equals("boardlist")) {
-			System.out.println("packet 잘받음");
+		}else if(cmd.equals("boardlist")) {
 			Board board = new Board(conn, message);
 			board.boardlist();
+		}else if(cmd.equals("popularlist")) {
+			Board board = new Board(conn, message);
+			board.popularlist();
+		}else if(cmd.equals("questionlist")) {
+			Board board = new Board(conn, message);
+			board.questionlist();
+		}else if(cmd.equals("recruitlist")) {
+			Board board = new Board(conn, message);
+			board.recruitlist();
+		}else if(cmd.equals("freelist")) {
+			Board board = new Board(conn, message);
+			board.freelist();
+		}else if(cmd.equals("searchlist")) {
+			Board board = new Board(conn, message);
+			board.searchlist();
+		}else if(cmd.equals("view")) {
+			Board board = new Board(conn, message);
+			board.view();
+		}else if(cmd.equals("write")) {
+			Board board = new Board(conn, message);
+			board.write();
 		}
 	}
 

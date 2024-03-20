@@ -120,14 +120,14 @@ var youtubeButton = document.getElementById("jeonla-festival-slide");
 var closeSpan = document.getElementsByClassName("close")[0];
 
  // When the user clicks the button, open the modal 
- youtubeButton.onclick = function() {
-    youtubeModal.style.display = "block";
-  }
+//  youtubeButton.onclick = function() {
+//     youtubeModal.style.display = "block";
+//   }
 
-  // When the user clicks on <span> (x), close the modal
-  closeSpan.onclick = function() {
-    youtubeModal.style.display = "none";
-  }
+//   // When the user clicks on <span> (x), close the modal
+//   closeSpan.onclick = function() {
+//     youtubeModal.style.display = "none";
+//   }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {

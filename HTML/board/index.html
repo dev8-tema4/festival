@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>게시판</title>
   <link rel="stylesheet" href="../../CSS/board/index.css">
-  <script src="../../JS/board/index.js"></script>
-  <script src="../../JS/board/list.js"></script>
-  <script src="../../JS/board/view.js"></script>
-  <script src="../../JS/board//write.js"></script>
   <script src="../../JS/connSocket.js"></script>
-
+  <script src="../../JS/board/index.js"></script>
+  <script src="../../JS/board/view.js"></script>
+  
+  <script src="../../JS/board//write.js"></script>
+  
+  
 </head>
 
 <body>
@@ -19,18 +20,18 @@
   <header>
     <h1>게시판</h1>
   </header>
-
+  
   <nav>
     <button class="category-button active" data-category="all" id="board-list">전체</button>
-    <button class="category-button active" data-category="popular">인기</button>
-    <button class="category-button active" data-category="question">질문</button>
-    <button class="category-button active" data-category="recruitment">모집</button>
-    <button class="category-button active" data-category="free">자유</button>
+    <button class="category-button active" data-category="popular" id="popular-list">인기</button>
+    <button class="category-button active" data-category="question" id="question">질문</button>
+    <button class="category-button active" data-category="recruitment" id="recruit">모집</button>
+    <button class="category-button active" data-category="free" id="free">자유</button>
   </nav>
   <!-- 검색창 -->
   <div class="search-box">
 
-
+    
     <div class="dropdown" id="dropdown">
       <select id="searchOptionSelect">
         <option value="titleContent">제목+본문</option>
@@ -41,32 +42,28 @@
     </div>
     <button id="searchButton">검색</button>
   </div>
-
-
-
-
-
+  
+  
+  
+  
+  
   <!-- 전체 글 목록 -->
   <section class="main-section">
     <div class="category">
       <ul class="post-list" id="postList">
         <!-- 전체 글 목록이 동적으로 추가됩니다. -->
         <div id="resultTable"></div>
-
+        
       </ul>
     </div>
   </section>
   <section class="main-section" style="display:none;" id="postContentSection">
     <div id="postContent">
       <!-- 여기에 게시물 내용이 동적으로 추가됩니다. -->
-      <h2 id="post-subject"></h2>
-      <p id="post-writer"></p>
-      <p id="post-date"></p>
-      <p id="post-views"></p>
-      <p id="post-content"></p>
+      
     </div>
   </section>
-
+  
   <!-- 하단 -->
   <section class="bottom-section">
     <ul class="bottom-menu">
@@ -74,23 +71,23 @@
       <li><a href="#" onclick="openModal()">글쓰기</a></li>
     </ul>
   </section>
-
+  
   <!-- 모달 창 -->
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <h2>글쓰기</h2>
       <!-- 양식추가 -->
-
+      
       <div class="input-group">
         <label for="categorySelect">카테고리</label>
         <select id="categorySelect">
-          <option value="option1">질문</option>
-          <option value="option2">모집</option>
-          <option value="option3">자유</option>
+          <option value="질문">질문</option>
+          <option value="모집">모집</option>
+          <option value="자유">자유</option>
         </select>
       </div>
-
+      
       <div class="input-group">
         <label for="titleInput">제목</label>
         <input type="text" id="titleInput" placeholder="제목을 입력해주세요.">
@@ -104,13 +101,14 @@
       <button id="cancelButton" class="modalClose" onclick="closeModal()">취소</button>
     </div>
   </div>
-
+  
   <!-- footer -->
   <footer>
     <p>고객센터</p>
   </footer>
-
-
+  
+  <script src="../../JS/board/list.js"></script>
+  
 </body>
 
 </html>
