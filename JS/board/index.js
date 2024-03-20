@@ -85,15 +85,26 @@ function showAllPosts() {
 // 모달 열기 함수
 function openModal(){
     document.getElementById('myModal').style.display="block";
+
+     // 작성 버튼에 대한 이벤트 리스너 추가
+     const writeButton = document.getElementById("writeButton");
+     writeButton.addEventListener("click", writePost);
 }
 
 // 모달 닫기 함수
 function closeModal(){
     document.getElementById('myModal').style.display="none";
+
+     // 작성 버튼에 대한 이벤트 리스너 제거
+     const writeButton = document.getElementById("writeButton");
+     writeButton.removeEventListener("click", writePost);
+
+      // 입력 필드 초기화
+    document.getElementById("titleInput").value = "";
+    document.getElementById("contentInput").value = "";
+    document.getElementById("categorySelect").selectedIndex = 0;
 }
 
-// 모달 닫기 버튼 클릭시 이벤트 핸들러
-document.getElementsByClassName('close')[0].addEventListener('click', closeModal);
 
 // 모달 배경 클릭 이벤트 핸들러
 window.onclick = function(event){
@@ -101,3 +112,26 @@ window.onclick = function(event){
         closeModal();
     }
 }
+
+var youtubeModal =document.getElementById("youtubeModal");
+
+var youtubeButton = document.getElementById("jeonla-festival-slide");
+
+var closeSpan = document.getElementsByClassName("close")[0];
+
+ // When the user clicks the button, open the modal 
+ youtubeButton.onclick = function() {
+    youtubeModal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  closeSpan.onclick = function() {
+    youtubeModal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == youtubeModal) {
+      youtubeModal.style.display = "none";
+    }
+  }

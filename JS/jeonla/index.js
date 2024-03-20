@@ -72,3 +72,23 @@ document.addEventListener("DOMContentLoaded", function(){
         showSlide(currentSlide);
     }, 3000); //3초마다 슬라이드 변경
 });
+
+
+ // 유달산 상세 페이지로 이동하는 함수
+function redirectToDetailPage(location) {
+    // 유달산 상세 페이지의 URL 설정
+    const detailPageURL = `../../HTML/jeonla/detailFestival1.html?location=${location}`;
+    
+    // 새로운 페이지로 이동
+    window.location.href = detailPageURL;
+}
+
+// 모달 창을 닫는 함수 정의
+function closeModal() {
+    var youtubeModal = document.getElementById("youtubeModal");
+    youtubeModal.style.display = "none";
+}
+
+// 모달 닫기 버튼에 이벤트 리스너 추가
+var closeBtn = document.getElementsByClassName("youtubeClose")[0];
+closeBtn.addEventListener("click", closeModal);

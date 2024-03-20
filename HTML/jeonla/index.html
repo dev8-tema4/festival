@@ -31,8 +31,8 @@
       <div class="jeonla-festival-slider" id="jeonla-festival-slider">
         
         <div class="jeonla-festival-slide" style="background-image: url('../../image/jeonla/yudalsa_bg.jpg');">
-          <img src="../../image/jeonla/yudalsan_spring_2024.jpg" alt="유달산 봄축제" >
-          <div class="title">유달산봄축제</div>
+          <img src="../../image/jeonla/yudalsan_spring_2024.jpg" alt="유달산 봄축제" onclick="redirectToDetailPage('유달산')">
+          <div class="title" onclick="redirectToDetailPage('유달산')" style="cursor: pointer;">유달산봄축제</div>
         </div>
 
         <div class="jeonla-festival-slide" style="background-image: url('../../image/jeonla/ham_navi_bg.jpg'); background-size: cover; background-repeat: no-repeat;">
@@ -54,7 +54,7 @@
     <section class="jeonla-grid-section" id="jeonla-grid-section">
       <div class="grid-container">
         <div class="grid-item">
-          <h3>유달산봄축제</h3>
+          <h3 style="cursor: pointer;" onclick="redirectToDetailPage('유달산')">유달산봄축제</h3>
           <iframe width="400" height="300" src="https://www.youtube.com/embed/e4E2djvRm5w" frameborder="0" allowfullscreen></iframe>
           
         </div>
@@ -69,12 +69,20 @@
         </div>
       </div>
     </section>
+
+
   </main>
 
   <footer class="jeonla-footer" id="jeonla-footer">
     <p class="jeonla-p">고객센터</p>
   </footer>
-  
+  <!-- 유튜브 모달 -->
+  <div id="youtubeModal" class="youtubeModal">
+    <div class="youtubeModalContent">
+      <span class="youtubeClose">&times;</span>
+      <iframe width="100%" height="760" src="https://www.youtube.com/embed/4DQZLCBd5GU?si=L3UBFTBrabw7ws-p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
   <script src="../../JS/jeonla/index.js"></script>
 </body>
 </html>

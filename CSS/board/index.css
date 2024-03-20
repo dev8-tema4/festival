@@ -3,6 +3,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #f7f7f7; /*배경 색상*/
+    
 }
 
 header{
@@ -10,16 +11,25 @@ header{
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    
 }
 
 header h1{
     font-size: 36px;
     margin: 0;
+    
+    
+    
 }
 
 nav{
+    float: left;
     text-align: center;
     margin-bottom: 20px;
+    margin-left: 25%;
+    
+    
+    
 }
 
 nav a{
@@ -34,21 +44,52 @@ nav a:hover{
     color: #ffd700;
 }
 section{
-    margin: 0 auto;
-    max-width: 800px;
+    margin:  auto;
+    width: 1000px;
+    
     padding: 20px;
     background-color: #fff; /*섹션 배경색상*/
     border-radius: 10px;
     box-shadow: 0 0 1px rgba(0,0,0,0.1);/*그림자 효과*/
+    margin-top: 20px;
+    clear: both;
 }
+.main-section{
+    min-height: 400px;
+    max-height: 800px;
+}
+.main-section ul li{
+    text-align: center;
+}
+.main-section ul li a{
+    text-decoration: none;
+    color: black;
+}
+#searchOptionSelect{
+    width: 100px;
+    height: 40px;
+}
+
 
 h2{
     margin-top: 0;
     color: #333;
+    
 }
 
 .category{
     margin-bottom: 20px;
+}
+
+.category-button{
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.category-button:hover{
+    background-color: #2980b9;
+    color: #333;
+    cursor: pointer;
 }
 
 .post-list{
@@ -59,6 +100,12 @@ h2{
 .post-list li{
     border-bottom: 1px solid #ccc;
     padding: 20px 0;
+}
+
+#postContent{
+    width: 500px;
+    height: 400px;
+    
 }
 
 footer{
@@ -78,6 +125,37 @@ footer p{
 /* 검색창 */
 .search-box{
     margin-bottom: 20px;
+    float: right;
+    margin-right: 25%;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .search-box {
+        float: right;
+        margin-right: 10px; /* 작은 화면에서는 더 작은 마진 값으로 조정 */
+    }
+    section {
+        margin: auto;
+        width: auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 1px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        clear: both;
+    }
+    
+nav{
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    
+    
+    
+}
+
 }
 
 .search-box input[type="text"]{
@@ -169,15 +247,65 @@ footer p{
     height: 100%;
     background-color: rgba(0,0,0,0.5);
     overflow: auto;
+    
 }
 
 /* 모달 내용 스타일 */
 .modal-content{
+    position: relative;
+    text-align: center;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 20px auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    max-width: 1000px;
+    
+}
+
+.input-group{
+    width: 90px;
+    margin-bottom: 10px;
+    text-align: left;
+    
+    
+    
+}
+
+.input-group label{
+    display: inline-block;
+    flex: 1;
+    margin: 10px;
+    
+    width: 100px;
+    margin-right: 10px;
+}
+
+.input-group input[type="text"],
+.input-group textarea {
+    width: calc(100% - 110px); /* 입력 상자 너비 조정 */
+}
+
+
+
+#titleInput{
+    width: 1000px;
+    height: 40px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    
+}
+#contentInput{
+    width: 1000px;
+    
+    height: 400px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#writeButton,
+#cancelButton{
+    padding: 10px 20px;
+    margin: 5px;
 }
 
 /* 모달 닫기 버튼 스타일 */
