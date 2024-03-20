@@ -1,0 +1,236 @@
+@font-face {
+  font-family: "goding";
+  src: url("../../clova-all/할아버지의나눔/나눔손글씨\ 할아버지의나눔.ttf");
+}
+@font-face {
+  font-family: "left";
+  src: url("../../clova-all/왼손잡이도_예뻐/나눔손글씨\ 왼손잡이도\ 예뻐\ \(1\).ttf");
+}
+
+* {
+  list-style: none;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 130rem;
+}
+body {
+  margin: 0 auto;
+  height: 130rem;
+}
+footer{
+  height: 300px;
+  position : relative;
+  background-color: #262626;
+  margin-bottom: 0;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1;
+}
+a {
+  color: black;
+  font-weight: bold;
+}
+.navHead {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  font-size: 25px;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+  font-family: "goding";
+}
+.header {
+  font-size: 50px;
+}
+.navbar {
+  display: flex;
+  font-size: 45px;
+}
+.orderMenu {
+  display: flex;
+  font-size: 50px;
+}
+.navHead a {
+  padding: 20px;
+}
+.bgImg {
+  width: 100%;
+  margin: 0 auto;
+  height: 400px;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  top: 80px;
+  margin-bottom: 10%;
+}
+.bgImg::before {
+  content: "";
+  background: url("../../image/shop/fresh.jpg");
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  filter: brightness(70%);
+}
+.bgImg > p {
+  color: white;
+  font-size: 60px;
+  z-index: 1;
+  position: relative;
+  top: 20%;
+  font-weight: bold;
+  font-family: "goding";
+
+}
+.content {
+  display: flex;
+  width: 80%;
+  height: 100vh;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 65%;
+  border-top: 3px solid black;
+  font-family: left;
+}
+.prod {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  margin: 30px 5px 30px 5px;
+}
+.prod:hover{
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.prod > h1{
+  width: 100%;
+  text-align: center;
+}
+.prodInfo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+#prod1{
+  background: url('../../image/shop/prod1.jpg');
+  background-size: cover;
+}
+#prod2{
+  background: url('../../image/shop/prod2.jpg');
+  background-size: cover;
+}
+#prod3{
+  background: url('../../image/shop/prod3.jpg');
+  background-size: cover;
+}
+#prod4{
+  background: url('../../image/shop/prod4.jpg');
+  background-size: cover;
+}
+#prod5{
+  background: url('../../image/shop/prod5.jpg');
+  background-size: cover;
+}
+#prod6{
+  background: url('../../image/shop/prod6.jpg');
+  background-size: cover;
+}
+#prod7{
+  background: url('../../image/shop/prod1.jpg');
+  background-size: cover;
+}
+#prod8{
+  background: url('../../image/shop/prod2.jpg');
+  background-size: cover;
+}
+#prod9{
+  background: url('../../image/shop/prod3.jpg');
+  background-size: cover;
+}
+#prod10{
+  background: url('../../image/shop/prod4.jpg');
+  background-size: cover;
+}
+#prod11{
+  background: url('../../image/shop/prod5.jpg');
+  background-size: cover;
+}
+#prod12{
+  background: url('../../image/shop/prod6.jpg');
+  background-size: cover;
+}
+
+.price{
+  width: 400px;
+  height: 100px;
+  /* display: flex; */
+  margin: -40px 5px 30px 5px;
+  text-align: center;
+  align-items: center;
+  line-height: 0.5;
+}
+.price h1,p{
+  font-size: 30px;
+}
+.price p{
+  color: red;
+  font-weight: bold;
+}
+small{
+  border: 1px solid gray;
+  color: red;
+  font-weight: bold;
+  padding: 0px 15px 3px 15px;
+  font-size: 20px;
+}
+span{
+  text-decoration: line-through;
+  color: grey;
+  font-size: 25px;
+  font-weight: normal;
+}
+#sale1{
+  background-color: red;
+  color: white;
+}
+.asd{
+  width: 600px;
+  height: 200px;
+  border: 1px dotted red;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 20px;
+}
+footer small{
+  font-size: 15px;
+  border: 0;
+  list-style: 1.2;
+  margin-bottom: 20px;
+}
+.adad{
+  margin-right: 20px;
+  width: 700px;
+  display: flex;
+}
