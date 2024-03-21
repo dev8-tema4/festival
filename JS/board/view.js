@@ -21,7 +21,8 @@ const showcontent = function(message){
     content.setAttribute('class', 'clicked');
     content.textContent = msgObj.result;
     content.style.padding = "10px"
-    content.style.border = "1px solid black"
+    content.style.borderTop = "1px solid black"
+    content.style.borderBottom = "1px solid black"
     content.style.height = "50px"
     content.style.lineHeight = "50px"
     content.style.textAlign = 'center';

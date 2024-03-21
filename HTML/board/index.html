@@ -5,12 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>게시판</title>
+  <link rel="stylesheet" href="../../CSS/chatting/index.css">
+  <script src="../../JS/connSocket.js"></script>
+  <script src="../../JS/chatting/index.js"></script>
+  <link rel="stylesheet" href="../../CSS/index.css">
   <link rel="stylesheet" href="../../CSS/board/index.css">
   <script src="../../JS/connSocket.js"></script>
+  <script src="../JS/header.js"></script>
   <script src="../../JS/board/index.js"></script>
   <script src="../../JS/board/view.js"></script>
-  
+  <script src="../../JS/board/list.js"></script>
   <script src="../../JS/board//write.js"></script>
+  <script src="../../JS/user/login.js"></script>
+  <script src="../../JS/header.js"></script>
   
   
 </head>
@@ -18,9 +25,32 @@
 <body>
   <!-- 네이게이션 바 -->
   <header>
-    <h1>게시판</h1>
+    <div class="header">
+      <div class="left-content">
+        <div class="home"><a href="../index.html">홈</a></div>
+        <div class="board"><a href="index.html">게시판</a></div>
+        <div class="store"><a href="../shop/order.html">상점</a></div>
+      </div>
+
+      <div class="center-content">
+      <div class="container"><a href="../../HTML/index.html">Go 8</a></div>
+  </div>
+    
+      <div class="right-content">
+        <div class="login-menu">
+          로그인 메뉴
+          <div class="dropdown-content">
+            <div class="drop1"><a href="../../HTML/user/login.html" >로그인</a></div>
+            <div class="drop2"><a href="../../HTML/user/signup.html">회원가입</a></div>
+            <div class="logout"><a href="#">로그아웃</a></div>
+            <div class="mypage"><a href="../HTML/user/mypage.html">마이페이지</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>
   
+<div id="total-section">
   <nav>
     <button class="category-button active" data-category="all" id="board-list">전체</button>
     <button class="category-button active" data-category="popular" id="popular-list">인기</button>
@@ -101,14 +131,14 @@
       <button id="cancelButton" class="modalClose" onclick="closeModal()">취소</button>
     </div>
   </div>
+ 
   
-  <!-- footer -->
-  <footer>
-    <p>고객센터</p>
-  </footer>
   
-  <script src="../../JS/board/list.js"></script>
-  
+  <div class="icon">
+    <div class="chat-container" id="chatContainer">
+      <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+    </div>
+   </div>
 </body>
 
 </html>

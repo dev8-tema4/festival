@@ -47,7 +47,7 @@ public class BoardDao {
 	}
 
 	public int write(BoardDto dto) {
-		String sql = "INSERT INTO BOARD(CATEGORY, SUBJECT, CONTENT, MEMBER_ID, NAME) VALUE (?, ?, ?, ?, ?) ORDER BY INDEXNUM DESC";
+		String sql = "INSERT INTO BOARD(CATEGORY, SUBJECT, CONTENT, MEMBER_ID, NAME) VALUE (?, ?, ?, ?, ?)";
 		int result = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -158,7 +158,7 @@ public class BoardDao {
 
 	public void questionlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD WHERE CATEGORY='질문'";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='질문' ORDER BY INDEXNUM DESC";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -189,7 +189,7 @@ public class BoardDao {
 
 	public void recruitlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD WHERE CATEGORY='모집'";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='모집' ORDER BY INDEXNUM DESC";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -220,7 +220,7 @@ public class BoardDao {
 
 	public void freelist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD WHERE CATEGORY='자유'";
+		String sql = "SELECT * FROM BOARD WHERE CATEGORY='자유' ORDER BY INDEXNUM DESC";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();

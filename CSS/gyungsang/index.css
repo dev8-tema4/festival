@@ -10,16 +10,97 @@ body{
     margin: 0;
 }
 
-header{
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content:space-around;
+body {
+    margin: 0;
     width: 100%;
-    height: 5rem;
-    line-height: 5rem;
-    align-items: center;
+    font-family: 'Pretendard';
+    position: relative;
+  }
+  
+  .header {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1.5rem;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
     position: fixed;
-    z-index: 999;
-}
+    display: flex;
+    justify-content: space-between;
+    z-index: 999; /* 다른 요소 위에 헤더가 표시되도록 설정합니다. */
+    /* opacity: 0.7; */
+  }
+  .left-content {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    
+  }
+  .left-content > div {
+    margin-right: 30px;
+  }
+  .center-content{
+    display: flex;
+    align-items: center;
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+    margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
+    position: relative; /* 상대 위치 설정 */
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .left-content, .center-content, .right-content{
+    font-weight: bold;
+    
+    
+  }
+  .login-menu {
+    position: relative; /* 상대 위치 설정 */
+    cursor: pointer; /* 마우스 포인터 설정 */
+  }
+  .dropdown-content {
+    display: none; /* 드롭다운 숨김 */
+    position: absolute; /* 절대 위치 설정 */
+    background-color: black; /* 드롭다운 배경색 */
+    min-width: 120px; /* 최소 너비 */
+    padding: 10px; /* 내부 여백 */
+    z-index: 1; /* 다른 요소 위에 표시 */
+    right: 30; /* 우측 정렬 */
+    
+  }
+  .login-menu:hover .dropdown-content {
+    display: block; /* 마우스 호버시 드롭다운 표시 */
+  }
+  .drop1{
+    display: block;
+  }
+  .drop2{
+    display: block;
+  }
+  .logout{
+    display: none;
+  }
+  .mypage{
+    display: none;
+  }
+  .dropdown-content a {
+    color: white; /* 링크 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    display: block; /* 블록 요소로 표시 */
+    padding: 5px 0; /* 내부 여백 */
+    border: 2px solid white; /* 테두리 추가 */
+    border-top: none; 
+  }
+  .dropdown-content a:first-child {
+    border-top: 2px solid white; 
+  }
+  .dropdown-content a:hover {
+    background-color: #555; /* 링크 호버시 배경색 */
+  }
 #login{
     width: 80px;
     height: 40px;

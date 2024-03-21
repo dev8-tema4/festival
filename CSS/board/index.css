@@ -6,27 +6,23 @@ body{
     
 }
 
-header{
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    
-}
 
-header h1{
-    font-size: 36px;
-    margin: 0;
-    
-    
-    
+#total-section{
+    width: 1000px;
+    margin: auto; /* 페이지의 중간에 정렬하기 위해 margin 속성을 auto로 설정합니다. */
+    display: flex; /* Flexbox를 사용합니다. */
+    justify-content: center; /* 수평 가운데 정렬합니다. */
+    align-items: center; /* 수직 가운데 정렬합니다. */
+    flex-direction: column; /* 내부 요소들을 세로 방향으로 배치합니다. */
+
 }
 
 nav{
-    float: left;
+    margin-top: 20px;
+    /* display: flex; */
     text-align: center;
     margin-bottom: 20px;
-    margin-left: 25%;
+    /* margin-left: 25%; */
     
     
     
@@ -47,15 +43,15 @@ section{
     margin:  auto;
     width: 1000px;
     
-    padding: 20px;
+    padding: 10px;
     background-color: #fff; /*섹션 배경색상*/
     border-radius: 10px;
     box-shadow: 0 0 1px rgba(0,0,0,0.1);/*그림자 효과*/
-    margin-top: 20px;
+    margin-top: 10px;
     clear: both;
 }
 .main-section{
-    min-height: 400px;
+    min-height: 600px;
     max-height: 800px;
 }
 .main-section ul li{
@@ -67,7 +63,9 @@ section{
 }
 #searchOptionSelect{
     width: 100px;
-    height: 40px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
 }
 
 
@@ -124,10 +122,16 @@ footer p{
 
 /* 검색창 */
 .search-box{
-    margin-bottom: 20px;
-    float: right;
-    margin-right: 25%;
+    margin-bottom: 10px;
+    display: flex;
+    /* margin-right: 25%; */
     
+}
+#searchButton{
+    width: auto;
+    height: 30px;
+    /* border-radius: 5px; */
+    margin-left: 5px;
 }
 
 @media screen and (max-width: 768px) {
@@ -215,6 +219,9 @@ nav{
 .bottom-menu{
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding-left: 10px;
 }
 
 .bottom-menu li{
