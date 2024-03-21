@@ -34,7 +34,7 @@ public class OrdersDao {
     }
 
     /**
-     * OrderId 조회
+     * OrderId 전체 조회
      */
     public static List<Integer> getOrderIdList(Connection conn, int memberId) {
 
@@ -55,6 +55,27 @@ public class OrdersDao {
         }
 
         return orderIdList;
+    }
+
+    /**
+     * orderId 단 건 조회
+     */
+    public static int getOrderId(Connection conn, int getMemberId) {
+        int orderId = 0;
+        try {
+            sql = "SELECT order_id FROM ORDERS WHERE member_id = ?";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, getMemberId);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                orderId = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orderId;
     }
 }
 

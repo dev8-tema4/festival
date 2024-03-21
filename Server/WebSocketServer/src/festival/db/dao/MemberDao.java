@@ -79,7 +79,9 @@ public class MemberDao {
 			pstmt.setInt(1, memberId);
 			rs = pstmt.executeQuery();
 
-			getMemberId = rs.getInt(1);
+			while (rs.next()) {
+				getMemberId = rs.getInt(1);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

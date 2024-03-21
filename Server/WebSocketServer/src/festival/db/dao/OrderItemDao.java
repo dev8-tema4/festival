@@ -14,8 +14,7 @@ public class OrderItemDao {
 
     private static String sql;
     private static PreparedStatement pstmt = null;
-    private static CartResponseDto cartResponseDto;
-    private static OrderListResponseDto orderListResponseDto;
+    private static OrderListResponseDto orderListResponseDto = new OrderListResponseDto();
 
     /**
      * 장바구니 추가
@@ -25,7 +24,7 @@ public class OrderItemDao {
         int result = 0;
 
         try {
-            sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, order_price) VALUES(?, ?, ?, ?)";
+            sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, total_price) VALUES(?, ?, ?, ?)";
 
             pstmt = conn.prepareStatement(sql);
 
@@ -44,32 +43,37 @@ public class OrderItemDao {
     /**
      * 장바구니 조회
      */
-    public static List<CartResponseDto> getAllCart(Connection conn, OrderItemDto orderItemDto) {
+    public static List<CartResponseDto> getAllCart(Connection conn, List<Integer> orderIdList) {
 
         List<CartResponseDto> cartList = new ArrayList<>();
 
         try {
-            sql = "SELECT i.name, i.price, oi.totalPrice, oi.count" +
-                    "FROM ORDER_ITEM oi " +
-                    "INNER JOIN ITEM i " +
-                    "ON oi.item_id = i.item_id " +
-                    "WHERE oi.order_id = ? AND oi.isBuyed = false";
 
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, orderItemDto.getOrderId());
+            for (int orderId : orderIdList) {
+                sql ="SELECT i.name, i.price, oi.total_price, oi.count " +
+                        "FROM ORDER_ITEM oi " +
+                        "INNER JOIN ITEM i " +
+                        "ON oi.item_id = i.item_id " +
+                        "WHERE oi.order_id = ? " +
+                        "AND oi.isBuyed = false";
 
-            ResultSet rs = pstmt.executeQuery();
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, orderId);
 
-            while(rs.next()) {
-                cartList.add(
-                        cartResponseDto = new CartResponseDto(
-                                rs.getString(1),
-                                rs.getInt(2),
-                                rs.getInt(3),
-                                rs.getInt(4)
-                        )
-                );
+                ResultSet rs = pstmt.executeQuery();
+
+                while(rs.next()) {
+                    CartResponseDto cartResponseDto = CartResponseDto.createCartResponse(
+                            rs.getString("name"),
+                            rs.getInt("price"),
+                            rs.getInt("total_price"),
+                            rs.getInt("count")
+                    );
+
+                    cartList.add(cartResponseDto);
+                }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,32 +83,37 @@ public class OrderItemDao {
     /**
      * 주문내역 조회
      */
-    public static List<OrderListResponseDto> getOrderList(Connection conn, OrderItemDto orderItemDto) {
+    public static List<OrderListResponseDto> getOrderList(Connection conn, List<Integer> orderIdList) {
 
         List<OrderListResponseDto> orderList = new ArrayList<>();
 
         try {
-            sql = "SELECT i.name, i.price, oi.totalPrice, oi.count" +
-                    "FROM ORDER_ITEM oi " +
-                    "INNER JOIN ITEM i " +
-                    "ON oi.item_id = i.item_id " +
-                    "WHERE oi.order_id = ? AND oi.isBuyed = true";
 
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, orderItemDto.getOrderId());
+            for (int orderId : orderIdList) {
+                sql = "SELECT i.name, i.price, oi.total_price, oi.count " +
+                        "FROM ORDER_ITEM oi " +
+                        "INNER JOIN ITEM i " +
+                        "ON oi.item_id = i.item_id " +
+                        "WHERE oi.order_id = ? " +
+                        "AND oi.isBuyed = false";
 
-            ResultSet rs = pstmt.executeQuery();
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, orderId);
 
-            while(rs.next()) {
-                orderList.add(
-                        orderListResponseDto = new OrderListResponseDto(
-                                rs.getString(1),
-                                rs.getInt(2),
-                                rs.getInt(3),
-                                rs.getInt(4)
-                        )
-                );
+                ResultSet rs = pstmt.executeQuery();
+
+                while(rs.next()) {
+                    orderList.add(
+                            orderListResponseDto = new OrderListResponseDto(
+                                    rs.getString(1),
+                                    rs.getInt(2),
+                                    rs.getInt(3),
+                                    rs.getInt(4)
+                            )
+                    );
+                }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

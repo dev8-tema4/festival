@@ -3,8 +3,6 @@ package festival.server;
 import java.net.InetSocketAddress;
 import java.util.List;
 
-import javax.swing.text.View;
-
 import festival.server.function.OrderItem;
 import festival.server.function.Orders;
 import org.java_websocket.WebSocket;
@@ -17,7 +15,7 @@ import festival.server.function.Member;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "192.168.0.22"; // localhost
+		String host = "127.0.0.1"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
