@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(festival.getBoundingClientRect().top <= 0){
       header.style.backgroundColor = 'white';
       header.style.color = 'black';
-    }else{
-      header.style.backgroundColor = '';
-      header.style.color = 'white';
-    }
+    // }else{
+    //   header.style.backgroundColor = '';
+    //   header.style.color = 'white';
+    // }
+    
   });
 });
