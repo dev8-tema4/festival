@@ -7,6 +7,7 @@ import festival.dto.OrderListResponseDto;
 import festival.dto.OrdersDto;
 import jdk.swing.interop.SwingInterOpUtils;
 import org.java_websocket.WebSocket;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -31,7 +32,6 @@ public class OrderItem {
         int itemId = msgObj.getInt("itemId");
         int count =  msgObj.getInt("count");
         int price =  msgObj.getInt("price");
-
 
         for (int orderId : orderIdList) {
             int checkedItemId = itemDao.checkedItem(DBConnection.getConnection(), itemId);
@@ -65,21 +65,26 @@ public class OrderItem {
 
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
-//
+
         getMemberId = memberDao.getMemberId(DBConnection.getConnection(), memberId);
         getOrderIdList = OrdersDao.getOrderIdList(DBConnection.getConnection(), getMemberId);
 
         if (getMemberId == memberId) {
             List<CartResponseDto> cartList = OrderItemDao.getAllCart(DBConnection.getConnection(), getOrderIdList);
 
-            System.out.println(cartList.size());
-            System.out.println(cartList);
-
             JSONObject ackObj = new JSONObject();
-            ackObj.put("cmd", "getAllCart");
-            ackObj.put("getAllCart", cartList);
-            conn.send(ackObj.toString());
-//            System.out.println("success");
+            JSONArray ackArrObj = new JSONArray();
+
+            for (CartResponseDto cartResponseDto : cartList) {
+                ackObj.put("cmd", "getAllCart");
+                ackObj.put("name", cartResponseDto.getName());
+                ackObj.put("price", cartResponseDto.getPrice());
+                ackObj.put("count", cartResponseDto.getCount());
+
+                ackArrObj.put(ackObj);
+            }
+
+            conn.send(ackArrObj.toString());
         }
     }
 
@@ -97,10 +102,19 @@ public class OrderItem {
             List<OrderListResponseDto> orderList = OrderItemDao.getOrderList(DBConnection.getConnection(), getOrderIdList);
 
             JSONObject ackObj = new JSONObject();
-            ackObj.put("cmd", "getOrderList");
-            ackObj.put("getOrderList", orderList);
+            JSONArray ackArrObj = new JSONArray();
 
-            conn.send(ackObj.toString());
+            for (OrderListResponseDto orderListResponseDto : orderList) {
+
+                ackObj.put("cmd", "getOrderList");
+                ackObj.put("name", orderListResponseDto.getName());
+                ackObj.put("price", orderListResponseDto.getPrice());
+                ackObj.put("count", orderListResponseDto.getCount());
+
+                ackArrObj.put(ackObj);
+            }
+
+            conn.send(ackArrObj.toString());
         }
     }
 }
