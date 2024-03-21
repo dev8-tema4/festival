@@ -2,32 +2,38 @@ package festival.db.dao;
 
 public class CartResponseDto {
 
+    private int orderItemId;
     private String name;
     private int price;
-    private int totalPrice;
     private int count;
 
     private CartResponseDto() {
     }
 
-    public CartResponseDto(String name, int price, int totalPrice, int count) {
+    public CartResponseDto(int orderItemId, String name, int price, int count) {
+        this.orderItemId = orderItemId;
         this.name = name;
         this.price = price;
-        this.totalPrice = totalPrice;
         this.count = count;
     }
 
-    public static CartResponseDto createCartResponse(String name, int price, int totalPrice, int count) {
-        return new CartResponseDto(name, price, totalPrice, count);
+    public static CartResponseDto createCartResponse(int orderItemId, String name, int price, int count) {
+        return new CartResponseDto(orderItemId, name, price, count);
     }
 
-    @Override
-    public String toString() {
-        return "CartResponseDto{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                ", totalPrice=" + totalPrice +
-                ", count=" + count +
-                '}';
+    public int getOrderItemId() {
+        return orderItemId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getCount() {
+        return count;
     }
 }

@@ -88,8 +88,7 @@ public class MemberDao {
 
 		return getMemberId;
 	}
-
-
+	
 	/**
 	 * 회원 이메일 조회
 	 */

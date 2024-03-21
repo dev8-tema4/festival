@@ -50,7 +50,7 @@ public class OrderItemDao {
         try {
 
             for (int orderId : orderIdList) {
-                sql ="SELECT i.name, i.price, oi.total_price, oi.count " +
+                sql ="SELECT oi.order_item_id, i.name, i.price, oi.total_price, oi.count " +
                         "FROM ORDER_ITEM oi " +
                         "INNER JOIN ITEM i " +
                         "ON oi.item_id = i.item_id " +
@@ -64,12 +64,11 @@ public class OrderItemDao {
 
                 while(rs.next()) {
                     CartResponseDto cartResponseDto = CartResponseDto.createCartResponse(
+                            rs.getInt("order_item_id"),
                             rs.getString("name"),
                             rs.getInt("price"),
-                            rs.getInt("total_price"),
                             rs.getInt("count")
                     );
-
                     cartList.add(cartResponseDto);
                 }
             }
@@ -90,7 +89,7 @@ public class OrderItemDao {
         try {
 
             for (int orderId : orderIdList) {
-                sql = "SELECT i.name, i.price, oi.total_price, oi.count " +
+                sql = "SELECT oi.order_item_id, i.name, i.price, oi.total_price " +
                         "FROM ORDER_ITEM oi " +
                         "INNER JOIN ITEM i " +
                         "ON oi.item_id = i.item_id " +
@@ -103,14 +102,13 @@ public class OrderItemDao {
                 ResultSet rs = pstmt.executeQuery();
 
                 while(rs.next()) {
-                    orderList.add(
-                            orderListResponseDto = new OrderListResponseDto(
-                                    rs.getString(1),
-                                    rs.getInt(2),
-                                    rs.getInt(3),
-                                    rs.getInt(4)
-                            )
+                    OrderListResponseDto orderListDto = OrderListResponseDto.createOrderList(
+                            rs.getInt("order_item_id"),
+                            rs.getString("name"),
+                            rs.getInt("price"),
+                            rs.getInt("count")
                     );
+                    orderList.add(orderListDto);
                 }
             }
 
