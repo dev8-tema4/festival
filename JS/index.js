@@ -20,7 +20,7 @@ const maps = [
 document.addEventListener('DOMContentLoaded', () => {
   mapEvent();
   backgroundChange();
-  AOS.init();
+  // AOS.init();
   window.addEventListener('resize', () => {
     backgroundSize();
   })

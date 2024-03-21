@@ -52,6 +52,10 @@ socket.onmessage = function (e) {
         case 'popularlist':
             requestboard(e.data);
             break;
+        case 'MyInfo':
+            renderMyInfo(e.data);
+            break;    
+            
     }
 }
 

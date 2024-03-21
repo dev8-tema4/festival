@@ -30,13 +30,25 @@ const getMyInfo = function(memberId){
 
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
     sendMessage(jsonStr);
+
 }
 
 
 const renderMyInfo = function(userInfo){
+    //json 문자열을 객체로 파싱
+    const userInfoObj =JSON.parse(userInfo);
     //테이블 셀에 사용자 정보를 출력
-    document.getElementById("emailCell").textContent=userInfo.email;
-    document.getElementById("nameCell").textContent=userInfo.name;
-    document.getElementById("addressCell").textContent=userInfo.addr;
-    document.getElementById("phoneCell").textContent=userInfo.phone;
+    console.log(userInfo.email);
+    document.getElementById("emailCell").textContent=userInfoObj.email;
+    document.getElementById("nameCell").textContent=userInfoObj.name;
+    document.getElementById("addressCell").textContent=userInfoObj.address;
+    document.getElementById("phoneCell").textContent=userInfoObj.phone;
 };
+
+
+
+ // 비밀번호 변경 처리를 구현합니다.
+function changePass(event) {
+
+    alert("비밀번호 변경 기능을 구현하세요!");
+}

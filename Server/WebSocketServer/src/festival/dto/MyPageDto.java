@@ -20,6 +20,10 @@ public class MyPageDto {
 
 	}
 
+	public MyPageDto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getMemberId() {
 		return memberId;
 	}
@@ -66,5 +70,13 @@ public class MyPageDto {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	@Override
+	public String toString() {
+		return "MyPageDto [memberId=" + memberId + ", email=" + email + ", password=" + password + ", name=" + name
+				+ ", address=" + address + ", phone=" + phone + "]";
+	}
+	
+	
 
 }

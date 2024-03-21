@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import festival.server.function.Board;
 import festival.server.function.Member;
+import festival.server.function.MyInfoHandler;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
@@ -119,6 +120,9 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		}else if(cmd.equals("write")) {
 			Board board = new Board(conn, message);
 			board.write();
+		}else if(cmd.equals("MyInfo")) {
+			MyInfoHandler handler = new MyInfoHandler(conn, message);
+			handler.handle();
 		}
 	}
 
