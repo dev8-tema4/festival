@@ -84,11 +84,16 @@ function showAllPosts() {
 
 // 모달 열기 함수
 function openModal(){
+    if(!sessionStorage.getItem("memberId")){
+        alert("로그인이 필요합니다.");
+        return;
+    }
     document.getElementById('myModal').style.display="block";
 
      // 작성 버튼에 대한 이벤트 리스너 추가
      const writeButton = document.getElementById("writeButton");
      writeButton.addEventListener("click", writePost);
+     
 }
 
 // 모달 닫기 함수
