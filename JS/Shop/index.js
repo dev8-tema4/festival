@@ -4,6 +4,11 @@ const send = function () {
   const itemId = document.querySelectorAll(".price");
 
   itemId.forEach((item) => {
+    item.addEventListener('mouseover', (e) => {
+      item.style.cursor = "pointer";
+      
+    });
+
     item.addEventListener("click", (e) => {
       if(!sessionStorage.getItem('memberId')){
         alert('로그인이 필요합니다.');
@@ -11,8 +16,8 @@ const send = function () {
       }
       const packet = {
         cmd: "addCart",
-        memberId: sessionStorage.getItem("memberId"),
-        itemId: item.getAttribute("id"),
+        memberId: parseInt(sessionStorage.getItem("memberId")),
+        itemId: parseInt(item.getAttribute("id")),
         count: 1,
         price: parseInt(item.querySelector("p").textContent.replace('원', '').replace(',', ''))
       };
