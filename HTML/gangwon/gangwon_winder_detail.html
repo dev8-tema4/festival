@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,10 +7,10 @@
   <link rel="stylesheet" href="../../CSS/chatting/index.css">
   <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
   <link rel="stylesheet" href="../../CSS/gangwon/detail_page.css" />
-  <style>
-
-  </style>
+  <script src="../../JS/connSocket.js"></script>
+  <script src="../../JS/header.js"></script>
   <script src="../../JS/chatting/index.js"></script>
+  
   <script>
     document.addEventListener("DOMContentLoaded", (event) => {
       var slideIndex = 0;
@@ -40,16 +39,22 @@
   <header>
     <div class="header">
       <div class="left-content">
-        <div class="map"><a href="../index.html">Map</a></div>
-        <div class="calendar"><a href="../board/index.html">QnA</a></div>
-        <div class="shop"><a href="../shop/order.html">Shop</a></div>
+        <div class="home"><a href="../index.html">홈</a></div>
+        <div class="board"><a href="../board/index.html">게시판</a></div>
+        <div class="store"><a href="../shop/order.html">상점</a></div>
       </div>
+
+      <div class="center-content">
+      <div class="container"><a href="../index.html">Go 8</a></div>
+  </div>
+    
       <div class="right-content">
-        <div class="login-menu">
-          Login
+        <div class="login-menu">로그인          
           <div class="dropdown-content">
-            <a href="../user/login.html">로그인</a>
-            <a href="../user/signup.html">회원가입</a>
+            <div class="drop1"><a href="../user/login.html" >로그인</a></div>
+            <div class="drop2"><a href="../user/signup.html">회원가입</a></div>
+            <div class="logout"><a href="../index.html">로그아웃</a></div>
+            <div class="mypage"><a href="../user/myPage.html">마이페이지</a></div>
           </div>
         </div>
       </div>
