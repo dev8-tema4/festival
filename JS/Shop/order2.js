@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	setTimeout(reqAllCart, 100);
+	order();
 });
 
 const reqAllCart = function () {
@@ -14,9 +15,12 @@ const reqAllCart = function () {
 
 const resAllCart = function (message) {
     const msgObj = JSON.parse(message);
-	console.log(msgObj);
 	const cartHeader = document.querySelector('.cart_header');
-	for(let i=0; i<msgObj.length; i++){ 
+	let orderItemIdStr = '';
+
+	for(let i=0; i<msgObj.length; i++){
+		orderItemIdStr += `${msgObj[i].orderItemId}, `;
+
 		let allCart = `<tr>
 		<td>
 			<div class="itemInfo1">
@@ -45,4 +49,31 @@ const resAllCart = function (message) {
 	</tr>`
 	cartHeader.insertAdjacentHTML('afterend', allCart);
 	}
+	sessionStorage.setItem('orderItemId', orderItemIdStr);
 };
+
+const order = function () {
+	const order = document.querySelector('#order');
+	
+	order.addEventListener('click', () => {
+		const packet = {
+            cmd: "buyCartItem",
+            orderItemId: sessionStorage.getItem('orderItemId'),
+        };
+
+		const jsonStr = JSON.stringify(packet); // js객체 -> json문자열
+		sendMessage(jsonStr);
+	});
+}
+
+const orderSuccess = function (message) {
+	// json문자열 -> js 객체로 변환
+    const msgObj = JSON.parse(message);
+
+    switch (msgObj.result) {
+        case 'ok':
+            alert('주문이 완료되었습니다.');
+            location.reload(true);
+            break;
+    }
+}

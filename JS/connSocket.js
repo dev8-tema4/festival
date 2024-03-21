@@ -58,7 +58,13 @@ socket.onmessage = function (e) {
         case 'mylist':
             console.log(e.data);
             requestMyBoard(e.data);    
-            
+            break;  
+        case 'buyCartItem':
+            orderSuccess(e.data);
+            break;
+        default:
+            resAllCart(e.data);
+            break;
     }
 }
 

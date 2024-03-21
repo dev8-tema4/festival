@@ -278,11 +278,10 @@
   text-align: center;
   align-items: center;
   justify-content: center;
-}
-#order a {
   color: white;
   font-size: 20px;
 }
+
 #bitpay{
   background-color: #00DE5A;
     width: 250px;
