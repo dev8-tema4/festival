@@ -21,14 +21,14 @@ body, html{
     display: flex;
     align-items: center;
   }
+  .left-content a{
+    margin: 20px;
+  }
   .right-content {
     display: flex;
     align-items: center;
     margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
     position: relative; /* 상대 위치 설정 */
-  }
-  .map {
-    margin-right: 40px;
   }
   .login-menu {
     position: relative; /* 상대 위치 설정 */
