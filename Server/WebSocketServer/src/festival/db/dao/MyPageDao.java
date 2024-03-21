@@ -37,7 +37,6 @@ public class MyPageDao {
 						rs.getString(4),
 						rs.getString(5),
 						rs.getString(6));
-
 			}
 
 		} catch (SQLException e) {

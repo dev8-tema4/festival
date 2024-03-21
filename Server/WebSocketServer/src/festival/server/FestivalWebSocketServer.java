@@ -96,7 +96,11 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			System.out.println("=== getOrderList ===");
 			OrderItem orderItem = new OrderItem(conn, message);
 			orderItem.getOrderList();
-		}else if(cmd.equals("boardlist")) {
+		} else if (cmd.equals("buyCartItem")) {
+			System.out.println("=== butCartItem ===");
+			OrderItem orderItem = new OrderItem(conn, message);
+			orderItem.buyItem();
+		} else if(cmd.equals("boardlist")) {
 			Board board = new Board(conn, message);
 			board.boardlist();
 		}else if(cmd.equals("popularlist")) {

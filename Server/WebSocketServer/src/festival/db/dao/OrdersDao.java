@@ -1,5 +1,6 @@
 package festival.db.dao;
 
+import festival.db.DBConnection;
 import festival.dto.OrdersDto;
 
 import java.sql.Connection;
@@ -12,6 +13,7 @@ import java.util.List;
 public class OrdersDao {
     private static String sql;
     private static PreparedStatement pstmt = null;
+    private static ResultSet rs = null;
     private static int check;
 
     /**
@@ -29,6 +31,8 @@ public class OrdersDao {
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
         return check;
     }
@@ -45,13 +49,15 @@ public class OrdersDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, memberId);
 
-            ResultSet rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
         while (rs.next()) {
             orderIdList.add(rs.getInt("order_id"));
         }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
 
         return orderIdList;
@@ -67,13 +73,15 @@ public class OrdersDao {
 
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, getMemberId);
-            ResultSet rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 orderId = rs.getInt(1);
             }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
         return orderId;
     }
