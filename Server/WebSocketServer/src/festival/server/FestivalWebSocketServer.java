@@ -118,6 +118,9 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		}else if(cmd.equals("searchlist")) {
 			Board board = new Board(conn, message);
 			board.searchlist();
+		}else if(cmd.equals("mylist")) {
+			Board board = new Board(conn, message);
+			board.mylist();
 		}else if(cmd.equals("view")) {
 			Board board = new Board(conn, message);
 			board.view();

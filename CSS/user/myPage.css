@@ -161,3 +161,13 @@ th{
     
     
 }
+
+#myListBoard{
+    
+    margin-top: 10px;
+    width: auto;
+}
+
+#myListBoard tr th{
+    text-align: center;
+}

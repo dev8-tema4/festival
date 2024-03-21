@@ -6,6 +6,7 @@
     <title>myPage</title>
     <link rel="stylesheet" href="../../CSS/user/myPage.css">
     <script src="../../JS/connSocket.js"></script>
+    <script src="../../JS/board/Mypage.js"></script>
 </head>
 <body>
     <header>
@@ -34,7 +35,7 @@
 <section>
     <main>
         <div class="myMenu">
-        <div>내가 쓴 글 보기</div>
+        <div id="mylist">내가 쓴 글 보기</div>
         <div>장바구니</div>
         <div>내가 주문한 목록</div>
         
@@ -67,7 +68,18 @@
                     </tr>
 
                 </table>
-            
+            <h2>My writing</h2>
+            <table id="myListBoard">
+                <tr id="myListclassification">
+                    <th>카테고리</th>
+                    <th>순번</th>
+                    <th>제목</th>
+                    <th>이름</th>
+                    <th>등록일</th>
+                    <th>조회수</th>                    
+                </tr>
+                
+            </table>
             </div>
         </div>
 

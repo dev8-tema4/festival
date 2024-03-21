@@ -333,6 +333,35 @@ public class BoardDao {
 	        DBClose.close(conn, pstmt, rs);
 	    }		
 	}
+	public void myList(List<BoardDto> dtolist, int MEMBER_ID) {
+		String sql = "SELECT * FROM BOARD WHERE MEMBER_ID = ?";
+	    try {
+	        conn = DBConnection.getConnection();
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setInt(1, MEMBER_ID);
+	        
+	        rs = pstmt.executeQuery();
+	        while (rs.next()) {
+	            BoardDto dto = new BoardDto();
+	            dto.setIndexNum(rs.getInt(1));
+	            dto.setSubject(rs.getString(2));
+	            dto.setMemberID(rs.getInt(3));
+	            dto.setContent(rs.getString(4));
+	            dto.setDate(rs.getString(5));
+	            dto.setViews(rs.getInt(6));
+	            dto.setName(rs.getString(7));
+	            dto.setCategory(rs.getString(8));
+	            dtolist.add(dto);
+	        }
+	        System.out.println(dtolist.toString());
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        // 연결 및 리소스 해제
+	        DBClose.close(conn, pstmt, rs);
+	    }		
+	}
 
+	
 
 }

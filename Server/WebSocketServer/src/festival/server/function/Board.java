@@ -159,4 +159,16 @@ public class Board {
 		}
 
 	}
+
+	public void mylist() {
+		JSONObject msgObj = new JSONObject(message);
+		int MEMBER_ID = msgObj.getInt("memberId");
+		dao.myList(dtolist, MEMBER_ID);
+		JSONObject ackObj = new JSONObject();
+		
+		ackObj.put("cmd", "mylist");
+		ackObj.put("result", dtolist);
+
+		conn.send(ackObj.toString());
+	}
 }
