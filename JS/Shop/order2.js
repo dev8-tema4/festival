@@ -14,7 +14,7 @@ const reqAllCart = function () {
 
 const resAllCart = function (message) {
     const msgObj = JSON.parse(message);
-	console.log('a')
+	console.log(msgObj);
 	const cartHeader = document.querySelector('.cart_header');
 	for(let i=0; i<msgObj.length; i++){ 
 		let allCart = `<tr>
