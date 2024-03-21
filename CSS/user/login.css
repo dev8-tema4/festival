@@ -49,3 +49,42 @@
 #signupBtn:hover {
   background-color: gray;
 }
+
+.header {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999; /* 다른 요소 위에 헤더가 표시되도록 설정합니다. */
+  opacity: 0.7;
+}
+.left-content {
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  
+}
+.left-content > div {
+  margin-right: 30px;
+}
+.center-content{
+  display: flex;
+  align-items: center;
+}
+.right-content {
+  display: flex;
+  align-items: center;
+  margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
+  position: relative; /* 상대 위치 설정 */
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.left-content, .center-content, .right-content{
+  font-weight: bold;
+}
