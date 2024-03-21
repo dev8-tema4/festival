@@ -26,6 +26,9 @@ const loginSuccess = function (message) {
         sessionStorage.setItem('name', msgObj.name);
         alert(`${msgObj.name}님 환영합니다.`);
         location.href = '/HTML/'
+      }else{
+        alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+        return;
       }
   }
 }
