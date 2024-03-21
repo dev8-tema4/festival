@@ -16,7 +16,7 @@ import festival.server.function.MyInfoHandler;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "192.168.0.57"; // localhost
+		String host = "192.168.0.33"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
