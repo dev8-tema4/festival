@@ -25,6 +25,7 @@ const loginSuccess = function (message) {
         sessionStorage.setItem('email', msgObj.email);
         sessionStorage.setItem('name', msgObj.name);
         alert(`${msgObj.name}님 환영합니다.`);
+        location.href = '/HTML/'
       }
   }
 }
