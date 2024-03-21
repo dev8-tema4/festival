@@ -21,8 +21,8 @@ public class Member {
 		String email = msgObj.getString("email");
 		String password = msgObj.getString("password");
 		
-		Encrypt encrypt = new Encrypt();
-		password = encrypt.getEncrypt(password);
+	Encrypt encrypt = new Encrypt();
+	password = encrypt.getEncrypt(password);
 		
 
 		System.out.printf("로그인 id: %s pass :%s\n", email, password);

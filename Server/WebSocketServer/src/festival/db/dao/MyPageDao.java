@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import festival.db.DBConnection;
 import festival.dto.MemberDto;
+import festival.util.Encrypt;
 
 public class MyPageDao {
     // 생성자에서 DB 연결을 초기화하지 않습니다.

@@ -1,15 +1,15 @@
 
-const SERVER_IP = '192.168.0.57';
+const SERVER_IP = '127.0.0.1';
 
 const SERVER_PORT = 9000;
 const server_address = `ws://${SERVER_IP}:${SERVER_PORT}`;  // ws://127.0.0.1:9000
 
 const socket = new WebSocket(server_address);
 
-socket.opopen = function (e) {
+socket.onopen = function (e) {
     const log_msg = '[open] 연결이 설정되었습니다.';
 
-    displayMessage('#messages', log_msg);
+    // displayMessage('#messages', log_msg);
 }
 
 socket.onclose = function (e) {
@@ -56,5 +56,10 @@ socket.onmessage = function (e) {
 }
 
 const sendMessage = function(message){
-    socket.send(message);    // 서버로 전송
+    if(socket.readyState === WebSocket.OPEN){
+        socket.send(message);    // 서버로 전송
+    }else{
+        console.error('WebSocket is not in OPEN state.')
+    }
+    
 }
