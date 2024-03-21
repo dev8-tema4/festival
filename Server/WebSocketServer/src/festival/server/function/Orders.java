@@ -23,7 +23,6 @@ public class Orders {
         int check = OrdersDao.injectMemberInfo(DBConnection.getConnection(), memberId);
 
         if(check > 0) {
-            System.out.println("success");
             JSONObject ackObj = new JSONObject();
 
             ackObj.put("result", "success");
@@ -37,7 +36,6 @@ public class Orders {
     }
 
     public List<Integer> getOrderIdList() {
-        System.out.println("success");
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
 

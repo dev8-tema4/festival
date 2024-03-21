@@ -84,6 +84,8 @@ public class MemberDao {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
 		}
 
 		return getMemberId;

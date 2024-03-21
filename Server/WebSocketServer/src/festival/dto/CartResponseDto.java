@@ -1,4 +1,4 @@
-package festival.db.dao;
+package festival.dto;
 
 public class CartResponseDto {
 
@@ -35,5 +35,15 @@ public class CartResponseDto {
 
     public int getCount() {
         return count;
+    }
+
+    @Override
+    public String toString() {
+        return "CartResponseDto{" +
+                "orderItemId=" + orderItemId +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", count=" + count +
+                '}';
     }
 }

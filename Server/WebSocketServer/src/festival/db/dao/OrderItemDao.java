@@ -1,5 +1,7 @@
 package festival.db.dao;
 
+import festival.db.DBConnection;
+import festival.dto.CartResponseDto;
 import festival.dto.OrderItemDto;
 import festival.dto.OrderListResponseDto;
 
@@ -14,6 +16,7 @@ public class OrderItemDao {
 
     private static String sql;
     private static PreparedStatement pstmt = null;
+    private static ResultSet rs = null;
     private static OrderListResponseDto orderListResponseDto = new OrderListResponseDto();
 
     /**
@@ -24,7 +27,7 @@ public class OrderItemDao {
         int result = 0;
 
         try {
-            sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, total_price) VALUES(?, ?, ?, ?)";
+            sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, price) VALUES(?, ?, ?, ?)";
 
             pstmt = conn.prepareStatement(sql);
 
@@ -36,6 +39,8 @@ public class OrderItemDao {
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
         return result;
     }
@@ -50,7 +55,7 @@ public class OrderItemDao {
         try {
 
             for (int orderId : orderIdList) {
-                sql ="SELECT oi.order_item_id, i.name, i.price, oi.total_price, oi.count " +
+                sql ="SELECT oi.order_item_id, i.name, i.price, oi.count " +
                         "FROM ORDER_ITEM oi " +
                         "INNER JOIN ITEM i " +
                         "ON oi.item_id = i.item_id " +
@@ -60,7 +65,7 @@ public class OrderItemDao {
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setInt(1, orderId);
 
-                ResultSet rs = pstmt.executeQuery();
+                rs = pstmt.executeQuery();
 
                 while(rs.next()) {
                     CartResponseDto cartResponseDto = CartResponseDto.createCartResponse(
@@ -69,12 +74,15 @@ public class OrderItemDao {
                             rs.getInt("price"),
                             rs.getInt("count")
                     );
+
                     cartList.add(cartResponseDto);
                 }
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
         return cartList;
     }
@@ -89,7 +97,7 @@ public class OrderItemDao {
         try {
 
             for (int orderId : orderIdList) {
-                sql = "SELECT oi.order_item_id, i.name, i.price, oi.total_price " +
+                sql = "SELECT oi.order_item_id, i.name, i.price, oi.count " +
                         "FROM ORDER_ITEM oi " +
                         "INNER JOIN ITEM i " +
                         "ON oi.item_id = i.item_id " +
@@ -99,7 +107,7 @@ public class OrderItemDao {
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setInt(1, orderId);
 
-                ResultSet rs = pstmt.executeQuery();
+                rs = pstmt.executeQuery();
 
                 while(rs.next()) {
                     OrderListResponseDto orderListDto = OrderListResponseDto.createOrderList(
@@ -114,7 +122,24 @@ public class OrderItemDao {
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
         return orderList;
+    }
+
+    public static void buyItem(Connection conn, int orderItemId) {
+
+        try {
+            sql = "UPDATE ORDER_ITEM SET isBuyed = 1 WHERE order_item_id = ?";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, orderItemId);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
