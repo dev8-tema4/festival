@@ -16,7 +16,7 @@ import festival.server.function.MyInfoHandler;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "192.168.0.33"; // localhost
+		String host = "192.168.0.57"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
@@ -50,86 +50,104 @@ public class FestivalWebSocketServer extends WebSocketServer{
 		String cmd = msgObj.getString("cmd");
 
 		//로그인 기능
-		if (cmd.equals("login")) {
-			System.out.println("===LOGIN===");
-			//로그인 기능
-			Member member = new Member(conn, message);
-			member.login();
-			
-		} else if (cmd.equals("allchat")) {
-			String memberId = msgObj.getString("memberId");
-			String msg = msgObj.getString("msg");
-			String name = msgObj.getString("name");
-			System.out.printf("이름 : %s 채팅 id: %s msg:%s \n",name, memberId, msg);
+		switch (cmd) {
+			case "login" -> {
+				System.out.println("===LOGIN===");
+				//로그인 기능
+				Member member = new Member(conn, message);
+				member.login();
 
-			JSONObject ackObj = new JSONObject();
-			ackObj.put("cmd", "allchat");
-			ackObj.put("result", "ok");
-			conn.send(ackObj.toString());
-
-			// 전체 접속자한테 브로드 캐스팅
-			for (WebSocket con : this.getConnections()) {
-				 con.send(message);
 			}
-		}else if(cmd.equals("signup")) {
-			System.out.println("===SIGN UP===");
-			Member member = new Member(conn, message);
-			member.signUp();
-		}else if(cmd.equals("checkemail")) {
-			System.out.println("=== checkmail ===");
-			Member member = new Member(conn, message);
-			member.checkEmail();
-		} else if(cmd.equals("addCart")) {
-			System.out.println("=== addCart ===");
-			Orders orders = new Orders(conn, message);
-			orders.injectMemberInfo();
+			case "allchat" -> {
+				String memberId = msgObj.getString("memberId");
+				String msg = msgObj.getString("msg");
+				String name = msgObj.getString("name");
+				System.out.printf("이름 : %s 채팅 id: %s msg:%s \n", name, memberId, msg);
+				JSONObject ackObj = new JSONObject();
+				ackObj.put("cmd", "allchat");
+				ackObj.put("result", "ok");
+				conn.send(ackObj.toString());
 
-			List<Integer> orderIdList = orders.getOrderIdList();
+				// 전체 접속자한테 브로드 캐스팅
+				for (WebSocket con : this.getConnections()) {
+					con.send(message);
+				}
+			}
+			case "signup" -> {
+				System.out.println("===SIGN UP===");
+				Member member = new Member(conn, message);
+				member.signUp();
+			}
+			case "checkemail" -> {
+				System.out.println("=== checkmail ===");
+				Member member = new Member(conn, message);
+				member.checkEmail();
+			}
+			case "addCart" -> {
+				System.out.println("=== addCart ===");
+				Orders orders = new Orders(conn, message);
+				orders.injectMemberInfo();
 
-			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.addCart(orderIdList);
-		} else if(cmd.equals("getAllCart")) {
-			System.out.println("=== getAllCart ===");
-			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.getAllCart();
-		} else if (cmd.equals("getOrderList")) {
-			System.out.println("=== getOrderList ===");
-			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.getOrderList();
-		} else if (cmd.equals("buyCartItem")) {
-			System.out.println("=== butCartItem ===");
-			OrderItem orderItem = new OrderItem(conn, message);
-			orderItem.buyItem();
-		} else if(cmd.equals("boardlist")) {
-			Board board = new Board(conn, message);
-			board.boardlist();
-		}else if(cmd.equals("popularlist")) {
-			Board board = new Board(conn, message);
-			board.popularlist();
-		}else if(cmd.equals("questionlist")) {
-			Board board = new Board(conn, message);
-			board.questionlist();
-		}else if(cmd.equals("recruitlist")) {
-			Board board = new Board(conn, message);
-			board.recruitlist();
-		}else if(cmd.equals("freelist")) {
-			Board board = new Board(conn, message);
-			board.freelist();
-		}else if(cmd.equals("searchlist")) {
-			Board board = new Board(conn, message);
-			board.searchlist();
-		}else if(cmd.equals("mylist")) {
-			Board board = new Board(conn, message);
-			board.mylist();
-		}else if(cmd.equals("view")) {
-			Board board = new Board(conn, message);
-			board.view();
-		}else if(cmd.equals("write")) {
-			Board board = new Board(conn, message);
-			board.write();
-		}else if(cmd.equals("MyInfo")) {
-			MyInfoHandler handler = new MyInfoHandler(conn, message);
-			handler.handle();
+				List<Integer> orderIdList = orders.getOrderIdList();
+
+				OrderItem orderItem = new OrderItem(conn, message);
+				orderItem.addCart(orderIdList);
+			}
+			case "getAllCart" -> {
+				System.out.println("=== getAllCart ===");
+				OrderItem orderItem = new OrderItem(conn, message);
+				orderItem.getAllCart();
+			}
+			case "getOrderList" -> {
+				System.out.println("=== getOrderList ===");
+				OrderItem orderItem = new OrderItem(conn, message);
+				orderItem.getOrderList();
+			}
+			case "buyCartItem" -> {
+				System.out.println("=== butCartItem ===");
+				OrderItem orderItem = new OrderItem(conn, message);
+				orderItem.buyItem();
+			}
+			case "boardlist" -> {
+				Board board = new Board(conn, message);
+				board.boardlist();
+			}
+			case "popularlist" -> {
+				Board board = new Board(conn, message);
+				board.popularlist();
+			}
+			case "questionlist" -> {
+				Board board = new Board(conn, message);
+				board.questionlist();
+			}
+			case "recruitlist" -> {
+				Board board = new Board(conn, message);
+				board.recruitlist();
+			}
+			case "freelist" -> {
+				Board board = new Board(conn, message);
+				board.freelist();
+			}
+			case "searchlist" -> {
+				Board board = new Board(conn, message);
+				board.searchlist();
+			}
+			case "mylist" -> {
+				Board board = new Board(conn, message);
+				board.mylist();
+			}
+			case "view" -> {
+				Board board = new Board(conn, message);
+				board.view();
+			}
+			case "write" -> {
+				Board board = new Board(conn, message);
+				board.write();
+			}
+			case "MyInfo" -> {
+				MyInfoHandler handler = new MyInfoHandler(conn, message);
+				handler.handle();
+			}
 		}
 	}
 
