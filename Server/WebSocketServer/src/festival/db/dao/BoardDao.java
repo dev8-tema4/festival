@@ -383,7 +383,7 @@ public class BoardDao {
 	}
 
 	public void pagelist(int selectPage, List<BoardDto> dtolist) {
-		String sql = "SELECT * FROM board limit ?, 5";
+		String sql = "SELECT * FROM board ORDER BY INDEXNUM DESC limit ?, 5";
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();

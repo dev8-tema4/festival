@@ -27,6 +27,7 @@ public class Board {
 		JSONObject msgObj = new JSONObject(message);
 		int pageNum = msgObj.getInt("pagenum");
 		int totalBoardlist = dao.totalBoardCount();
+		int pageCount = totalBoardlist % 5 == 0 ? (totalBoardlist/5) : ((totalBoardlist/5)+1);
 		int selectPage = (pageNum - 1) *5;
 		
 		dao.pagelist(selectPage,dtolist);
@@ -35,7 +36,7 @@ public class Board {
 		JSONObject ackObj = new JSONObject();
 		ackObj.put("cmd", "boardlist");
 		ackObj.put("result", dtolist);
-		ackObj.put("pageCount",(totalBoardlist / 5) + 1);
+		ackObj.put("pageCount", pageCount);
 		ackObj.put("currentPage", selectPage);
 
 		conn.send(ackObj.toString());
@@ -182,12 +183,4 @@ public class Board {
 		conn.send(ackObj.toString());
 	}
 
-	public void paging() {
-		System.out.println("하이하이");
-		JSONObject msgObj = new JSONObject(message);
-		int pageNum = msgObj.getInt("pagenum");
-		int totalBoardlist = dao.totalBoardCount();
-		System.out.println(totalBoardlist);
-		
-	}
 }
