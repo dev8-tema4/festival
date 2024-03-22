@@ -86,11 +86,11 @@ public class FestivalWebSocketServer extends WebSocketServer{
 			case "addCart" -> {
 				System.out.println("=== addCart ===");
 				Orders orders = new Orders(conn, message);
+				OrderItem orderItem = new OrderItem(conn, message);
+
 				orders.injectMemberInfo();
 
 				List<Integer> orderIdList = orders.getOrderIdList();
-
-				OrderItem orderItem = new OrderItem(conn, message);
 				orderItem.addCart(orderIdList);
 			}
 			case "getAllCart" -> {
