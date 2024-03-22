@@ -9,6 +9,7 @@ import org.java_websocket.WebSocket;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,19 +28,28 @@ public class OrderItem {
         this.message = message;
     }
 
+    /**
+     * 장바구니 추가
+     */
     public void addCart(List<Integer> orderIdList) {
         JSONObject msgObj = new JSONObject(message);
+
+        int memberId = msgObj.getInt("memberId");
         int itemId = msgObj.getInt("itemId");
         int count =  msgObj.getInt("count");
         int price =  msgObj.getInt("price");
+
+        getMemberId = memberDao.getMemberId(DBConnection.getConnection(), memberId);
+        orderIdList = OrdersDao.getOrderIdList(DBConnection.getConnection(), getMemberId);
 
         for (int orderId : orderIdList) {
             int checkedItemId = itemDao.checkedItem(DBConnection.getConnection(), itemId);
             orderItemDto = new OrderItemDto(orderId, checkedItemId, count, price);
         }
-            result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto);
 
-        if(result > 0) {
+        this.result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto, orderIdList);
+
+        if(this.result > 0) {
             JSONObject ackObj = new JSONObject();
 
             ackObj.put("cmd", "addCart");
@@ -58,6 +68,9 @@ public class OrderItem {
         }
     }
 
+    /**
+     * 장바구니 조회
+     */
     public void getAllCart() {
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
@@ -85,25 +98,9 @@ public class OrderItem {
         }
     }
 
-    public void buyItem() {
-        JSONObject msgObj = new JSONObject(message);
-        String orderItemIdSet = msgObj.getString("orderItemId");
-
-        String[] orderItemIdArr = orderItemIdSet.split(", ");
-
-        for (String orderItemId : orderItemIdArr) {
-            int findOrderItemId = Integer.parseInt(orderItemId);
-            OrderItemDao.buyItem(DBConnection.getConnection(), findOrderItemId);
-        }
-
-        JSONObject ackObj = new JSONObject();
-
-        ackObj.put("cmd", "buyCartItem");
-        ackObj.put("result", "ok");
-
-        conn.send(ackObj.toString());
-    }
-
+    /**
+     * 주문내역 조회
+     */
     public void getOrderList() {
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
@@ -131,5 +128,27 @@ public class OrderItem {
 
             conn.send(ackArrObj.toString());
         }
+    }
+
+    /**
+     * 구매하기
+     */
+    public void buyItem() {
+        JSONObject msgObj = new JSONObject(message);
+        String orderItemIdSet = msgObj.getString("orderItemId");
+
+        String[] orderItemIdArr = orderItemIdSet.split(", ");
+
+        for (String orderItemId : orderItemIdArr) {
+            int findOrderItemId = Integer.parseInt(orderItemId);
+            OrderItemDao.buyItem(DBConnection.getConnection(), findOrderItemId);
+        }
+
+        JSONObject ackObj = new JSONObject();
+
+        ackObj.put("cmd", "buyCartItem");
+        ackObj.put("result", "ok");
+
+        conn.send(ackObj.toString());
     }
 }

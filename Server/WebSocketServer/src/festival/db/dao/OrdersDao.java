@@ -2,6 +2,7 @@ package festival.db.dao;
 
 import festival.db.DBConnection;
 import festival.dto.OrdersDto;
+import org.java_websocket.WebSocket;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,6 @@ public class OrdersDao {
      * 회원 정보 추가
      */
     public static int injectMemberInfo(Connection conn, int memberId) {
-
 
         try {
             sql = "INSERT INTO ORDERS (member_id) VALUES(?)";

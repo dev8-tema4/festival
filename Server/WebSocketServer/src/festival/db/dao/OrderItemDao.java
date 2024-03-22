@@ -22,26 +22,40 @@ public class OrderItemDao {
     /**
      * 장바구니 추가
      */
-    public static int addCart(Connection conn, OrderItemDto orderItemDto) {
+    public static int addCart(Connection conn, OrderItemDto orderItemDto, List<Integer> orderIdList) {
 
         int result = 0;
 
-        try {
-            sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, price) VALUES(?, ?, ?, ?)";
+        for (int orderId : orderIdList) {
+            System.out.println(alreadyItemId(conn, orderId));
+            if(alreadyItemId(conn, orderId)) {
+                try {
+                    sql = "UPDATE ORDER_ITEM SET count = count + 1 WHERE order_item_id = ?";
+                    pstmt = conn.prepareStatement(sql);
+                    pstmt.setInt(1, orderId);
 
-            pstmt = conn.prepareStatement(sql);
+                    result = pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } else {
+                try {
+                    sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, price) VALUES(?, ?, ?, ?)";
 
-            pstmt.setInt(1, orderItemDto.getOrderId());
-            pstmt.setInt(2, orderItemDto.getItemId());
-            pstmt.setInt(3, orderItemDto.getCount());
-            pstmt.setInt(4, orderItemDto.getPrice());
+                    pstmt = conn.prepareStatement(sql);
 
-            result = pstmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } finally {
-            DBConnection.DBClose.close(conn, pstmt, rs);
+                    pstmt.setInt(1, orderItemDto.getOrderId());
+                    pstmt.setInt(2, orderItemDto.getItemId());
+                    pstmt.setInt(3, orderItemDto.getCount());
+                    pstmt.setInt(4, orderItemDto.getPrice());
+
+                    result = pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
+        DBConnection.DBClose.close(conn, pstmt, rs);
         return result;
     }
 
@@ -74,7 +88,6 @@ public class OrderItemDao {
                             rs.getInt("price"),
                             rs.getInt("count")
                     );
-
                     cartList.add(cartResponseDto);
                 }
             }
@@ -128,6 +141,9 @@ public class OrderItemDao {
         return orderList;
     }
 
+    /**
+     * 구매하기
+     */
     public static void buyItem(Connection conn, int orderItemId) {
 
         try {
@@ -139,7 +155,32 @@ public class OrderItemDao {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } finally {
+            DBConnection.DBClose.close(conn, pstmt, rs);
         }
+    }
 
+    /**
+     * 장바구니에 있는 상품인지 확인
+     */
+    public static boolean alreadyItemId(Connection conn, int itemId) {
+
+        boolean result = false;
+
+        try {
+            sql = "SELECT IF(item_id > 0, 'TRUE', 'FALSE') FROM ORDER_ITEM WHERE item_id = ?";
+
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, itemId);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                result = rs.getBoolean(1);
+            }
+
+            return result;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
