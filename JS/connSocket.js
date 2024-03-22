@@ -43,7 +43,8 @@ socket.onmessage = function (e) {
             signupSuccess(e.data);
             break;
         case 'boardlist':
-            requestboard(e.data);
+            // requestboard(e.data);
+            pageboard(e.data)
             break;
         case 'view':
             showcontent(e.data);
