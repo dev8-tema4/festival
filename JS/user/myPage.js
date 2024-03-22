@@ -77,11 +77,20 @@ document.addEventListener('DOMContentLoaded', ()=>{
 const requestMyBoard = function (message) {
     const myListTable = document.getElementById('myListBoard');
     const msgObj = JSON.parse(message);
+    const row = document.querySelector('.mylistrow');
     myListTable.style.marginBottom = "20px"
+
+    if(row !== null){
+        
+        row.forEach(element => {
+            element.remove();
+        });
+    }
     
     
     for (let i = 0; i < msgObj.result.length; i++){
         const row = document.createElement('tr');
+        row.setAttribute("class", "mylistrow")
         row.setAttribute("memberId", msgObj.result[i].memberID)
 
         const cell1 = document.createElement('td');
