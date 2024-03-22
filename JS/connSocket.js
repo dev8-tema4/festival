@@ -28,7 +28,7 @@ socket.onerror = function (error) {
 
 socket.onmessage = function (e) {
     const msgObj = JSON.parse(e.data);
-    
+
     switch(msgObj.cmd){
         case 'login':
             loginSuccess(e.data);
@@ -63,17 +63,24 @@ socket.onmessage = function (e) {
         case 'buyCartItem':
             orderSuccess(e.data);
             break;
-        default:
+        
+    }
+
+    switch(msgObj[0].cmd){
+        case 'getAllCart':
             resAllCart(e.data);
+            break;
+        case 'getOrderList':
+            resOrderList(e.data);
             break;
     }
 }
 
 const sendMessage = function(message){
-    if(socket.readyState === WebSocket.OPEN){
-        socket.send(message);    // 서버로 전송
-    }else{
-        console.error('WebSocket is not in OPEN state.')
+    while(true){
+        if(socket.readyState === WebSocket.OPEN){
+            socket.send(message);    // 서버로 전송
+            return;
+        }
     }
-    
 }

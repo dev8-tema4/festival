@@ -19,6 +19,7 @@ window.onload = function(){
     
     //비밀번호 변경 링크에 이벤트 리스너 등록
     document.getElementById("changePass").addEventListener("click", changePass);
+    document.getElementById("myOrder").addEventListener("click", reqOrderList);
 };
 
 //서버로부터 사용자 정보를 가져와서 테이블에 출력하는 함수
@@ -123,3 +124,37 @@ const requestMyBoard = function (message) {
     }
 
 };
+
+const reqOrderList = function () {
+    const packet = {
+        cmd: 'getOrderList',
+        memberId: sessionStorage.getItem('memberId')
+    }
+
+    socket.send(JSON.stringify(packet));
+}
+
+const resOrderList = function (message) {
+    const msgObj = JSON.parse(message);
+    const myOrderList = document.getElementById('myOrderList');
+    const orderItem = document.querySelector('.orderItem');
+
+    if(orderItem !== null){
+        
+        orderItem.array.forEach(element => {
+            element.remove();
+        });
+    }
+    
+
+    for(let i=0; i<msgObj.length; i++){
+        let orderList = `<tr class='orderItem'>
+        <td>${i}</td>
+        <td>${msgObj[i].name}</td>
+        <td>${msgObj[i].price}</td>
+        <td>${msgObj[i].count}</td>
+        </tr>`;
+
+        myOrderList.insertAdjacentHTML('beforeend', orderList);
+    }
+}
