@@ -334,7 +334,7 @@ public class BoardDao {
 	    }		
 	}
 	public void myList(List<BoardDto> dtolist, int MEMBER_ID) {
-		String sql = "SELECT * FROM BOARD WHERE MEMBER_ID = ?";
+		String sql = "SELECT * FROM BOARD WHERE MEMBER_ID = ? ORDER BY INDEXNUM DESC";
 	    try {
 	        conn = DBConnection.getConnection();
 	        pstmt = conn.prepareStatement(sql);

@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 const requestMyBoard = function (message) {
     const myListTable = document.getElementById('myListBoard');
     const msgObj = JSON.parse(message);
-
+    myListTable.style.marginBottom = "20px"
     
     
     for (let i = 0; i < msgObj.result.length; i++){
@@ -84,32 +84,32 @@ const requestMyBoard = function (message) {
         row.setAttribute("memberId", msgObj.result[i].memberID)
 
         const cell1 = document.createElement('td');
-        cell1.textContent = msgObj.result[i].category;
+        cell1.textContent = msgObj.result[i].indexNum;
         cell1.style.textAlign = "center";
         row.appendChild(cell1);
 
         const cell2 = document.createElement('td');
-        cell2.textContent = msgObj.result[i].indexNum;
+        cell2.textContent = msgObj.result[i].subject;
         cell2.style.textAlign = "center";
         row.appendChild(cell2);
 
         const cell3 = document.createElement('td');
-        cell3.textContent = msgObj.result[i].subject;
+        cell3.textContent = msgObj.result[i].name;
         cell3.style.textAlign = "center";
         row.appendChild(cell3);
 
         const cell4 = document.createElement('td');
-        cell4.textContent = msgObj.result[i].name;
+        cell4.textContent = msgObj.result[i].date;
         cell4.style.textAlign = "center";
         row.appendChild(cell4);
 
         const cell5 = document.createElement('td');
-        cell5.textContent = msgObj.result[i].date;
+        cell5.textContent = msgObj.result[i].views;
         cell5.style.textAlign = "center";
         row.appendChild(cell5);
-
+        
         const cell6 = document.createElement('td');
-        cell6.textContent = msgObj.result[i].views;
+        cell6.textContent = msgObj.result[i].category;
         cell6.style.textAlign = "center";
         row.appendChild(cell6);
 
