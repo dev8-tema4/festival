@@ -250,118 +250,163 @@ public class BoardDao {
 	}
 
 	public void searchByTitleContent(List<BoardDto> dtolist, String search) {
-	    String sql = "SELECT * FROM BOARD WHERE SUBJECT LIKE ? OR CONTENT LIKE ?";
-	    try {
-	        conn = DBConnection.getConnection();
-	        pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, "%" + search + "%");
-	        pstmt.setString(2, "%" + search + "%");
+		String sql = "SELECT * FROM BOARD WHERE SUBJECT LIKE ? OR CONTENT LIKE ?";
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + search + "%");
+			pstmt.setString(2, "%" + search + "%");
 
-	        rs = pstmt.executeQuery();
-	        while (rs.next()) {
-	            BoardDto dto = new BoardDto();
-	            dto.setIndexNum(rs.getInt(1));
-	            dto.setSubject(rs.getString(2));
-	            dto.setMemberID(rs.getInt(3));
-	            dto.setContent(rs.getString(4));
-	            dto.setDate(rs.getString(5));
-	            dto.setViews(rs.getInt(6));
-	            dto.setName(rs.getString(7));
-	            dto.setCategory(rs.getString(8));
-	            dtolist.add(dto);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        // 연결 및 리소스 해제
-	        DBClose.close(conn, pstmt, rs);
-	    }
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
 	}
 
 	public void searchByTitle(List<BoardDto> dtolist, String search) {
 		String sql = "SELECT * FROM BOARD WHERE SUBJECT LIKE ?";
-	    try {
-	        conn = DBConnection.getConnection();
-	        pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, "%" + search + "%");
-	        
-	        rs = pstmt.executeQuery();
-	        while (rs.next()) {
-	            BoardDto dto = new BoardDto();
-	            dto.setIndexNum(rs.getInt(1));
-	            dto.setSubject(rs.getString(2));
-	            dto.setMemberID(rs.getInt(3));
-	            dto.setContent(rs.getString(4));
-	            dto.setDate(rs.getString(5));
-	            dto.setViews(rs.getInt(6));
-	            dto.setName(rs.getString(7));
-	            dto.setCategory(rs.getString(8));
-	            dtolist.add(dto);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        // 연결 및 리소스 해제
-	        DBClose.close(conn, pstmt, rs);
-	    }		
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + search + "%");
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
 	}
 
 	public void searchByAuthor(List<BoardDto> dtolist, String search) {
 		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ?";
-	    try {
-	        conn = DBConnection.getConnection();
-	        pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, "%" + search + "%");
-	        
-	        rs = pstmt.executeQuery();
-	        while (rs.next()) {
-	            BoardDto dto = new BoardDto();
-	            dto.setIndexNum(rs.getInt(1));
-	            dto.setSubject(rs.getString(2));
-	            dto.setMemberID(rs.getInt(3));
-	            dto.setContent(rs.getString(4));
-	            dto.setDate(rs.getString(5));
-	            dto.setViews(rs.getInt(6));
-	            dto.setName(rs.getString(7));
-	            dto.setCategory(rs.getString(8));
-	            dtolist.add(dto);
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        // 연결 및 리소스 해제
-	        DBClose.close(conn, pstmt, rs);
-	    }		
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%" + search + "%");
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
 	}
+
 	public void myList(List<BoardDto> dtolist, int MEMBER_ID) {
 		String sql = "SELECT * FROM BOARD WHERE MEMBER_ID = ? ORDER BY INDEXNUM DESC";
-	    try {
-	        conn = DBConnection.getConnection();
-	        pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, MEMBER_ID);
-	        
-	        rs = pstmt.executeQuery();
-	        while (rs.next()) {
-	            BoardDto dto = new BoardDto();
-	            dto.setIndexNum(rs.getInt(1));
-	            dto.setSubject(rs.getString(2));
-	            dto.setMemberID(rs.getInt(3));
-	            dto.setContent(rs.getString(4));
-	            dto.setDate(rs.getString(5));
-	            dto.setViews(rs.getInt(6));
-	            dto.setName(rs.getString(7));
-	            dto.setCategory(rs.getString(8));
-	            dtolist.add(dto);
-	        }
-	        System.out.println(dtolist.toString());
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    } finally {
-	        // 연결 및 리소스 해제
-	        DBClose.close(conn, pstmt, rs);
-	    }		
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, MEMBER_ID);
+
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+			System.out.println(dtolist.toString());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
 	}
 
-	
+	public int totalBoardCount() {
+		String sql = "SELECT COUNT(*) FROM BOARD";
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			// 연결 및 리소스 해제
+			DBClose.close(conn, pstmt, rs);
+		}
+		return result;
+	}
 
+	public void pagelist(int selectPage, List<BoardDto> dtolist) {
+		String sql = "SELECT * FROM board ORDER BY INDEXNUM DESC limit ?, 5";
+		ResultSet rs = null;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, selectPage);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDto dto = new BoardDto();
+				dto.setIndexNum(rs.getInt(1));
+				dto.setSubject(rs.getString(2));
+				dto.setMemberID(rs.getInt(3));
+				dto.setContent(rs.getString(4));
+				dto.setDate(rs.getString(5));
+				dto.setViews(rs.getInt(6));
+				dto.setName(rs.getString(7));
+				dto.setCategory(rs.getString(8));
+				dtolist.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBClose.close(conn, pstmt, rs);
+		}
+	}
 }

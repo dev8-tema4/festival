@@ -1,12 +1,25 @@
 const sendBoardList = function () {
 
     const packet = {
-        cmd: 'boardlist'
+        cmd: 'boardlist',
+        pagenum : 1
     };
 
     const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
     sendMessage(jsonStr);
 }
+
+const sendNextPageList = function (pagenum) {
+
+    const packet = {
+        cmd: 'boardlist',
+        pagenum : pagenum
+    };
+
+    const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
+    sendMessage(jsonStr);
+}
+
 
 const sendPopularList = function () {
 
@@ -70,6 +83,8 @@ const requestboard = function (message) {
     const parentElement = document.getElementById('resultTable');
     const msgObj = JSON.parse(message);
 
+    console.log(msgObj)
+
     // 이전에 생성된 테이블이 있다면 삭제
     while (parentElement.firstChild) {
         parentElement.removeChild(parentElement.firstChild);
@@ -131,6 +146,7 @@ const requestboard = function (message) {
         row.appendChild(cell6);
 
         table.appendChild(row);
+
     }
 
     // 테이블 경계선 스타일 적용
