@@ -362,6 +362,23 @@ public class BoardDao {
 	    }		
 	}
 
-	
+	public int totalBoardCount() {
+		String sql = "SELECT COUNT(*) FROM BOARD";
+		int result = 0;
+		try {
+			conn = DBConnection.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				result = rs.getInt(1);
+			}
+		}catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        // 연결 및 리소스 해제
+	        DBClose.close(conn, pstmt, rs);
+	    }
+		return result;
+	}
 
 }

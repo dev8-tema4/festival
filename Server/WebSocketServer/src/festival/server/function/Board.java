@@ -171,4 +171,12 @@ public class Board {
 
 		conn.send(ackObj.toString());
 	}
+
+	public void paging() {
+		JSONObject msgObj = new JSONObject(message);
+		int pageNum = msgObj.getInt("pagenum");
+		int totalBoardlist = dao.totalBoardCount();
+		System.out.println(totalBoardlist);
+		
+	}
 }
