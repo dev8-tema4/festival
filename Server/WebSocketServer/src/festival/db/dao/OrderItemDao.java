@@ -25,20 +25,6 @@ public class OrderItemDao {
     public static int addCart(Connection conn, OrderItemDto orderItemDto, List<Integer> orderIdList) {
 
         int result = 0;
-
-        for (int orderId : orderIdList) {
-            System.out.println(alreadyItemId(conn, orderId));
-            if(alreadyItemId(conn, orderId)) {
-                try {
-                    sql = "UPDATE ORDER_ITEM SET count = count + 1 WHERE order_item_id = ?";
-                    pstmt = conn.prepareStatement(sql);
-                    pstmt.setInt(1, orderId);
-
-                    result = pstmt.executeUpdate();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            } else {
                 try {
                     sql = "INSERT INTO ORDER_ITEM(order_id, item_id, count, price) VALUES(?, ?, ?, ?)";
 
@@ -52,10 +38,25 @@ public class OrderItemDao {
                     result = pstmt.executeUpdate();
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
+                } finally {
+                    DBConnection.DBClose.close(conn, pstmt, rs);
                 }
-            }
+        return result;
+    }
+
+    /**
+     * 장바구니 상품 수량 추가
+     */
+    public static int addCountCart(Connection conn, int orderItemId) {
+        int result = 0;
+        try {
+            sql = "UPDATE ORDER_ITEM SET count = count + 1 WHERE order_item_id = ?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, orderItemId);
+            result = pstmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        DBConnection.DBClose.close(conn, pstmt, rs);
         return result;
     }
 
@@ -163,19 +164,23 @@ public class OrderItemDao {
     /**
      * 장바구니에 있는 상품인지 확인
      */
-    public static boolean alreadyItemId(Connection conn, int itemId) {
+    public static int alreadyItemId(Connection conn, List<Integer> orderIdList, int itemId) {
 
-        boolean result = false;
+        int result = 0;
 
         try {
-            sql = "SELECT IF(item_id > 0, 'TRUE', 'FALSE') FROM ORDER_ITEM WHERE item_id = ?";
 
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, itemId);
-            rs = pstmt.executeQuery();
+            for (int orderId : orderIdList) {
+                sql = "SELECT order_item_id FROM ORDER_ITEM WHERE order_id = ? AND item_id = ?";
 
-            while (rs.next()) {
-                result = rs.getBoolean(1);
+                pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, orderId);
+                pstmt.setInt(2, itemId);
+                rs = pstmt.executeQuery();
+
+                while (rs.next()) {
+                    result = rs.getInt(1);
+                }
             }
 
             return result;
