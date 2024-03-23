@@ -9,7 +9,6 @@ import org.java_websocket.WebSocket;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +16,7 @@ public class OrderItem {
     private WebSocket conn = null;
     private String message = null;
     private int result;
+    private static Orders orders = null;
     private static MemberDao memberDao = new MemberDao();
     private static OrderItemDto orderItemDto = new OrderItemDto();
     private static ItemDao itemDao = new ItemDao();
@@ -26,6 +26,8 @@ public class OrderItem {
     public OrderItem(WebSocket conn, String message) {
         this.conn = conn;
         this.message = message;
+
+        orders = new Orders(conn, message);
     }
 
     /**
@@ -40,14 +42,18 @@ public class OrderItem {
         int price =  msgObj.getInt("price");
 
         getMemberId = memberDao.getMemberId(DBConnection.getConnection(), memberId);
-        orderIdList = OrdersDao.getOrderIdList(DBConnection.getConnection(), getMemberId);
+        int orderItemId = OrderItemDao.alreadyItemId(DBConnection.getConnection(), orderIdList, itemId);
 
-        for (int orderId : orderIdList) {
-            int checkedItemId = itemDao.checkedItem(DBConnection.getConnection(), itemId);
-            orderItemDto = new OrderItemDto(orderId, checkedItemId, count, price);
+        if(orderItemId > 0) {
+            this.result = OrderItemDao.addCountCart(DBConnection.getConnection(), orderItemId);
+        } else {
+            orders.injectMemberInfo(getMemberId);
+            for (int orderId : orderIdList) {
+                int checkedItemId = itemDao.checkedItem(DBConnection.getConnection(), itemId);
+                orderItemDto = new OrderItemDto(orderId, checkedItemId, count, price);
+            }
+            this.result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto, orderIdList);
         }
-
-        this.result = OrderItemDao.addCart(DBConnection.getConnection(), orderItemDto, orderIdList);
 
         if(this.result > 0) {
             JSONObject ackObj = new JSONObject();

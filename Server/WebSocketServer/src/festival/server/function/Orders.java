@@ -11,15 +11,17 @@ public class Orders {
     private WebSocket conn = null;
     private String message = null;
 
+    public Orders() {}
+
     public Orders(WebSocket conn, String message) {
         this.conn = conn;
         this.message = message;
     }
 
-    public void injectMemberInfo() {
-        JSONObject msgObj = new JSONObject(message);
-        int memberId = msgObj.getInt("memberId");
-
+    /**
+     * 주문한 회원 아이디 주입
+     */
+    public void injectMemberInfo(int memberId) {
         int check = OrdersDao.injectMemberInfo(DBConnection.getConnection(), memberId);
 
         if(check > 0) {
@@ -35,6 +37,9 @@ public class Orders {
         }
     }
 
+    /**
+     * 로그인한 사용자가 주문한 orderId
+     */
     public List<Integer> getOrderIdList() {
         JSONObject msgObj = new JSONObject(message);
         int memberId = msgObj.getInt("memberId");
