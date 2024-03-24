@@ -16,7 +16,7 @@ import festival.server.function.MyInfoHandler;
 
 public class FestivalWebSocketServer extends WebSocketServer{
 	public static void main(String[] args) {
-		String host = "172.30.1.53"; // localhost
+		String host = "192.168.0.57"; // localhost
 		final int PORT = 9000;
 
 		WebSocketServer server = new FestivalWebSocketServer(new InetSocketAddress(host, PORT));
@@ -90,7 +90,6 @@ public class FestivalWebSocketServer extends WebSocketServer{
 				List<Integer> orderIdList = orders.getOrderIdList();
 
 				orderItem.addCart(orderIdList);
-				System.out.println("=== addCart ===5");
 			}
 			case "getAllCart" -> {
 				System.out.println("=== getAllCart ===");

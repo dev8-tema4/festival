@@ -171,7 +171,7 @@ public class OrderItemDao {
         try {
 
             for (int orderId : orderIdList) {
-                sql = "SELECT order_item_id FROM ORDER_ITEM WHERE order_id = ? AND item_id = ?";
+                sql = "SELECT order_item_id FROM ORDER_ITEM WHERE order_id = ? AND item_id = ? AND isBuyed = 0";
 
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setInt(1, orderId);
