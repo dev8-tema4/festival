@@ -23,6 +23,7 @@ const send = function () {
       };
       const jsonStr = JSON.stringify(packet); // js객체 -> json문자열
       sendMessage(jsonStr);
+      alert('장바구니에 추가되었습니다.');
     });
   });
 };

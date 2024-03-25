@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	setTimeout(reqAllCart, 100);
 	order();
+
 });
 
 const reqAllCart = function () {
@@ -14,13 +15,16 @@ const reqAllCart = function () {
 };
 
 const resAllCart = function (message) {
-    const msgObj = JSON.parse(message);
+  const msgObj = JSON.parse(message);
 	const cartHeader = document.querySelector('.cart_header');
 	let orderItemIdStr = '';
+	let totalPrice = document.querySelector('.totalPrice');
+	let sumPrice = document.querySelector('.sumPrice1')
+	let total = 0;
 
 	for(let i=0; i<msgObj.length; i++){
 		orderItemIdStr += `${msgObj[i].orderItemId}, `;
-
+		
 		let allCart = `<tr>
 		<td>
 			<div class="itemInfo1">
@@ -44,10 +48,14 @@ const resAllCart = function (message) {
 		</td>
 
 		<td>
-			<div class="itemDeliv1">4,000원<br><small>택배</small></div>
+			<div class="itemDeliv1">무료<br><small>택배</small></div>
 		</td>
 	</tr>`
 	cartHeader.insertAdjacentHTML('afterend', allCart);
+	total += msgObj[i].count * msgObj[i].price;
+
+	totalPrice.textContent = `${total}원`;
+	sumPrice.textContent = `${total}원`; 
 	}
 	sessionStorage.setItem('orderItemId', orderItemIdStr);
 };
