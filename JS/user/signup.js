@@ -49,6 +49,7 @@ const sendSignup = function(){
 
   const jsonStr = JSON.stringify(packet);     // js객체 -> json문자열
   sendMessage(jsonStr);
+
 }
 
 const signupSuccess = function(message) {
@@ -59,6 +60,7 @@ const signupSuccess = function(message) {
     case 'signup':
       if (msgObj.result === 'ok') {
         alert(`회원가입에 성공하셨습니다.`);
+        location.href = '/HTML/user/login.html'
       }
   }
 }

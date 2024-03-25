@@ -68,7 +68,7 @@ public class BoardDao {
 
 	public String view(int indexNum) {
 		String result = null;
-		String sql = "SELECT * FROM BOARD WHERE INDEXNUM=? ORDER BY INDEXNUM DESC limit 14";
+		String sql = "SELECT * FROM BOARD WHERE INDEXNUM=? ORDER BY INDEXNUM DESC limit 10";
 
 		try {
 			conn = DBConnection.getConnection();
@@ -127,7 +127,7 @@ public class BoardDao {
 
 	public void popularlist(List<BoardDto> dtolist) {
 
-		String sql = "SELECT * FROM BOARD ORDER BY VIEWS DESC LIMIT 14";
+		String sql = "SELECT * FROM BOARD ORDER BY VIEWS DESC LIMIT 10";
 		int count = 0;
 		try {
 			conn = DBConnection.getConnection();
@@ -383,7 +383,7 @@ public class BoardDao {
 	}
 
 	public void pagelist(int selectPage, List<BoardDto> dtolist) {
-		String sql = "SELECT * FROM board ORDER BY INDEXNUM DESC limit ?, 5";
+		String sql = "SELECT * FROM board ORDER BY INDEXNUM DESC limit ?, 10";
 		ResultSet rs = null;
 		try {
 			conn = DBConnection.getConnection();

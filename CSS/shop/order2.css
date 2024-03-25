@@ -282,6 +282,10 @@
   font-size: 20px;
 }
 
+#order:hover{
+  cursor: pointer;
+}
+
 #bitpay{
   background-color: #00DE5A;
     width: 250px;

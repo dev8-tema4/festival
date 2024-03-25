@@ -81,7 +81,7 @@ const orderSuccess = function (message) {
     switch (msgObj.result) {
         case 'ok':
             alert('주문이 완료되었습니다.');
-            location.reload(true);
+            location.href = '/HTML/shop/order.html';
             break;
     }
 }

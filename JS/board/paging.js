@@ -74,31 +74,39 @@ const pageboard = function (message) {
         row.style.border = "1px solid black";
     });
 
-    // 부모 요소에 테이블 추가
+    // 테이블을 부모 요소에 추가
     parentElement.appendChild(table);
 
     // Pagination buttons
     const paginationDiv = document.createElement('div');
     paginationDiv.className = 'pagination';
-    paginationDiv.style.textAlign = 'center'; // Center align the pagination buttons
-    paginationDiv.style.marginTop = "20px"; // Add margin to the top
+    paginationDiv.style.textAlign = 'center'; // 페이지네이션 버튼 가운데 정렬
+    paginationDiv.style.marginTop = "20px"; // 위쪽에 여백 추가
 
+    // 페이지네이션 버튼을 테이블 아래쪽에 추가
+    parentElement.appendChild(paginationDiv);
+
+    console.log(msgObj.pageCount);
+    
+    // 페이지네이션 버튼 생성 및 이벤트 처리
     for (let i = 1; i <= msgObj.pageCount; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         pageButton.addEventListener('click', ((pageNumber) => {
             return () => {
-                // Handle pagination click event
+                // 페이지네이션 클릭 이벤트 처리
                 sendNextPageList(`${pageNumber}`);
-                
+
                 console.log(`Clicked page ${pageNumber}`);
             };
         })(i));
         paginationDiv.appendChild(pageButton);
     }
 
-    parentElement.appendChild(paginationDiv);
-
-    console.log(msgObj.pageCount);
+    // 각 행을 클릭할 때 이벤트 처리
+    const trbtn = document.querySelectorAll('tr');
+    console.log(trbtn)
+    trbtn.forEach(element => {
+        element.addEventListener('click', () => { sendView(element) })
+    })
 };
-

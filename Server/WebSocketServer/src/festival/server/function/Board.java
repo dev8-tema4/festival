@@ -27,8 +27,8 @@ public class Board {
 		JSONObject msgObj = new JSONObject(message);
 		int pageNum = msgObj.getInt("pagenum");
 		int totalBoardlist = dao.totalBoardCount();
-		int pageCount = totalBoardlist % 5 == 0 ? (totalBoardlist/5) : ((totalBoardlist/5)+1);
-		int selectPage = (pageNum - 1) *5;
+		int pageCount = totalBoardlist % 10 == 0 ? (totalBoardlist/10) : ((totalBoardlist/10)+1);
+		int selectPage = (pageNum - 1) *10;
 		
 		dao.pagelist(selectPage,dtolist);
 		

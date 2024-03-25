@@ -20,10 +20,9 @@ public class Member {
 		JSONObject msgObj = new JSONObject(message);
 		String email = msgObj.getString("email");
 		String password = msgObj.getString("password");
-		
-//	Encrypt encrypt = new Encrypt();
-//	password = encrypt.getEncrypt(password);
-//		
+			
+		Encrypt encrypt = new Encrypt();
+		password = encrypt.getEncrypt(password);
 
 		System.out.printf("로그인 id: %s pass :%s\n", email, password);
 
@@ -35,7 +34,7 @@ public class Member {
 		if (check) {
 			JSONObject ackObj = new JSONObject();
 			MemberDto dto = dao.getMemberInfoByEmail(email);
-			
+
 			ackObj.put("cmd", "login");
 			ackObj.put("result", "ok");
 			ackObj.put("memberId", dto.getMemberId());
@@ -64,9 +63,8 @@ public class Member {
 		System.out.println("회원가입 입력값: " + email + password + name + address + phone);
 		Encrypt encrypt = new Encrypt();
 		password = encrypt.getEncrypt(password);
-		
-		
-		MemberDto dto = new MemberDto(email,password,name,address,phone);
+
+		MemberDto dto = new MemberDto(email, password, name, address, phone);
 		MemberDao dao = new MemberDao();
 		int result = dao.signUp(dto);
 
@@ -87,7 +85,6 @@ public class Member {
 		}
 
 	}
-
 
 	public void checkEmail() {
 		int count = 0;
