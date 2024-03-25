@@ -1,0 +1,90 @@
+.login-form {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #f9f9f9;
+}
+
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+#loginBtn {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#loginBtn:hover {
+  background-color: #45a049;
+}
+
+#signupBtn {
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  padding: 10px 0;
+  margin-top: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#signupBtn:hover {
+  background-color: gray;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999; /* 다른 요소 위에 헤더가 표시되도록 설정합니다. */
+  opacity: 0.7;
+}
+.left-content {
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+  
+}
+.left-content > div {
+  margin-right: 30px;
+}
+.center-content{
+  display: flex;
+  align-items: center;
+}
+.right-content {
+  display: flex;
+  align-items: center;
+  margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
+  position: relative; /* 상대 위치 설정 */
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.left-content, .center-content, .right-content{
+  font-weight: bold;
+}

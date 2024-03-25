@@ -1,0 +1,336 @@
+@font-face {
+    font-family: "goding";
+    src: url("../../clova-all/할아버지의나눔/나눔손글씨\ 할아버지의나눔.ttf");
+  }
+  @font-face {
+    font-family: "left";
+    src: url("../../clova-all/왼손잡이도_예뻐/나눔손글씨\ 왼손잡이도\ 예뻐\ \(1\).ttf");
+  }
+  
+  * {
+    list-style: none;
+    text-decoration: none;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  body {
+    margin: 0;
+  }
+  footer{
+    height: 300px;
+    position : relative;
+    background-color: #262626;
+    margin-top: 10%;
+    margin-bottom: 0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 1;
+  }
+  a {
+    color: black;
+    font-weight: bold;
+  }
+  .navHead {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    font-size: 25px;
+    position: fixed;
+    background-color: white;
+    z-index: 2;
+    font-family: "goding";
+    border-bottom: 1px solid #e7e7e7;
+  }
+  .header {
+    font-size: 35px;
+  }
+  .navbar {
+    display: flex;
+  }
+  .orderMenu {
+    display: flex;
+    font-size: 35px;
+  }
+  .navHead a {
+    padding: 20px;
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    width: 50%;
+    position: relative;
+    left: 25%;
+    right: 25%;
+    top: 80px;
+    /* border-top: 3px solid black; */
+    font-family: left;
+    /* background-color: aqua; */
+  }
+  .basket{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    /* background-color: yellow; */
+    align-items: center;
+    margin-left: 75px;
+  }
+  .prodInfo{
+    display: flex;
+    width: 100%;
+    /* background-color: brown; */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+ .prodInfo > table th,td{
+    /* border: 1px solid lightgray; */
+    font-size: 25px;
+    border-collapse: collapse;
+ }
+ .prodInfo > table{
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  border-collapse: collapse;
+ }
+ .prodInfo > th{
+  color: grey;
+  font-weight: normal;
+ }
+ 
+  .itemInfo{
+    border-bottom: 1px solid lightgrey;
+    width: 455px;
+    height: 45px;
+  }
+  .itemCount{
+    border-bottom: 1px solid lightgrey;
+    width: 180px;
+    height: 45px;
+  }
+  .itemPrice{
+    border-bottom: 1px solid lightgrey;
+    width: 180px;
+    height: 45px;
+  }
+  .itemDeliv{
+    border-bottom: 1px solid lightgrey;
+    width: 130px;
+    height: 45px;
+  }
+  .itemInfo1{
+    border-right: 1px solid lightgrey;
+    width: 455px;
+    height: 120px;
+    padding: 20px 0;
+    display: flex;
+  }
+  .itemCount1{
+    border-right: 1px solid lightgrey;
+    width: 180px;
+    height: 120px;
+    display: flex;
+    padding: 20px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .itemPrice1{
+    border-right: 1px solid lightgrey;
+    width: 180px;
+    height: 120px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .itemDeliv1{
+    width: 130px;
+    height: 120px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .itemImg{
+    background: url('../../image/shop/prod1.jpg')no-repeat;
+    background-size: cover;
+    width: 80px;
+    height: 80px;
+    color: black;
+    margin-left: 20px;
+  }
+.itemInfo1  p{
+    margin: 0 0 0 96px;
+    width: 365px;
+    height: 21px;
+    text-align: left;
+}
+.moreInfo1{
+    width: 270px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 0 96px;
+    background-color: #36363608;
+}
+.moreInfo1 em{
+  font-size: 16px;
+  padding: 3px 7px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+.itemOption{
+  border: 1px solid black;
+  font-weight: bold;
+  padding: 7px 8px;
+  width: 70px;
+  height: 20px;
+  margin-top: 10px;
+  font-size: 16px;
+}
+.itemOption1{
+  border: 1px solid black;
+  background-color: #DA2721;
+  color: white;
+  padding: 8px 15px;
+  margin-top: 10px;
+  width: 80px;
+  font-size: 22px;
+}
+.itemOption1 a{
+  color: white;
+}
+.itemDeliv1 > small{
+  font-weight: normal;
+  color: grey;
+  border: none;
+}
+.calcPrice{
+  display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.calcPrice > table{
+  width: 956px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+.addIcon{
+  width: 10px;
+  height: 10px;
+  background:url('../../image/shop/plus.png')no-repeat;
+  background-size: cover;
+}
+.sumIcon{
+  width: 10px;
+  height: 10px;
+  background:url('../../image/shop/equal.png')no-repeat;
+  background-size: cover;
+}
+.calcPrice div{
+  margin:10px;
+}
+.calcPrice td{
+  line-height: 0.4;
+}
+.calcPrice p{
+  font-size: 40px;
+  font-weight: bold;
+}
+.calcPrice small{
+  color: grey;
+}
+.calcPrice td{
+  border-top: 1px solid black;
+}
+.orderBtn{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+#order{
+  background-color: black;
+  width: 250px;
+  height: 55px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+#order:hover{
+  cursor: pointer;
+}
+
+#bitpay{
+  background-color: #00DE5A;
+    width: 250px;
+    height: 55px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+#bitpay a{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#reOrder{
+  text-decoration: underline;
+  font-size: 20px;
+}
+small{
+  color: red;
+  font-weight: bold;
+  padding: 0px 15px 3px 15px;
+  font-size: 20px;
+}
+.asd{
+  width: 600px;
+  height: 200px;
+  border: 1px dotted red;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 20px;
+}
+footer small{
+  font-size: 15px;
+  border: 0;
+  list-style: 1.2;
+  margin-bottom: 20px;
+}
+.adad{
+  margin-right: 20px;
+  width: 700px;
+  display: flex;
+}

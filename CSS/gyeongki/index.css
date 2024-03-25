@@ -1,0 +1,127 @@
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot');
+  src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot?#iefix') format('embedded-opentype'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.ttf') format("truetype");
+  font-display: block;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  font-family: 'Pretendard';
+  position: relative;
+}
+
+.header{
+  display: flex;
+  width: 100%;
+  height: 6rem;
+  align-items: center;
+  font-size: 1.6rem;
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  z-index: 999;
+}
+.header a{
+  text-decoration: none;
+}
+ul {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.festival1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 10rem;
+  position: absolute;
+  background-color: #fff;
+  top: 80vh;
+  z-index: 0;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 33%;
+  color: gray;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  color: black;
+}
+
+.title1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding-bottom: 3rem;
+  color: black;
+}
+
+.image {
+  width: 100%;
+  height: 80vh;
+  position: fixed;
+  z-index: -1;
+}
+
+.day {
+  font-size: 1rem;
+  font-weight: bold;
+  padding-bottom: 3rem;
+  color: black;
+}
+
+iframe{
+  padding-bottom: 3rem;
+  border-radius: 8px;
+}
+
+hr{
+  width: 100%;
+}
+
+img{
+  width: 50%;
+  object-fit: cover;
+  border-radius: 8px;
+  isolation: isolate;
+}
+
+.post{
+  display: flex;
+  justify-content: space-between;
+} 
+
+#info{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  justify-content: space-between;
+}
+
+.info{
+  display: flex;
+  align-items: center;
+}
+
+.icon{
+  width: 3rem;
+  margin: 0 1rem;
+}

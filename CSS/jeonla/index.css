@@ -1,0 +1,241 @@
+@font-face {
+    font-family: "winner";
+    src: url("../../clova-all/나는_이겨낸다/나눔손글씨\ 나는\ 이겨낸다.ttf");
+}
+
+/* 기본스타일 */
+body{
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: 2em;
+}
+*{
+    font-family: "winner";
+}
+header{
+    background-color: #000;
+    color: #fff;
+    padding:  20px 0;
+    position: relative ;
+    text-align: center;
+    height: 100px;
+    min-height: fit-content;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+ul{
+
+    list-style: none;
+    margin: 20;
+    padding: 20;
+}
+
+
+li{
+    
+    display: inline-block;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #000000;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+a{
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px;
+}
+
+main {
+    padding: 0;
+    text-align: center;
+}
+footer{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center; 
+}
+
+.jeonla-festival-slider{
+    overflow: hidden;
+    width: 100%; /*부모 요소의 너비에 맞게 설정*/
+    margin: 0 auto;
+    position: relative;
+}
+
+.jeonla-festival-slide{
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+
+.jeonla-festival-slide > div {
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.jeonla-festival-slide img{
+    width: 350px;
+    height: 500px;
+    border: 5px solid rgba(0, 0, 0, 0.5); /* 불투명한 테두리 설정 */
+    border-radius: 10px; /* 테두리의 모서리를 둥글게 만듭니다. */
+}
+
+
+.jeonla-pager{
+    margin-top: 10px;
+}
+
+/* 활성 슬라이드 스타일 */
+.jeonla-festival-slide.active{
+    display: block;;
+}
+
+.title{
+    background-color: #000;
+    font-size: 4em;
+    color: white;
+}
+
+.prev-button, .next-button{
+    position: absolute;
+    top: 87%;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    color: white;
+    font-size: 3em;
+    
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.prev-button{
+    left: 30%;
+}
+
+.next-button{
+    right: 30%;
+}
+
+.grid-container{
+    display: flex;
+   justify-content: center;
+    grid-gap: 10px;
+    justify-content: center;
+}
+.grid-item{
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    margin: 0 10px;
+    border-radius: 20px;
+}
+
+.jeonla-grid-section{
+    display: flex;
+    justify-content: center;
+}
+
+.jeonla-section{
+    margin-bottom: 100px;
+}
+
+.jeonla-main{
+    margin-bottom: 100px;
+}
+
+#map{
+    width: 900px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+
+.jeonla-festival-slide img{
+    cursor: pointer;
+}
+
+
+/* 유튜브 모달 */
+.youtubeModal{
+    display: block;
+    position: absolute; 
+    z-index: 1;
+    left: 0;
+    top:-280px;
+    width: 100%;
+    height: calc(100%-280px);
+    
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.youtubeModalContent{
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    background-color: #fefe;
+    
+}
+
+.youtubeClose{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.youtubeClose:hover,
+.close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.left-content {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    
+  }
+  .left-content > div {
+    margin-right: 30px;
+  }
+  .center-content{
+    display: flex;
+    align-items: center;
+    
+  }
+  .right-content {
+    display: flex;
+    align-items: center;
+    margin-right: 120px; /* 로그인 메뉴와 왼쪽 컨텐츠 사이의 여백을 조정합니다. */
+    position: relative; /* 상대 위치 설정 */
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .left-content, .center-content, .right-content{
+    font-weight: bold;
+    
+    
+  }
+
+  

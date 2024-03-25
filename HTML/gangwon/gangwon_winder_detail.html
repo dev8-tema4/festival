@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GangwonDetailPage</title>
+  <link rel="stylesheet" href="../../CSS/chatting/index.css">
+  <link rel="stylesheet" href="../../CSS/gangwon/header.css" />
+  <link rel="stylesheet" href="../../CSS/gangwon/detail_page.css" />
+  <script src="../../JS/connSocket.js"></script>
+  <script src="../../JS/header.js"></script>
+  <script src="../../JS/chatting/index.js"></script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        setTimeout(showSlides, 2000); // 2초마다 이미지가 체인지됩니다
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="header">
+      <div class="left-content">
+        <div class="home"><a href="../index.html">홈</a></div>
+        <div class="board"><a href="../board/index.html">게시판</a></div>
+        <div class="store"><a href="../shop/order.html">상점</a></div>
+      </div>
+
+      <div class="center-content">
+      <div class="container"><a href="../index.html">Go 8</a></div>
+  </div>
+    
+      <div class="right-content">
+        <div class="login-menu">로그인          
+          <div class="dropdown-content">
+            <div class="drop1"><a href="../user/login.html" >로그인</a></div>
+            <div class="drop2"><a href="../user/signup.html">회원가입</a></div>
+            <div class="logout"><a href="../index.html">로그아웃</a></div>
+            <div class="mypage"><a href="../user/myPage.html">마이페이지</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="detail-background"></div>
+  <div id="container">
+    <div class="title">
+      <h2>NOW OR NEVER, 지금 여기, 태백</h2>
+      <h1>강원도 태백산 눈축제</h1>
+      <!-- <div class="festival-state1">
+        <span>축제 진행중</span>
+      </div> -->
+      <div class="festival-state2">
+        <span>축제 종료</span>
+      </div>
+      <!-- <div class="festival-state3">
+        <span>축제 예정</span>
+      </div> -->
+      <div class="festival-day">2024.01.26 ~ 2024.02.04</div>
+    </div>
+
+    <br />
+    <div class="contents">
+      <div class="festival-contents">
+        <div class="slideshow-container">
+          <div class="Slidesbackground">
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic1.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic2.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic3.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic4.jpg" class="slideshow-image" />
+            </div>
+            <div class="mySlides fade">
+              <img src="../../image/gangwon/first_pic5.jpg" class="slideshow-image" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-comment">
+        <p>
+          1994년 제1회를 시작으로 개최되어 31회를 맞이하는 태백산 눈축제는 해마다 다른 주제로
+          웅장하고 섬세한 눈조각들을 만나볼 수 있다. 대학생들의 창의력을 눈 조각에 담아낸
+          '대학생 눈조각 경연대회' 와 아름다운 눈으로 뒤덮인 태백산의 설경을 체험할 수 있는
+          '태백산 눈꽃 전국등반대회'가 개최된다. 또한 각종 공연행사 및 태백의 겨울에서서만 즐길 수 있는
+          체험프로그램 등 겨울철 추억을 선사하는 다채로운 행사들이 마련되어 있다.
+        </p>
+        <p>
+          [행사내용]<br />
+          1. 메인프로그램: 대형 눈 조각 전시<br>
+          2. 체험 및 이벤트 프로그램: 캐리와 친구들 키즈파크, 전통 야외겨울놀이 체험, 친환경 에이큐브 챌린지, 미니 눈조각 체험 등 31가지 프로그램<br>
+          3. 부대프로그램: 대학생 눈 조각 경연대회, 태백산 눈꽃 전국등반대회 등<br>
+          4. 기타프로그램: 별빛 페스티벌<br>
+          5. 먹거리 프로그램: 친환경 먹거리 타운 및 임시 노점상가 운영<br>
+          <br />
+        </p>
+
+        <div class="youtube-area">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/EOAEMnYk-9M?si=9jhoAG6gmuLlR7Ye"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <br>
+      </div>
+    </div>
+    <hr />
+    <div class="festival-info">
+      <h1>축제 정보</h1>
+      <div class="poster">
+        <img src="../../image/gangwon/poster.jpg">
+      </div>
+      <ul>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8 9C7.44772 9 7 9.44771 7 10C7 10.5523 7.44772 11 8 11H16C16.5523 11 17 10.5523 17 10C17 9.44771 16.5523 9 16 9H8Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6 3C4.34315 3 3 4.34315 3 6V18C3 19.6569 4.34315 21 6 21H18C19.6569 21 21 19.6569 21 18V6C21 4.34315 19.6569 3 18 3H6ZM5 18V7H19V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          2024.01.26 ~ 2024.02.04
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16.2721 10.2721C16.2721 12.4813 14.4813 14.2721 12.2721 14.2721C10.063 14.2721 8.27214 12.4813 8.27214 10.2721C8.27214 8.06298 10.063 6.27212 12.2721 6.27212C14.4813 6.27212 16.2721 8.06298 16.2721 10.2721ZM14.2721 10.2721C14.2721 11.3767 13.3767 12.2721 12.2721 12.2721C11.1676 12.2721 10.2721 11.3767 10.2721 10.2721C10.2721 9.16755 11.1676 8.27212 12.2721 8.27212C13.3767 8.27212 14.2721 9.16755 14.2721 10.2721Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.79417 16.5183C2.19424 13.0909 2.05438 7.39409 5.48178 3.79417C8.90918 0.194243 14.6059 0.054383 18.2059 3.48178C21.8058 6.90918 21.9457 12.6059 18.5183 16.2059L12.3124 22.7241L5.79417 16.5183ZM17.0698 14.8268L12.243 19.8965L7.17324 15.0698C4.3733 12.404 4.26452 7.97318 6.93028 5.17324C9.59603 2.3733 14.0268 2.26452 16.8268 4.93028C19.6267 7.59603 19.7355 12.0268 17.0698 14.8268Z"
+              fill="currentColor" />
+          </svg>
+          &nbsp;강원특별자치도 태백시 소도동 180
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 15H19V17H17V15Z" fill="currentColor" />
+            <path d="M19 11H17V13H19V11Z" fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M13 7H23V21H1V3H13V7ZM8 5H11V7H8V5ZM11 19V17H8V19H11ZM11 15V13H8V15H11ZM11 11V9H8V11H11ZM21 19V9H13V11H15V13H13V15H15V17H13V19H21ZM3 19V17H6V19H3ZM3 15H6V13H3V15ZM6 11V9H3V11H6ZM3 7H6V5H3V7Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          태백시/태백시문화재단
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M22 12C22 10.6868 21.7413 9.38647 21.2388 8.1731C20.7362 6.95996 19.9997 5.85742 19.0711 4.92896C18.1425 4.00024 17.0401 3.26367 15.8268 2.76123C14.6136 2.25854 13.3132 2 12 2V4C13.0506 4 14.0909 4.20703 15.0615 4.60889C16.0321 5.01099 16.914 5.60034 17.6569 6.34326C18.3997 7.08594 18.989 7.96802 19.391 8.93848C19.7931 9.90918 20 10.9495 20 12H22Z"
+              fill="currentColor" />
+            <path
+              d="M2 10V5C2 4.44775 2.44772 4 3 4H8C8.55228 4 9 4.44775 9 5V9C9 9.55225 8.55228 10 8 10H6C6 14.4182 9.58173 18 14 18V16C14 15.4478 14.4477 15 15 15H19C19.5523 15 20 15.4478 20 16V21C20 21.5522 19.5523 22 19 22H14C7.37259 22 2 16.6274 2 10Z"
+              fill="currentColor" />
+            <path
+              d="M17.5433 9.70386C17.8448 10.4319 18 11.2122 18 12H16.2C16.2 11.4485 16.0914 10.9023 15.8803 10.3928C15.6692 9.88306 15.3599 9.42017 14.9698 9.03027C14.5798 8.64014 14.1169 8.33081 13.6073 8.11963C13.0977 7.90869 12.5515 7.80005 12 7.80005V6C12.7879 6 13.5681 6.15527 14.2961 6.45679C15.024 6.7583 15.6855 7.2002 16.2426 7.75732C16.7998 8.31445 17.2418 8.97583 17.5433 9.70386Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          033-553-6900
+        </li>
+        <li>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4 8C4.55228 8 5 7.55228 5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8Z"
+              fill="currentColor" />
+            <path
+              d="M8 7C8 7.55228 7.55228 8 7 8C6.44772 8 6 7.55228 6 7C6 6.44772 6.44772 6 7 6C7.55228 6 8 6.44772 8 7Z"
+              fill="currentColor" />
+            <path
+              d="M10 8C10.5523 8 11 7.55228 11 7C11 6.44772 10.5523 6 10 6C9.44771 6 9 6.44772 9 7C9 7.55228 9.44771 8 10 8Z"
+              fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M3 3C1.34315 3 0 4.34315 0 6V18C0 19.6569 1.34315 21 3 21H21C22.6569 21 24 19.6569 24 18V6C24 4.34315 22.6569 3 21 3H3ZM21 5H3C2.44772 5 2 5.44772 2 6V9H22V6C22 5.44772 21.5523 5 21 5ZM2 18V11H22V18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18Z"
+              fill="currentColor" />
+          </svg>&nbsp;
+          공식 홈페이지 https://tbsnow.co.kr/
+          </p>
+        </li>
+      </ul>
+    </div>
+    <br />
+    <div class="clear-left"></div>
+    <br>
+    <hr />
+
+    <div id="location">
+      <h1>길찾기</h1>
+      <div id="map"></div>
+      <code id="snippet" class="snippet"></code>
+    </div>
+    <br />
+  </div>
+  <footer>
+    <hr />
+    <div class="footer"></div>
+  </footer>
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=cpr0o6yx7z"></script>
+  <script id="code">
+    var map = new naver.maps.Map("map", {
+      center: new naver.maps.LatLng(37.1157604, 128.9491829), //지도의 초기 중심 좌표
+      zoom: 10, //지도의 초기 줌 레벨
+      minZoom: 8, //지도의 최소 줌 레벨
+      zoomControl: true, //줌 컨트롤의 표시 여부
+      zoomControlOptions: {
+        //줌 컨트롤의 옵션
+        position: naver.maps.Position.TOP_RIGHT,
+      },
+    });
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(37.1157604, 128.9491829),
+      map: map,
+    });
+  </script>
+  <div class="icon">
+    <div class="chat-container" id="chatContainer">
+      <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+    </div>
+  </div>
+</body>
+
+</html>

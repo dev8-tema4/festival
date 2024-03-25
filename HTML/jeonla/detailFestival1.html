@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>행사 상세 페이지</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../CSS/chatting/index.css">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="../../JS/chatting/index.js"></script>
+
+    <style>
+        @keyframes zoomInAndFadeOut {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        .event-title h1 {
+            animation: zoomInAndFadeOut 4s ease forwards;
+            font-size: 5em;
+            margin-top: 200px;
+            
+        }
+
+        .event-introduction,
+        .event-details,
+        .image-slider,
+        .map-info,
+        footer,
+        
+        .scroll-box {
+            display: none; /* 애니메이션 중에 숨길 요소들 */
+        }
+        h2{
+            font-size: 3em;
+        }
+        section{
+            margin-top: 250px; ;
+            margin-bottom: 250px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .image-slider {
+            margin-top: 50px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 450px;
+        }
+
+        .image-slider {
+    position: relative;
+    width: 100%;
+    height: 500px; /* 이미지 슬라이더의 높이 설정 */
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+section.map-info {
+    margin-top: 300px;
+}
+
+    </style>
+    <script>
+        window.onload = function() {
+            var eventTitle = document.querySelector('.event-title');
+            var otherSections = document.querySelectorAll(' .event-introduction, .event-details, .image-slider, .map-info, footer,.scroll-box');
+
+            eventTitle.style.animation = 'zoomInAndFadeOut 5s ease forwards';
+
+            eventTitle.addEventListener('animationend', function() {
+                eventTitle.style.display = 'none'; // 애니메이션 끝나면 이벤트 타이틀 숨기기
+                otherSections.forEach(function(section) {
+                    section.style.display = 'block';
+                });
+
+                const mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            effect:'fade',
+            pagination: {
+                el:'.swiper-pagination',
+            type:'bullets'
+        }
+        });
+
+
+            });
+        };
+        
+
+    
+
+    </script>
+
+    <link rel="stylesheet" href="../../CSS/jeonla/index.css">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ftmp0uii1g"></script>
+    
+
+    
+</head>
+<body>
+    <div class="icon">
+        <div class="chat-container" id="chatContainer">
+          <img class="chat_icon" src="../../image/chatting/chatIcon.png" alt="chatIcon">
+        </div>
+      </div>
+    <header class="jeonla-header" id="jeonla-header">
+
+        <div class="left-content">
+            <div class="home">
+                <a href="../jeonla/detailFestival1.html">홈</a>
+            </div>
+            <div class="board">
+                <a href="../board/index.html">게시판</a>
+            </div>
+            <div class="store">
+                <a href="../shop/order.html">상점</a></div>
+        </div>
+    
+        <div class="center-content">
+            <div class="container">
+            <a href="../index.html">Go 8</a>
+            </div>
+        </div>
+    
+        <div class="right-content">
+            <div class="login-menu">
+                <a href="../user/login.html">로그인</a>
+            </div>
+        </div>
+    
+    </header>
+    
+    <main>
+    
+    <!-- 이벤트 타이틀 -->
+    <section class="event-title">
+        <h1>유달산 봄축제</h1>
+        
+        
+    </section>
+    
+    <!-- 이벤트 소개 -->
+    <section class="event-introduction">
+        <h2>행사 소개</h2>
+        
+        <p>2024 목포 유달산 봄축제가<br> “이순신의 선택, 노적봉!” 이라는 주제로<br>
+            눈부신 봄꽃이 만개한 유달산 일원에서 개최됩니다.
+        </p>
+        </section>
+
+
+
+    <!-- 이벤트 디테일 -->
+    <section class="event-details">
+        <h2>행사 내용</h2>
+        <p>유달산의 봄과 이순신 및 수군 콘텐츠를 활용한 참여형 프로그램들로 <br>
+            수군퍼레이드, 4·8만세운동 재현, 사랑의 노적쌓기, 수군병영체험,
+            유달산 꽃길버스킹 등<br> 다채로운 볼거리와 특색있는 먹거리, 플리마켓,
+            문화예술 공연, 체험·전시 프로그램으로 이루어집니다.<br>
+            
+            따사로운 봄날, 가족, 연인, 남녀노소 모두가 함께 즐길 수 있는
+            유달산 봄 축제에 오셔서 봄날의 매력에 푹 빠져보시기 바랍니다.</p>
+    </section>
+
+<div class="container">
+    <!-- 이미지 슬라이더 -->
+    <section class="image-slider">
+        <h2>메인 행사 안내</h2>
+        
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="../../image/jeonla/p1.png" alt="이미지1" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p2.png" alt="이미지2" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p3.png" alt="이미지3" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p4.png" alt="이미지4" class="swiper-image"></div>
+                    <div class="swiper-slide"><img src="../../image/jeonla/p5.png" alt="이미지5" class="swiper-image"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+        </div>
+    </section>
+</div>
+    <!-- 맵 정보 -->
+    <section class="map-info">
+        <h2>오시는 길</h2>
+        <div id="map"></div>
+        <p>주차장 검색시: 유달산 노적봉 주차장</p>
+        <p>주소: 전남 목포시 유달로 122</p>
+    
+    </section>
+</main>
+    <!-- 푸터 -->
+    <footer>
+        <p>고객센터</p>
+    </footer>
+
+    <script src="../../JS/jeonla/detail.js"></script>
+    
+</body>
+</html>

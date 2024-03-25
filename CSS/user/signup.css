@@ -1,0 +1,75 @@
+
+  /* Centering the form */
+  .signup-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+
+  /* Styling the form elements */
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="tel"],
+  #signupBtn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+  #check-email-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+  
+  #signupBtn {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #signupBtn:hover {
+    background-color: #555;
+  }
+
+  #homeBtn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    background-color: #333;
+    color: white;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+  }
+  
+  #homeBtn:hover {
+    background-color: #555;
+
+  }
+
+  #check-email-button:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+  }
+
+
+  
